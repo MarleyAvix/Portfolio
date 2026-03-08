@@ -22,7 +22,11 @@
   }
 
   .tag-blue {
-    @apply px-2 py-1 bg-brand-blue/10 text-brand-blue text-[10px] font-mono rounded border border-brand-blue/20 uppercase tracking-wider;
+    @apply px-2 py-1 bg-brand-blue/25 text-brand-blue text-[10px] font-mono rounded border border-brand-blue/20 uppercase tracking-wider;
+  }
+
+  .tag-white {
+    @apply px-2 py-1 bg-white/35 text-white text-[10px] font-mono rounded border border-white/20 uppercase tracking-wider;
   }
 
   /* Custom Scrollbar */

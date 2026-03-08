@@ -2,6 +2,8 @@ import React from 'react';
 import { Home, GraduationCap, User, Briefcase, Mail, Radio } from 'lucide-react';
 import { motion } from 'motion/react';
 import { NavLink } from 'react-router-dom';
+import profileImage from '../assets/profil.jpg';
+
 
 const navItems = [
   { id: 'home', icon: Home, label: 'Accueil', path: '/' },
@@ -19,7 +21,7 @@ export const Sidebar = () => {
       <aside className="hidden md:flex fixed left-0 top-0 h-screen w-20 flex-col items-center py-8 bg-slate-900 border-r border-slate-800 z-50">
         <div className="mb-12">
           <div className="w-10 h-10 bg-brand-blue rounded-lg flex items-center justify-center shadow-lg">
-            <span className="text-white font-bold text-xl">F</span>
+           <span className="text-white font-bold text-sm">MA</span>
           </div>
         </div>
         

@@ -1,11 +1,11 @@
 import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { ArrowLeft, Github, ExternalLink, CheckCircle2, Code2, Rocket, Lightbulb,Link, Cloud, ShieldCheck, Server, Search, BookOpen, AlertTriangle } from 'lucide-react';
+import { ArrowLeft, Github, ExternalLink, CheckCircle2, Code2, Rocket, Lightbulb,Link, Cloud, ShieldCheck, Server, Search, BookOpen, AlertTriangle, Laptop, ChartColumnDecreasing } from 'lucide-react';
 import { techWatchItems } from '../data/techwatch';
 
 // Re-using the icon logic from ProjectDetailPage. We can extract this to a shared component later if needed.
-const TechWatchIcon = ({ name }: { name?: 'Lightbulb' | 'CheckCircle2' | 'Rocket' | 'Link' | 'Code' | 'ShieldCheck' | 'Server' | 'Cloud' | 'BookOpen' | 'Search' | 'AlertTriangle' }) => {
+const TechWatchIcon = ({ name }: { name?: 'Lightbulb' | 'CheckCircle2' | 'Rocket' | 'Link' | 'Code' | 'ShieldCheck' | 'Server' | 'Cloud' | 'BookOpen' | 'Search' | 'AlertTriangle' | 'TrendingDown' | 'Laptop' }) => {
   if (!name) return null;
 
   switch (name) {
@@ -31,6 +31,10 @@ const TechWatchIcon = ({ name }: { name?: 'Lightbulb' | 'CheckCircle2' | 'Rocket
       return <Search className="text-pink-400" />;
     case 'AlertTriangle':
       return <AlertTriangle className="text-orange-400" />;
+    case 'TrendingDown':
+      return <ChartColumnDecreasing className="text-red-400" />;
+    case 'Laptop':
+      return <Laptop className="text-gray-400" />;
     default:
 
       return null;

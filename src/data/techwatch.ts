@@ -1,3 +1,9 @@
+
+import techSamaShowRam from '../assets/TechSamaShowRam.png';
+import siteKorbenGif from '../assets/siteKorbenGif.png';
+import siteKorbenProxy from '../assets/siteKorbenProxy.png';
+import siteKorbenShuffle from '../assets/siteKorbenShuffle.png';
+
 export interface TechWatchItem {
   id: string;
   title: string;
@@ -8,7 +14,7 @@ export interface TechWatchItem {
   details?: {
     longDescription: string;
     content?: {
-      icon?: 'Lightbulb' | 'CheckCircle2' | 'Rocket' | 'Link' | 'Code' | 'ShieldCheck' | 'Server' | 'Cloud' | 'BookOpen' | 'Search' | 'AlertTriangle';
+      icon?: 'Lightbulb' | 'CheckCircle2' | 'Rocket' | 'Link' | 'Code' | 'ShieldCheck' | 'Server' | 'Cloud' | 'BookOpen' | 'Search' | 'AlertTriangle' | 'TrendingDown' | 'Laptop';
       title: string;
       text: string;
     }[];
@@ -17,40 +23,12 @@ export interface TechWatchItem {
 
 export const techWatchItems: TechWatchItem[] = [
   {
-    id: "teck-sama-show",
-    title: "Teck Sama Show: chaine YouTube dédiée à la technologie",
-    category: "logiciels et hardware",
-    date: "depuis 2020",
-    excerpt: "Teck Sama Show est une chaîne YouTube dédiée à la technologie, couvrant des sujets allant des tests de materiel à de l'actualité technologique.",
-    image: "/assets/Image_techSamaShow.png",
-    details: {
-      longDescription: "Teck Sama Show offre une analyse approfondie des dernières tendances technologiques, des critiques de produits et des discussions sur l'impact de la technologie dans notre vie quotidienne. La chaîne est appréciée pour son contenu informatif et divertissant, attirant une large audience de passionnés de technologie.",
-      content: [
-        {
-          icon: 'Lightbulb',
-          title: "La crise mondiale de la RAM",
-          text: "En 2024, le marché de la RAM a été secoué par une pénurie mondiale, entraînant une hausse des prix et des retards dans la production de nouveaux appareils. Cette crise a mis en lumière les vulnérabilités de la chaîne d'approvisionnement mondiale et a incité les fabricants à chercher des alternatives pour répondre à la demande croissante. Sur la chaîne Teck Sama Show, j'ai exploré les causes de cette pénurie, et j'ai pu suivre l'évolution de la situation en temps réel."
-        },
-        {
-          icon: 'Rocket',
-          title: "Architecture processeur",
-          text: "J'ai pu suivre à multiples reprises les annonces de nouvelles architectures de processeurs, notamment celles d'Intel et d'AMD. Ces annonces ont souvent été accompagnées de démonstrations de performances impressionnantes, suscitant l'enthousiasme de la communauté technologique. Sur Teck Sama Show, j'ai analysé ces annonces, discuté des implications pour les consommateurs et les professionnels, et comparé les différentes architectures pour aider les spectateurs à comprendre les avantages et les inconvénients de chaque option."
-        },
-        {
-          icon: 'Link',
-          title: "Lien de la chaine",
-          text: "https://www.youtube.com/@TeckSamaShow"
-        }
-      ]
-    }
-  },
-  {
     id: "webp-anim-vs-gif",
     title: "WebP animé vs GIF - Le guide pour enfin virer vos animations de 1987",
     category: "Web & Développement",
     date: "6 mars 2026",
     excerpt: "Analyse comparative des formats d'animation : pourquoi le WebP supplante définitivement le GIF en termes de performance et de rendu visuel.",
-    image: "https://picsum.photos/seed/tech2/400/250",
+    image: siteKorbenGif,
     details: {
       longDescription: "L'évolution des standards du web impose une optimisation constante des assets. Cette veille technique explore la transition du format GIF vers le WebP animé, un format développé par Google qui allie la légèreté de la compression moderne à une qualité visuelle sans compromis (couleurs 24 bits et canal alpha).",
       content: [
@@ -93,7 +71,7 @@ export const techWatchItems: TechWatchItem[] = [
     category: "IA et Design",
     date: "8 mars 2026",
     excerpt: "Analyse des limites de l'IA dans le webdesign : pourquoi l'automatisation du redesign ne remplace pas encore l'expertise humaine.",
-    image: "https://picsum.photos/seed/tech3/400/250",
+    image: siteKorbenShuffle,
     details: {
       longDescription: "L'article de Korben explore l'outil Shuffle et ses fonctionnalités de redesign assisté par quatre modèles d'IA différents. Le constat est sans appel : si la technologie progresse, le résultat visuel et l'expérience utilisateur (UX) restent souvent incohérents. Cette veille souligne l'importance de garder un œil critique sur les outils de génération automatique qui, pour l'instant, peinent à respecter les standards de qualité professionnelle.",
       content: [
@@ -120,7 +98,7 @@ export const techWatchItems: TechWatchItem[] = [
         {
           icon: 'Link',
           title: "Source originale",
-          text: "https://korben.info/shuffle-ai-redesign-site-moche.html"
+          text: "https://korben.info/shuffle-dev-redesign-ia-site-web.html"
         }
       ]
     }
@@ -131,7 +109,7 @@ export const techWatchItems: TechWatchItem[] = [
     category: "Outils de développement",
     date: "8 mars 2026",
     excerpt: "Optimisation de l'environnement de développement local : comment s'affranchir des limites de Ngrok pour tester ses webhooks gratuitement et de manière illimitée.",
-    image: "https://picsum.photos/seed/tunnel/400/250",
+    image: siteKorbenProxy,
     details: {
       longDescription: "Le développement d'applications intégrant des services tiers (Stripe, GitHub, Shopify) nécessite souvent la réception de webhooks en environnement local. L'article de Korben présente 'Webhooks Proxy Tunnel', une alternative Open Source et auto-hébergée aux services payants comme Ngrok ou Tailscale Funnel. Cette solution permet de créer un pont sécurisé entre le web et un serveur local sans subir les restrictions de sessions ou de sous-domaines aléatoires.",
       content: [
@@ -159,6 +137,44 @@ export const techWatchItems: TechWatchItem[] = [
           icon: 'Link',
           title: "Source originale",
           text: "https://korben.info/webhooks-proxy-tunnel-local-ngrok.html"
+        }
+      ]
+    }
+  },
+  {
+    id: "tech-sama-349-ram-macbook",
+    title: "Tech_Sama Show #349 : Accalmie sur les prix de la RAM et offensive Apple",
+    category: "Hardware & Marché",
+    date: "8 mars 2026",
+    excerpt: "Analyse des tendances hardware : baisse des prix de la mémoire DDR5, arrivée de puces chinoises compétitives et rumeurs d'un MacBook à 599$.",
+    image: techSamaShowRam,
+    details: {
+      longDescription: "Dans cet épisode, Tech_Sama décrypte une phase de transition majeure du marché hardware. D'un côté, la démocratisation de la DDR5 s'accélère avec l'arrivée de fabricants comme CXMT (puces chinoises) proposant des performances élevées (6000 MT/s) à prix réduit. De l'autre, Apple semble préparer une réponse agressive au marché des Chromebooks avec un MacBook d'entrée de gamme (potentiellement le 'MacBook Neo') positionné sous la barre des 600$.",
+      content: [
+        {
+          icon: 'TrendingDown',
+          title: "Marché de la RAM",
+          text: "Observation d'une baisse réelle sur la DDR5. L'émergence de nouveaux acteurs comme CXMT casse le duopole habituel, permettant d'envisager des configurations 32 Go ou 64 Go à des tarifs bien plus accessibles pour les serveurs et stations de travail."
+        },
+        {
+          icon: 'Laptop',
+          title: "Stratégie Apple",
+          text: "L'éventualité d'un MacBook à 599$ (hors taxes) marque un tournant. Même avec 8 Go de RAM, ce positionnement vise à capturer le secteur éducatif et les budgets serrés, bousculant l'écosystème Windows/ChromeOS sur l'entrée de gamme."
+        },
+        {
+          icon: 'Search',
+          title: "Méthode de veille",
+          text: "Effectue un suivi hebdomadaire via des canaux spécialisés (notamment Tech_Sama sur YouTube). Cette démarche me permet de maintenir une connaissance actualisée des évolutions hardware (composants, performances) et des dernières actualités logicielles."
+        },
+        {
+          icon: 'Lightbulb',
+          title: "Analyse critique",
+          text: "Le prix de la RAM est le premier indicateur du coût futur des services Cloud et des serveurs physiques. Surveiller cette baisse permet d'optimiser le timing des investissements infrastructurels."
+        },
+        {
+          icon: 'Link',
+          title: "Source originale",
+          text: "https://www.youtube.com/watch?v=xayK66z63Xw"
         }
       ]
     }
