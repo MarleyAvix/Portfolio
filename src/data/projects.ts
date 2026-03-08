@@ -1,5 +1,4 @@
-import React from 'react';
-import { Lightbulb, CheckCircle2 } from 'lucide-react';
+import fuckcops from '../assets/FuckcopsProd.png';
 
 export interface Project {
   id: string;
@@ -58,7 +57,7 @@ export const projects: Project[] = [
         "Filtres personnalisables",
         "Exportation de rapports PDF/CSV",
         "Mode sombre/clair automatique"
-      ]
+      ],
     }
   },
   {
@@ -66,7 +65,7 @@ export const projects: Project[] = [
     title: "Maquette Site Vidéaste",
     description: "Création d'une maquette de site web pour un vidéaste, mettant en avant son portfolio et ses services de manière élégante et moderne.",
     longDescription: "Une maquette de site web pour un vidéaste, conçue pour présenter son portfolio et ses services de manière élégante et moderne.",
-    image: "/assets/image_fuckcopsProd.png",
+    image: fuckcops,
     tags: ["Développement Web", "UI/UX Design"],
     live: "https://fuckcops-prod.vercel.app/#",
     github: "#",
@@ -97,35 +96,4 @@ export const projects: Project[] = [
       ],
     }
   },
-  {
-    id: "projet-2",
-    title: "Projet 2",
-    description: "Modern UI for interacting with LLMs, featuring streaming responses and markdown support.",
-    longDescription: "Interface utilisateur moderne pour interagir avec des modèles de langage (LLM), offrant des réponses en streaming et un support complet du Markdown.",
-    image: "https://picsum.photos/seed/ai/800/450",
-    tags: ["React", "Gemini API", "Framer Motion"],
-    live: "#",
-    github: "#",
-    details: {
-      content: [
-        {
-          icon: 'Lightbulb',
-          title: "Le Défi",
-          text: "Gérer l'affichage des réponses en streaming de manière fluide et esthétique."
-        },
-        {
-          icon: 'CheckCircle2',
-          title: "La Solution",
-          text: "Utilisation de Framer Motion pour les animations et d'un parseur Markdown personnalisé pour un rendu instantané."
-        }
-      ],
-      technologies: ["React", "Google Gemini API", "Framer Motion", "Tailwind CSS"],
-      features: [
-        "Réponses en temps réel (streaming)",
-        "Historique des conversations local",
-        "Support du code syntax highlighting",
-        "Interface responsive et minimaliste"
-      ]
-    }
-  }
 ];

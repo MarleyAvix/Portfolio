@@ -1,5 +1,5 @@
 import React from 'react';
-import { Home, GraduationCap, User, Briefcase, Mail, Radio } from 'lucide-react';
+import { Home, GraduationCap, User, Briefcase, Mail, Radio, Table } from 'lucide-react';
 import { motion } from 'motion/react';
 import { NavLink } from 'react-router-dom';
 import profileImage from '../assets/profil.jpg';
@@ -10,6 +10,7 @@ const navItems = [
   { id: 'formation', icon: GraduationCap, label: 'Formation', path: '/formation' },
   { id: 'about', icon: User, label: 'À propos', path: '/about' },
   { id: 'projects', icon: Briefcase, label: 'Projets', path: '/projects' },
+  { id: 'e5', icon: Table, label: 'Tableau E5', path: '/e5' },
   { id: 'tech', icon: Radio, label: 'Veille', path: '/tech' },
   { id: 'contact', icon: Mail, label: 'Contact', path: '/contact' },
 ];

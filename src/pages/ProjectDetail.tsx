@@ -3,6 +3,7 @@ import { useParams, Link, useNavigate } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { ArrowLeft, Github, ExternalLink, CheckCircle2, Code2, Rocket, Lightbulb, Brain, FolderKanban, Code } from 'lucide-react';
 import { projects } from '../data/projects';
+import { ValidatedSkills } from '../components/ValidatedSkills';
 
 const ProjectIcon = ({ name }: { name?: 'Lightbulb' | 'CheckCircle2' | 'Rocket' | 'Brain' | 'Code' | 'FolderKanban' }) => {
   if (!name) return null;
@@ -168,6 +169,10 @@ export const ProjectDetailPage = () => {
                   ))}
                 </ul>
               </div>
+            )}
+
+            {project.details?.validatedSkills && (
+              <ValidatedSkills validatedSkills={project.details.validatedSkills} />
             )}
           </div>
         </div>

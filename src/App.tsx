@@ -9,6 +9,7 @@ import { ProjectDetailPage } from './pages/ProjectDetail';
 import { ContactPage } from './pages/Contact';
 import { TechWatchPage } from './pages/TechWatch';
 import { TechWatchDetailPage } from './pages/TechWatchDetail';
+import E5Page from './pages/E5Page';
 import { AnimatePresence } from 'motion/react';
 
 function AppContent() {
@@ -29,6 +30,7 @@ function AppContent() {
             <Route path="/tech" element={<TechWatchPage />} />
             <Route path="/tech/:id" element={<TechWatchDetailPage />} />
             <Route path="/contact" element={<ContactPage />} />
+            <Route path="/e5" element={<E5Page />} />
           </Routes>
         </AnimatePresence>
 
