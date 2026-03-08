@@ -1,3 +1,6 @@
+import React from 'react';
+import { Lightbulb, CheckCircle2 } from 'lucide-react';
+
 export interface Project {
   id: string;
   title: string;
@@ -9,8 +12,11 @@ export interface Project {
   github: string;
   featured?: boolean;
   details?: {
-    challenge?: string;
-    solution?: string;
+    content?: {
+      icon?: 'Lightbulb' | 'CheckCircle2' | 'Rocket' |'Brain' | 'Code' | 'FolderKanban';
+      title: string;
+      text: string;
+    }[];
     technologies?: string[];
     features?: string[];
     screenshots?: string[];
@@ -29,8 +35,23 @@ export const projects: Project[] = [
     github: "#",
     featured: true,
     details: {
-      challenge: "Le défi principal était de gérer de grands volumes de données en temps réel sans compromettre la fluidité de l'interface utilisateur.",
-      solution: "L'utilisation de D3.js pour le rendu des graphiques et de WebWorkers pour le traitement des données en arrière-plan a permis d'atteindre les objectifs de performance.",
+      content: [
+        {
+          icon: 'Lightbulb',
+          title: "Le Défi",
+          text: "Le défi principal était de gérer de grands volumes de données en temps réel sans compromettre la fluidité de l'interface utilisateur."
+        },
+        {
+          icon: 'CheckCircle2',
+          title: "La Solution",
+          text: "L'utilisation de D3.js pour le rendu des graphiques et de WebWorkers pour le traitement des données en arrière-plan a permis d'atteindre les objectifs de performance."
+        },
+           {
+          icon: 'Brain',
+          title: "Ce que j'ai appris",
+          text: "Ce projet m'a appris à analyser les besoins des utilisateurs pour créer selon leurs attentes et de gerer un systeme de trie et de filtrage de données en temps réel pour une expérience utilisateur optimale."
+        }
+      ],
       technologies: ["React 18", "D3.js", "Tailwind CSS", "Express", "Socket.io"],
       features: [
         "Visualisation de données en temps réel",
@@ -45,13 +66,28 @@ export const projects: Project[] = [
     title: "Maquette Site Vidéaste",
     description: "Création d'une maquette de site web pour un vidéaste, mettant en avant son portfolio et ses services de manière élégante et moderne.",
     longDescription: "Une maquette de site web pour un vidéaste, conçue pour présenter son portfolio et ses services de manière élégante et moderne.",
-    image: "/src/assets/image_fuckcopsProd.png",
+    image: "/assets/image_fuckcopsProd.png",
     tags: ["Développement Web", "UI/UX Design"],
     live: "https://fuckcops-prod.vercel.app/#",
     github: "#",
     details: {
-      challenge: "créer un design moderne qui met en valeur le travail de l'artiste tout en offrant une expérience utilisateur fluide.",
-      solution: "developement dune page statique répondant aux besoins du client, avec une attention particulière portée à la typographie, à la mise en page et à l'optimisation pour les appareils mobiles.",
+      content: [
+        {
+          icon: 'Lightbulb',
+          title: "Le Défi",
+          text: "créer un design moderne qui met en valeur le travail de l'artiste tout en offrant une expérience utilisateur fluide."
+        },
+        {
+          icon: 'CheckCircle2',
+          title: "La Solution",
+          text: "developement dune page statique répondant aux besoins du client, avec une attention particulière portée à la typographie, à la mise en page et à l'optimisation pour les appareils mobiles."
+        },
+        {
+          icon: 'Brain',
+          title: "Ce que j'ai appris",
+          text: "Ce projet m'a appris à analyser les besoins des utilisateurs pour créer selon leurs attentes et de gerer un systeme de trie et de filtrage de données en temps réel pour une expérience utilisateur optimale."
+        }
+      ],
       technologies: ["HTML", "CSS", "JavaScript"],
       features: [
         "filtre de projets par catégorie",
@@ -71,8 +107,18 @@ export const projects: Project[] = [
     live: "#",
     github: "#",
     details: {
-      challenge: "Gérer l'affichage des réponses en streaming de manière fluide et esthétique.",
-      solution: "Utilisation de Framer Motion pour les animations et d'un parseur Markdown personnalisé pour un rendu instantané.",
+      content: [
+        {
+          icon: 'Lightbulb',
+          title: "Le Défi",
+          text: "Gérer l'affichage des réponses en streaming de manière fluide et esthétique."
+        },
+        {
+          icon: 'CheckCircle2',
+          title: "La Solution",
+          text: "Utilisation de Framer Motion pour les animations et d'un parseur Markdown personnalisé pour un rendu instantané."
+        }
+      ],
       technologies: ["React", "Google Gemini API", "Framer Motion", "Tailwind CSS"],
       features: [
         "Réponses en temps réel (streaming)",

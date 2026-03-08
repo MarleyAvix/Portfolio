@@ -1,8 +1,29 @@
 import React from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { ArrowLeft, Github, ExternalLink, CheckCircle2, Code2, Rocket, Lightbulb } from 'lucide-react';
+import { ArrowLeft, Github, ExternalLink, CheckCircle2, Code2, Rocket, Lightbulb, Brain, FolderKanban, Code } from 'lucide-react';
 import { projects } from '../data/projects';
+
+const ProjectIcon = ({ name }: { name?: 'Lightbulb' | 'CheckCircle2' | 'Rocket' | 'Brain' | 'Code' | 'FolderKanban' }) => {
+  if (!name) return null;
+
+  switch (name) {
+    case 'Lightbulb':
+      return <Lightbulb className="text-amber-400" />;
+    case 'CheckCircle2':
+      return <CheckCircle2 className="text-emerald-400" />;
+    case 'Rocket':
+      return <Rocket className="text-brand-blue" />;
+    case 'Brain':
+      return <Brain className="text-purple-400" />;
+    case 'Code':
+      return <Code className="text-green-400" />;
+    case 'FolderKanban':
+      return <FolderKanban className="text-red-400" />;
+    default:
+      return null;
+  }
+};
 
 export const ProjectDetailPage = () => {
   const { id } = useParams<{ id: string }>();
@@ -104,29 +125,17 @@ export const ProjectDetailPage = () => {
               </div>
             </section>
 
-            {project.details?.challenge && (
-              <section className="p-8 rounded-2xl bg-slate-900/50 border border-white/5">
-                <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
-                  <Lightbulb className="text-amber-400" />
-                  Le Défi
+            {project.details?.content?.map((item, index) => (
+              <section key={index} className="p-8 rounded-2xl bg-slate-900/50 border border-white/5">
+                <h2 className="text-3xl font-bold mb-4 flex items-center gap-3">
+                  <ProjectIcon name={item.icon} />
+                  <span>{item.title}</span>
                 </h2>
-                <p className="text-slate-400 leading-relaxed">
-                  {project.details.challenge}
-                </p>
+                <div className="prose prose-invert max-w-none text-slate-400 leading-relaxed">
+                  <p>{item.text}</p>
+                </div>
               </section>
-            )}
-
-            {project.details?.solution && (
-              <section className="p-8 rounded-2xl bg-brand-blue/5 border border-brand-blue/10">
-                <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
-                  <CheckCircle2 className="text-emerald-400" />
-                  La Solution
-                </h2>
-                <p className="text-slate-400 leading-relaxed">
-                  {project.details.solution}
-                </p>
-              </section>
-            )}
+            ))}
           </div>
 
           {/* Right Column: Sidebar Info */}
