@@ -26,7 +26,11 @@ const E5Page = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="glass-card p-8 rounded-2xl border border-white/5 bg-slate-900/50 hover:border-slate-600 transition-colors"
+              className={`glass-card p-8 rounded-2xl border bg-slate-900/50 transition-colors ${
+                activity.isValidated
+                  ? 'border-brand-blue shadow-lg shadow-brand-blue/20'
+                  : 'border-white/5 hover:border-slate-600'
+              }`}
             >
               <div className="flex items-center gap-4 mb-6">
                 <div className="p-3 rounded-lg bg-slate-800 text-brand-blue border border-slate-700 shadow-sm">
@@ -43,10 +47,10 @@ const E5Page = () => {
                     key={skillIndex} 
                     className="flex items-start gap-3 p-4 rounded-xl bg-slate-800/30 border border-slate-700/30 hover:bg-slate-800/50 hover:border-brand-blue/30 transition-all group"
                   >
-                    <div className="mt-1 p-1 rounded-full bg-emerald-500/10 text-emerald-500 group-hover:bg-emerald-500/20 transition-colors">
+                    <div className={`mt-1 p-1 rounded-full transition-colors ${skill.isValidated ? 'bg-emerald-500/10 text-emerald-500 group-hover:bg-emerald-500/20' : 'bg-slate-700 text-slate-500'}`}>
                       <CheckCircle2 size={14} />
                     </div>
-                    <span className="text-slate-300 text-sm leading-relaxed">{skill}</span>
+                    <span className="text-slate-300 text-sm leading-relaxed">{skill.name}</span>
                   </div>
                 ))}
               </div>

@@ -1,20 +1,8 @@
 import React from 'react';
 import { Check, X } from 'lucide-react';
+import { e5Activities } from '../data/e5';
 
-const allSkills = [
-  "Gérer le patrimoine informatique",
-  "Répondre aux incidents et demandes d'assistance",
-  "Développer la présence en ligne",
-  "Travailler en mode projet",
-  "Mettre à disposition un service informatique",
-  "Organiser son développement professionnel"
-];
-
-interface ValidatedSkillsProps {
-  validatedSkills: string[];
-}
-
-export const ValidatedSkills: React.FC<ValidatedSkillsProps> = ({ validatedSkills }) => {
+export const ValidatedSkills: React.FC = () => {
   return (
     <div className="p-8 rounded-2xl bg-slate-900/50 border border-white/5">
       <h3 className="text-xl font-bold mb-6">Compétences E5 Validées</h3>
@@ -31,23 +19,20 @@ export const ValidatedSkills: React.FC<ValidatedSkillsProps> = ({ validatedSkill
             </tr>
           </thead>
           <tbody>
-            {allSkills.map((skill, index) => {
-              const isValidated = validatedSkills.includes(skill);
-              return (
-                <tr key={index} className="border-b border-slate-800">
-                  <td className="px-6 py-4 font-medium text-slate-300">
-                    {skill}
-                  </td>
-                  <td className="px-6 py-4 text-center">
-                    {isValidated ? (
-                      <Check className="w-5 h-5 text-green-400 inline-block" />
-                    ) : (
-                      <X className="w-5 h-5 text-red-400 inline-block" />
-                    )}
-                  </td>
-                </tr>
-              );
-            })}
+            {e5Activities.map((activity) => (
+              <tr key={activity.id} className="border-b border-slate-800">
+                <td className="px-6 py-4 font-medium text-slate-300">
+                  {activity.title}
+                </td>
+                <td className="px-6 py-4 text-center">
+                  {activity.isValidated ? (
+                    <Check className="w-5 h-5 text-green-400 inline-block" />
+                  ) : (
+                    <X className="w-5 h-5 text-red-400 inline-block" />
+                  )}
+                </td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>
