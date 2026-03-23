@@ -129,6 +129,13 @@ export const TechWatchDetailPage = () => {
                   ) : (
                     <p>{contentItem.text}</p>
                   )}
+                  {contentItem.images && (
+                    <div className="grid grid-cols-2 gap-4 mt-4">
+                      {contentItem.images.map((image, i) => (
+                        <img key={i} src={image} alt={`${contentItem.title} ${i + 1}`} className="w-full h-auto rounded-lg" />
+                      ))}
+                    </div>
+                  )}
                 </div>
               </section>
             ))}

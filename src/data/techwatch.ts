@@ -17,6 +17,7 @@ export interface TechWatchItem {
       icon?: 'Lightbulb' | 'CheckCircle2' | 'Rocket' | 'Link' | 'Code' | 'ShieldCheck' | 'Server' | 'Cloud' | 'BookOpen' | 'Search' | 'AlertTriangle' | 'TrendingDown' | 'Laptop';
       title: string;
       text: string;
+      images?: string[];
     }[];
   }
 }

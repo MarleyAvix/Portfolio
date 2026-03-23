@@ -12,9 +12,10 @@ export interface Project {
   featured?: boolean;
   details?: {
     content?: {
-      icon?: 'Lightbulb' | 'CheckCircle2' | 'Rocket' |'Brain' | 'Code' | 'FolderKanban';
+      icon?: 'Lightbulb' | 'CheckCircle2' | 'Rocket' | 'Brain' | 'Code' | 'FolderKanban';
       title: string;
       text: string;
+      images?: string[];
     }[];
     technologies?: string[];
     features?: string[];
@@ -24,12 +25,12 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    id: "tableau-e4-e5",
-    title: "Tableau E4/E5",
-    description: "Enterprise dashboard for real-time data visualization and analytics. Built with high performance in mind.",
-    longDescription: "Ce projet est un tableau de bord d'entreprise conçu pour la visualisation de données en temps réel. Il permet aux utilisateurs de suivre des indicateurs de performance clés (KPI) à travers des graphiques interactifs et des rapports détaillés.",
+    id: "anonymisation-base-de-donnees",
+    title: "Anonymisation base de données",
+    description: "Projet d'anonymisation de la base de données SOLIS pour analyses techniques tout en respectant les exigences RGPD.",
+    longDescription: "Le projet consiste à anonymiser entièrement la base de données SOLIS afin de pouvoir la transmettre à l’éditeur Arche MC2 pour analyses techniques, tout en protégeant les données personnelles conformément aux exigences RGPD. L’anonymisation est réalisée sur l’environnement INTEG, à l’aide de l’Outil d’Anonymisation Solis V2",
     image: "https://picsum.photos/seed/dashboard/800/450",
-    tags: ["React", "D3.js", "Tailwind", "Node.js"],
+    tags: ["sql", "RGPD", "Entreprise"],
     live: "#",
     github: "#",
     featured: true,
@@ -38,25 +39,59 @@ export const projects: Project[] = [
         {
           icon: 'Lightbulb',
           title: "Le Défi",
-          text: "Le défi principal était de gérer de grands volumes de données en temps réel sans compromettre la fluidité de l'interface utilisateur."
+          text: "Le défi principal était de ne pas compromettre la qualité des données tout en assurant une anonymisation complète pour respecter les exigences RGPD."
         },
         {
           icon: 'CheckCircle2',
-          title: "La Solution",
-          text: "L'utilisation de D3.js pour le rendu des graphiques et de WebWorkers pour le traitement des données en arrière-plan a permis d'atteindre les objectifs de performance."
+          title: "L'outil utilisé",
+          text: "L'utilisation de l'Outil d’Anonymisation Solis a permis de garantir la conformité aux exigences RGPD tout en anonymisant efficacement les données.",
+          images: [
+            "https://picsum.photos/seed/outil/800/450",
+          ]
         },
-           {
-          icon: 'Brain',
+        {
+          icon: 'CheckCircle2',
+          title: "Le fonctionnement de l'outil",
+          text: "l'ouil se structure en trois étapes : la configuration, l'exécution de l'anonymisation et la validation des résultats pour s'assurer que les données sont correctement anonymisées tout en restant utilisables pour les analyses techniques./n 1. Les tableau csv ranger par modules listant le comportement et les champs à anonymiser./n 2. Les logs d'execution de l'outil permettant de suivre le processus d'anonymisation et de détecter d'éventuelles erreurs.<br> 3. le dossier de parametrage de l'outil permetant de configurer les modules à traiter, les parametre fonctionnels et techniques de l'outil. ",
+        },
+        {
+          icon: 'CheckCircle2',
+          title: "Le traitement des données",
+          text: "Les regles d'anonymisation sont définies dans un fichier csv. ",
+          images: [
+            "https://picsum.photos/seed/regles/800/450",
+          ]
+        },
+        {
+          icon: 'CheckCircle2',
+          title: "Les logs",
+          text: "Les logs d'exécution de l'outil permettent de suivre le processus d'anonymisation et de détecter d'éventuelles erreurs./n 1. le nom du modul avec la version et le chemain du csv utilisé /n 2. liste des traitement effectuer avec le nom de la table la colone traité et le type d'anonymisation appliqué /n 3. le nombre de ligne traité et le temps d'execution du traitement",
+          images: [
+            "https://picsum.photos/seed/logs/800/450",
+          ]
+        },
+        {
+          icon: 'CheckCircle2',
+          title: "Une fois anonymisé",
+          text: "Une fois les données anonymisées, elles sont validées pour s'assurer qu'elles sont conformes aux exigences RGPD tout en restant utilisables pour les analyses techniques.",
+           images: [
+            "https://picsum.photos/seed/anonymise/800/450",
+          ]
+        },
+          { 
+          icon: 'CheckCircle2',
           title: "Ce que j'ai appris",
-          text: "Ce projet m'a appris à analyser les besoins des utilisateurs pour créer selon leurs attentes et de gerer un systeme de trie et de filtrage de données en temps réel pour une expérience utilisateur optimale."
+          text: "j'ai pu me confronter à la gestion de données sensibles et à l'importance de l'anonymisation pour protéger la vie privée des individus tout en permettant l'analyse de données techniques. J'ai également appris à utiliser des outils d'anonymisation et à configurer des règles d'anonymisation pour garantir la conformité aux exigences RGPD. Et j'ai pu creer des requetes sql pour réaliser des analyse de données anonymisées et valider les résultats de l'anonymisation.",
         }
       ],
-      technologies: ["React 18", "D3.js", "Tailwind CSS", "Express", "Socket.io"],
+      technologies: ["bash", "csv", "sql"],
       features: [
-        "Visualisation de données en temps réel",
-        "Filtres personnalisables",
-        "Exportation de rapports PDF/CSV",
-        "Mode sombre/clair automatique"
+        "Visualisation de données",
+        "configuration flexible de l'anonymisation",
+        "creation de requetes SQL pour l'anonymisation",
+        "validation des données anonymisées",
+        "respect des exigences RGPD",
+        "Configuration de l'outil d'anonymisation"
       ],
     }
   },

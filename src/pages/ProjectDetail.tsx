@@ -134,6 +134,13 @@ export const ProjectDetailPage = () => {
                 </h2>
                 <div className="prose prose-invert max-w-none text-slate-400 leading-relaxed">
                   <p>{item.text}</p>
+                  {item.images && (
+                    <div className="grid grid-cols-2 gap-4 mt-4">
+                      {item.images.map((image, i) => (
+                        <img key={i} src={image} alt={`${item.title} ${i + 1}`} className="w-full h-auto rounded-lg" />
+                      ))}
+                    </div>
+                  )}
                 </div>
               </section>
             ))}
