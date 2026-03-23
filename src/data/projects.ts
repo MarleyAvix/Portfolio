@@ -1,4 +1,12 @@
 import fuckcops from '../assets/FuckcopsProd.png';
+import outilAno from '../assets/outilAno.png';
+import dossierAno from '../assets/dossierAno.png';
+import listCsv from '../assets/listCsv.png';
+import csvAno from '../assets/csvAno.png';
+import fichierParamAno from '../assets/fichierParametrageAno.png';
+import logAno from '../assets/resultLog.png';
+import listlogs from '../assets/listlogs.png';
+import resultAno from '../assets/resultatAno.png';
 
 export interface Project {
   id: string;
@@ -29,7 +37,7 @@ export const projects: Project[] = [
     title: "Anonymisation base de données",
     description: "Projet d'anonymisation de la base de données SOLIS pour analyses techniques tout en respectant les exigences RGPD.",
     longDescription: "Le projet consiste à anonymiser entièrement la base de données SOLIS afin de pouvoir la transmettre à l’éditeur Arche MC2 pour analyses techniques, tout en protégeant les données personnelles conformément aux exigences RGPD. L’anonymisation est réalisée sur l’environnement INTEG, à l’aide de l’Outil d’Anonymisation Solis V2",
-    image: "https://picsum.photos/seed/dashboard/800/450",
+    image: outilAno,
     tags: ["sql", "RGPD", "Entreprise"],
     live: "#",
     github: "#",
@@ -45,21 +53,23 @@ export const projects: Project[] = [
           icon: 'CheckCircle2',
           title: "L'outil utilisé",
           text: "L'utilisation de l'Outil d’Anonymisation Solis a permis de garantir la conformité aux exigences RGPD tout en anonymisant efficacement les données.",
-          images: [
-            "https://picsum.photos/seed/outil/800/450",
-          ]
         },
         {
           icon: 'CheckCircle2',
           title: "Le fonctionnement de l'outil",
           text: "l'ouil se structure en trois étapes : la configuration, l'exécution de l'anonymisation et la validation des résultats pour s'assurer que les données sont correctement anonymisées tout en restant utilisables pour les analyses techniques./n 1. Les tableau csv ranger par modules listant le comportement et les champs à anonymiser./n 2. Les logs d'execution de l'outil permettant de suivre le processus d'anonymisation et de détecter d'éventuelles erreurs.<br> 3. le dossier de parametrage de l'outil permetant de configurer les modules à traiter, les parametre fonctionnels et techniques de l'outil. ",
+          images: [
+            dossierAno,
+            fichierParamAno,
+          ]
         },
         {
           icon: 'CheckCircle2',
           title: "Le traitement des données",
           text: "Les regles d'anonymisation sont définies dans un fichier csv. ",
           images: [
-            "https://picsum.photos/seed/regles/800/450",
+            csvAno,
+            listCsv,
           ]
         },
         {
@@ -67,7 +77,8 @@ export const projects: Project[] = [
           title: "Les logs",
           text: "Les logs d'exécution de l'outil permettent de suivre le processus d'anonymisation et de détecter d'éventuelles erreurs./n 1. le nom du modul avec la version et le chemain du csv utilisé /n 2. liste des traitement effectuer avec le nom de la table la colone traité et le type d'anonymisation appliqué /n 3. le nombre de ligne traité et le temps d'execution du traitement",
           images: [
-            "https://picsum.photos/seed/logs/800/450",
+            logAno,
+            listlogs,
           ]
         },
         {
@@ -75,7 +86,7 @@ export const projects: Project[] = [
           title: "Une fois anonymisé",
           text: "Une fois les données anonymisées, elles sont validées pour s'assurer qu'elles sont conformes aux exigences RGPD tout en restant utilisables pour les analyses techniques.",
            images: [
-            "https://picsum.photos/seed/anonymise/800/450",
+            resultAno,
           ]
         },
           { 
