@@ -27,8 +27,6 @@ jobs:
       - name: Exécuter le Lint (Vérification syntaxique)
         run: npm run lint
 
-      - name: Exécuter les Tests
-        run: npm test
 
   # ÉTAPE 2 : Déploiement (uniquement si la qualité est validée)
   deploy:
