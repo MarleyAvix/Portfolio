@@ -67,6 +67,49 @@ export const techWatchItems: TechWatchItem[] = [
     }
   },
   {
+    id: "cout-teletravail-2026",
+    title: "Remote vs Bureau : Le vrai coût du « full remote » en 2026",
+    category: "Carrière et Salaire",
+    date: "9 mars 2026",
+    excerpt: "Une analyse sans concession sur le 'Remote Discount' : entre baisse de salaire, frais cachés et plafond de verre numérique pour les développeurs.",
+    image: "https://placehold.co/600x400?text=WeLoveDevs+Remote+2026",
+    details: {
+      longDescription: "L'article de WeLoveDevs décortique la réalité du télétravail en 2026. Si 52,8% des développeurs sont désormais en remote, cette liberté a un prix. L'étude révèle l'émergence d'un 'Remote Discount' (salaires inférieurs de 10 à 25%), des frais d'équipement non compensés et un risque de stagnation de carrière dû à une moindre visibilité en entreprise. Un guide essentiel pour arbitrer entre confort de vie et progression financière.",
+      content: [
+        {
+          icon: 'TrendingDown',
+          title: "Le Remote Discount",
+          text: "En 2026, l'écart salarial est concret : un junior en remote peut gagner jusqu'à 8 000€ de moins qu'en présentiel. Pour les seniors, ce gap peut atteindre 25 000€ par an, sous l'effet de la mise en concurrence globale."
+        },
+        {
+          icon: 'ShieldCheck',
+          title: "Frais cachés et inflation",
+          text: "Malgré les indemnités forfaitaires (environ 626€/an), les frais réels (électricité, matériel ergonomique, fibre) s'élèvent plutôt à 1 200€. Le développeur finit par payer une partie de son propre environnement de travail."
+        },
+        {
+          icon: 'Search',
+          title: "Sourcing & Veille",
+          text: "Veille issue de WeLoveDevs.com. L'objectif est de suivre les évolutions du marché de l'emploi tech pour ajuster mes prétentions salariales et mes stratégies de négociation contractuelle."
+        },
+        {
+          icon: 'AlertTriangle',
+          title: "Plafond de verre numérique",
+          text: "L'article souligne un risque majeur : les télétravailleurs ont 30% de chances en moins d'obtenir une promotion. La 'vignette Zoom' peine à remplacer la présence physique lors des prises de décisions stratégiques."
+        },
+        {
+          icon: 'Lightbulb',
+          title: "Analyse critique",
+          text: "Le télétravail doit être géré 'comme un produit'. Il ne suffit pas de coder à distance, il faut compenser le manque de visibilité par une communication proactive et une spécialisation sur des technos de niche pour maintenir sa valeur."
+        },
+        {
+          icon: 'Link',
+          title: "Source originale",
+          text: "https://welovedevs.com/articles/cout-du-teletravail-2026-pour-les-developpeurs/"
+        }
+      ]
+    }
+  },
+  {
     id: "shuffle-ai-redesign",
     title: "Shuffle - Quand 4 IA redesignent votre site (et c'est moche)",
     category: "IA et Design",
@@ -100,6 +143,49 @@ export const techWatchItems: TechWatchItem[] = [
           icon: 'Link',
           title: "Source originale",
           text: "https://korben.info/shuffle-dev-redesign-ia-site-web.html"
+        }
+      ]
+    }
+  },
+  {
+    id: "typescript-odyssey-2026",
+    title: "Le Sacre de la Rigueur : L'Odyssée de TypeScript",
+    category: "Web & Développement",
+    date: "14 mars 2026",
+    excerpt: "Analyse de l'avènement de TypeScript en 2026 : comment le typage statique a dompté le chaos de JavaScript pour devenir le standard de l'ingénierie web.",
+    image: "https://placehold.co/600x400?text=WeLoveDevs+TypeScript+2026",
+    details: {
+      longDescription: "L'article de WeLoveDevs retrace l'évolution de TypeScript, passé de simple alternative à standard industriel incontournable. En 2026, la question n'est plus de savoir s'il faut utiliser TypeScript, mais comment l'adopter avec intelligence. Le récit met en avant la sécurité du code, l'auto-documentation et les stratégies de migration incrémentale pour transformer le développement web en une véritable discipline d'ingénierie de précision.",
+      content: [
+        {
+          icon: 'ShieldCheck',
+          title: "La fin du 'Undefined'",
+          text: "L'introduction du typage statique agit comme un filet de sécurité permanent. En détectant les erreurs dès la compilation, TypeScript éradique les comportements imprévisibles en production, garantissant une robustesse que le JavaScript pur ne peut offrir seul."
+        },
+        {
+          icon: 'Code',
+          title: "Stratégie de Migration",
+          text: "L'article préconise une approche de 'rénovation patiente'. Plutôt qu'une rupture brutale, la cohabitation entre JS et TS permet une infusion de rigueur fichier par fichier, facilitant l'adhésion des équipes sans stopper la production."
+        },
+        {
+          icon: 'Search',
+          title: "Sourcing & Veille",
+          text: "Veille effectuée via WeLoveDevs. L'objectif est de rester aligné avec les standards de l'industrie et de perfectionner mes pratiques de typage pour produire un code 'auto-documenté' et plus facile à maintenir à long terme."
+        },
+        {
+          icon: 'AlertTriangle',
+          title: "La discipline du 'Any'",
+          text: "Analyse critique sur l'usage du type 'any' : l'article le définit comme un joker dangereux. Ma pratique de veille m'impose de tendre vers le 'strict mode' pour bénéficier réellement de la puissance du langage et éviter les dettes techniques masquées."
+        },
+        {
+          icon: 'Lightbulb',
+          title: "Changement de Culture",
+          text: "Adopter TypeScript est présenté comme un investissement sur la sérénité collective. Cela transforme la lecture du code en une conversation fluide entre les développeurs, où la clarté des types remplace les suppositions risquées."
+        },
+        {
+          icon: 'Link',
+          title: "Source originale",
+          text: "https://welovedevs.com/articles/odyssee-typescript-javascript/"
         }
       ]
     }

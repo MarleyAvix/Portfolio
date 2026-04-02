@@ -53,19 +53,19 @@ const E5Page = () => {
           className="glass-card rounded-2xl border border-white/10 bg-slate-900/60 overflow-hidden"
         >
           <div className="overflow-x-auto">
-            <table className="w-full min-w-[860px] border-collapse">
+            <table className="w-full min-w-[860px] border-collapse border border-slate-600/80">
               <thead>
                 <tr className="bg-slate-800/80 text-left">
-                  <th className="px-4 py-4 text-xs font-bold uppercase tracking-wider text-slate-300 border-b border-slate-700 w-[120px]">
+                  <th className="px-4 py-4 text-xs font-bold uppercase tracking-wider text-slate-300 border border-slate-600/80 w-[120px]">
                     Bloc
                   </th>
-                  <th className="px-4 py-4 text-xs font-bold uppercase tracking-wider text-slate-300 border-b border-slate-700 w-[320px]">
+                  <th className="px-4 py-4 text-xs font-bold uppercase tracking-wider text-slate-300 border border-slate-600/80 w-[320px]">
                     Activite
                   </th>
-                  <th className="px-4 py-4 text-xs font-bold uppercase tracking-wider text-slate-300 border-b border-slate-700">
+                  <th className="px-4 py-4 text-xs font-bold uppercase tracking-wider text-slate-300 border border-slate-600/80">
                     Competence evaluee
                   </th>
-                  <th className="px-4 py-4 text-xs font-bold uppercase tracking-wider text-slate-300 border-b border-slate-700 w-[180px]">
+                  <th className="px-4 py-4 text-xs font-bold uppercase tracking-wider text-slate-300 border border-slate-600/80 w-[180px]">
                     Validation
                   </th>
                 </tr>
@@ -74,15 +74,12 @@ const E5Page = () => {
               <tbody>
                 {e5Activities.map((activity) =>
                   activity.skills.map((skill, skillIndex) => (
-                    <tr
-                      key={`${activity.id}-${skillIndex}`}
-                      className="border-b border-slate-800/80 hover:bg-slate-800/30"
-                    >
+                    <tr key={`${activity.id}-${skillIndex}`} className="hover:bg-slate-800/30">
                       {skillIndex === 0 && (
                         <>
                           <td
                             rowSpan={activity.skills.length}
-                            className="px-4 py-4 align-top border-r border-slate-800"
+                            className="px-4 py-4 align-top border border-slate-600/80"
                           >
                             <span className="inline-flex items-center rounded-md border border-brand-blue/30 bg-brand-blue/10 px-2.5 py-1 text-xs font-semibold text-brand-blue uppercase tracking-wide">
                               {activity.id.replace('bloc', 'BLOC ').replace('-', '.')}
@@ -90,16 +87,16 @@ const E5Page = () => {
                           </td>
                           <td
                             rowSpan={activity.skills.length}
-                            className="px-4 py-4 align-top text-slate-200 font-semibold border-r border-slate-800"
+                            className="px-4 py-4 align-top text-slate-200 font-semibold border border-slate-600/80"
                           >
                             {activity.title}
                           </td>
                         </>
                       )}
 
-                      <td className="px-4 py-3 text-slate-300">{skill.name}</td>
+                      <td className="px-4 py-3 text-slate-300 border border-slate-600/80">{skill.name}</td>
 
-                      <td className="px-4 py-3">
+                      <td className="px-4 py-3 border border-slate-600/80">
                         {skill.isValidated ? (
                           <span className="inline-flex items-center gap-2 rounded-lg border border-emerald-500/30 bg-emerald-500/10 px-3 py-1.5 text-sm font-medium text-emerald-400">
                             <CheckCircle2 size={16} />
