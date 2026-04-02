@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ExternalLink, Github, ArrowUpRight } from 'lucide-react';
+import { ExternalLink, Github } from 'lucide-react';
 import { motion } from 'motion/react';
 
 import { Link } from 'react-router-dom';
@@ -12,6 +12,8 @@ const allSkillsOption = 'Toutes les competences';
 export const Projects = () => {
   const [activeCategory, setActiveCategory] = useState<'Tous' | ProjectCategory>('Tous');
   const [activeSkill, setActiveSkill] = useState<string>(allSkillsOption);
+  const isValidLink = (value?: string) =>
+    typeof value === 'string' && value.trim().length > 0;
 
   const availableSkills = e5Activities.filter(activity =>
     projects.some(project => project.details?.validatedSkills?.includes(activity.id))
@@ -111,31 +113,34 @@ export const Projects = () => {
                 
                 <h3 className="text-2xl font-bold mb-3 text-slate-100 group-hover:text-brand-blue transition-colors flex items-center justify-between">
                   <Link to={`/projects/${project.id}`}>{project.title}</Link>
-                  <div className="flex gap-4">
-                    <a href={project.github} className="text-slate-400 hover:text-white transition-colors"><Github size={20} /></a>
-                    <a href={project.live} className="text-slate-400 hover:text-brand-blue transition-colors"><ExternalLink size={20} /></a>
-                  </div>
+                  {(isValidLink(project.github) || isValidLink(project.live)) && (
+                    <div className="flex gap-4">
+                      {isValidLink(project.github) && (
+                        <a
+                          href={project.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-slate-400 hover:text-white transition-colors"
+                        >
+                          <Github size={20} />
+                        </a>
+                      )}
+                      {isValidLink(project.live) && (
+                        <a
+                          href={project.live}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-slate-400 hover:text-brand-blue transition-colors"
+                        >
+                          <ExternalLink size={20} />
+                        </a>
+                      )}
+                    </div>
+                  )}
                 </h3>
                 <p className="text-slate-400 text-sm leading-relaxed mb-8">
                   {project.description}
                 </p>
-                
-                <div className="flex items-center gap-6">
-                  <Link 
-                    to={`/projects/${project.id}`}
-                    className="text-xs font-bold uppercase tracking-wider text-brand-blue flex items-center gap-2 group/btn"
-                  >
-                    Voir les détails
-                    <ArrowUpRight size={14} className="group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
-                  </Link>
-                  <a 
-                    href={project.github}
-                    className="text-xs font-bold uppercase tracking-wider text-slate-400 flex items-center gap-2 hover:text-white transition-colors"
-                  >
-                    <Github size={14} />
-                    Source Code
-                  </a>
-                </div>
               </div>
             </motion.div>
           ))}

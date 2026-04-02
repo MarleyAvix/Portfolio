@@ -44,8 +44,8 @@ export const projects: Project[] = [
     image: outilAno,
     category: "Entreprise",
     tags: ["SQL", "RGPD", "Anonymisation"],
-    live: "#",
-    github: "#",
+    live: "",
+    github: "",
     featured: true,
     details: {
       content: [
@@ -121,7 +121,7 @@ export const projects: Project[] = [
     category: "Perso",
     tags: ["Développement Web", "UI/UX Design"],
     live: "https://fuckcops-prod.vercel.app/#",
-    github: "#",
+    github: "",
     details: {
       content: [
         {
