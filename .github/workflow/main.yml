@@ -1,0 +1,45 @@
+name: CI/CD Pipeline
+
+# Déclencheurs : quand le workflow doit-il s'exécuter ?
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  # ÉTAPE 1 : Qualité du code (Lint & Tests)
+  quality-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Récupérer le code
+        uses: actions/checkout@v4
+
+      - name: Installer Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Installer les dépendances
+        run: npm ci
+
+      - name: Exécuter le Lint (Vérification syntaxique)
+        run: npm run lint
+
+  # ÉTAPE 2 : Déploiement (uniquement si la qualité est validée)
+  deploy:
+    needs: quality-check # On attend que les tests passent
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Déploiement via SSH (Exemple)
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            cd ${ { secrets.PATH } }
+            git pull origin main
+            npm install --production
+            pm2 restart all
