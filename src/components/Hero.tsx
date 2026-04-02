@@ -43,7 +43,7 @@ export const Hero = () => {
             transition={{ delay: 0.2 }}
             className="text-slate-400 text-lg max-w-2xl mb-10 leading-relaxed"
           >
-            Futur développeur d'applications, je combine ma formation académique avec ma passion pour l'univers du jeu vidéo. J'aime transformer des idées complexes en code élégant et fonctionnel, tout en explorant les dernières tendances technologiques. Mon objectif est de créer des expériences numériques immersives qui captivent et inspirent.
+            Développeur d'applications, je combine ma formation académique avec ma passion pour l'univers du jeu vidéo. J'aime transformer des idées complexes en code élégant et fonctionnel, tout en explorant les dernières tendances technologiques. Mon objectif est de créer des expériences numériques immersives qui captivent et inspirent.
           </motion.p>
           
           <motion.div
@@ -52,17 +52,17 @@ export const Hero = () => {
             transition={{ delay: 0.3 }}
             className="flex flex-wrap items-center justify-center lg:justify-start gap-4"
           >
-            <a 
+            {/*<a 
               href="/Calendriers BTS_2025-2027.pdf" 
               download 
               className="bg-brand-blue hover:bg-blue-600 text-white px-8 py-4 rounded-xl font-semibold flex items-center gap-3 shadow-lg transition-all"
             >
-              <Download size={20} />
-              Download CV
-            </a>
-            <Link to="/projects" className="bg-slate-800 hover:bg-slate-700 text-slate-200 px-8 py-4 rounded-xl font-semibold border border-slate-700 transition-all">
-              View Projects
-            </Link>
+             <Download size={20} /> 
+              Télécharger CV
+            </a>*/}
+            {/*<Link to="/projects" className="bg-slate-800 hover:bg-slate-700 text-slate-200 px-8 py-4 rounded-xl font-semibold border border-slate-700 transition-all">
+              Réalisations
+            </Link>*/}
           </motion.div>
         </div>
       </div>

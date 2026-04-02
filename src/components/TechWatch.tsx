@@ -17,7 +17,7 @@ export const TechWatch = () => {
     <section id="tech" className="py-12 bg-slate-900/50">
       <div className="container mx-auto px-6">
         <div className="flex items-center gap-4 mb-12">
-          <div className="w-1.s5 h-8 bg-brand-blue rounded-full" />
+          <div className="w-1.5 h-8 bg-brand-blue rounded-full" />
           <h2 className="text-3xl font-bold text-slate-100">Veille techno</h2>
         </div>
 

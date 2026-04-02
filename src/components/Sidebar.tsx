@@ -7,9 +7,9 @@ import profileImage from '../assets/profil.jpg';
 
 const navItems = [
   { id: 'home', icon: Home, label: 'Accueil', path: '/' },
-  { id: 'formation', icon: GraduationCap, label: 'Formation', path: '/formation' },
   { id: 'about', icon: User, label: 'À propos', path: '/about' },
-  { id: 'projects', icon: Briefcase, label: 'Projets', path: '/projects' },
+  { id: 'formation', icon: GraduationCap, label: 'Formation', path: '/formation' },
+  { id: 'projects', icon: Briefcase, label: 'Réalisations', path: '/projects' },
   { id: 'e5', icon: Table, label: 'Tableau E5', path: '/e5' },
   { id: 'tech', icon: Radio, label: 'Veille', path: '/tech' },
   { id: 'contact', icon: Mail, label: 'Contact', path: '/contact' },

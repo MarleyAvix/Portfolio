@@ -30,6 +30,10 @@ export const ProjectDetailPage = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const project = projects.find(p => p.id === id);
+  const isValidLink = (url?: string) => Boolean(url && url.trim() && url.trim() !== '#');
+
+  const hasGithubLink = isValidLink(project?.github);
+  const hasLiveLink = isValidLink(project?.live);
 
   if (!project) {
     return (
@@ -65,6 +69,9 @@ export const ProjectDetailPage = () => {
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
             <div>
               <div className="flex flex-wrap gap-2 mb-4">
+                <span className="rounded-full border border-brand-blue/30 bg-brand-blue/10 px-3 py-1 text-xs font-bold uppercase tracking-[0.2em] text-brand-blue">
+                  {project.category}
+                </span>
                 {project.tags.map(tag => (
                   <span key={tag} className="tag-blue">
                     {tag}
@@ -78,44 +85,111 @@ export const ProjectDetailPage = () => {
             </div>
             
             <div className="flex gap-4">
-              <a 
-                href={project.github} 
-                className="flex items-center gap-2 px-6 py-3 bg-slate-800 hover:bg-slate-700 rounded-xl font-bold transition-all border border-slate-700"
-              >
-                <Github size={20} />
-                Code Source
-              </a>
-              <a 
-                href={project.live} 
-                className="flex items-center gap-2 px-6 py-3 bg-brand-blue hover:bg-blue-600 text-white rounded-xl font-bold transition-all shadow-lg shadow-brand-blue/20"
-              >
-                <ExternalLink size={20} />
-                Démo Live
-              </a>
+              {hasGithubLink ? (
+                <a
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 px-6 py-3 bg-slate-800 hover:bg-slate-700 rounded-xl font-bold transition-all border border-slate-700"
+                >
+                  <Github size={20} />
+                  Code Source
+                </a>
+              ) : (
+                <button
+                  type="button"
+                  disabled
+                  aria-disabled="true"
+                  className="flex items-center gap-2 px-6 py-3 bg-slate-800/40 text-slate-500 rounded-xl font-bold border border-slate-700/50 opacity-70"
+                >
+                  <Github size={20} />
+                  Code Source
+                </button>
+              )}
+
+              {hasLiveLink ? (
+                <a
+                  href={project.live}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 px-6 py-3 bg-brand-blue hover:bg-blue-600 text-white rounded-xl font-bold transition-all shadow-lg shadow-brand-blue/20"
+                >
+                  <ExternalLink size={20} />
+                  Démo Live
+                </a>
+              ) : (
+                <button
+                  type="button"
+                  disabled
+                  aria-disabled="true"
+                  className="flex items-center gap-2 px-6 py-3 bg-brand-blue/30 text-blue-200/60 rounded-xl font-bold border border-brand-blue/30 opacity-70"
+                >
+                  <ExternalLink size={20} />
+                  Démo Live
+                </button>
+              )}
             </div>
           </div>
         </div>
 
-        {/* Main Image */}
-        <motion.div 
-          initial={{ y: 40, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.2 }}
-          className="relative aspect-video rounded-3xl overflow-hidden border border-white/5 mb-16 shadow-2xl"
-        >
-          <img 
-            src={project.image} 
-            alt={project.title} 
-            className="w-full h-full object-cover"
-            referrerPolicy="no-referrer"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/50 to-transparent" />
-        </motion.div>
+        {/* Main Image + Quick Info Grid */}
+        <div className="grid grid-cols-1 lg:[grid-template-columns:minmax(0,3fr)_minmax(260px,1fr)] gap-10 mb-16 items-start">
+          {/* Image Column */}
+          <div>
+            <motion.div 
+              initial={{ y: 40, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.2 }}
+              className="relative w-full aspect-video rounded-3xl overflow-hidden border border-white/5 shadow-2xl bg-slate-950"
+            >
+              <img 
+                src={project.image} 
+                alt={project.title} 
+                className="w-full h-full object-contain"
+                referrerPolicy="no-referrer"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/50 to-transparent" />
+            </motion.div>
+          </div>
+
+          {/* Sidebar Info */}
+          <div className="space-y-8 w-full max-w-sm lg:justify-self-end">
+            {project.details?.technologies && (
+              <div className="p-8 rounded-2xl bg-slate-900/50 border border-white/5">
+                <h3 className="text-xl font-bold mb-6 flex items-center gap-3">
+                  <Code2 className="text-brand-blue" size={20} />
+                  Stack Technique
+                </h3>
+                <div className="flex flex-wrap gap-2">
+                  {project.details.technologies.map(tech => (
+                    <span key={tech} className="px-3 py-1.5 bg-slate-800 rounded-lg text-sm font-medium text-slate-300 border border-slate-700">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {project.details?.features && (
+              <div className="p-8 rounded-2xl bg-slate-900/50 border border-white/5">
+                <h3 className="text-xl font-bold mb-6">Fonctionnalités Clés</h3>
+                <ul className="space-y-4">
+                  {project.details.features.map((feature, idx) => (
+                    <li key={idx} className="flex items-start gap-3 text-slate-400 text-sm">
+                      <div className="mt-1 w-1.5 h-1.5 rounded-full bg-brand-blue shrink-0" />
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
+        </div>
 
         {/* Content Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+        <div className="grid grid-cols-1 lg:[grid-template-columns:minmax(0,3fr)_minmax(260px,1fr)] gap-12 items-start">
           {/* Left Column: Details */}
-          <div className="lg:col-span-2 space-y-12">
+          <div className="space-y-12">
             <section>
               <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
                 <Rocket className="text-brand-blue" />
@@ -147,36 +221,7 @@ export const ProjectDetailPage = () => {
           </div>
 
           {/* Right Column: Sidebar Info */}
-          <div className="space-y-8">
-            {project.details?.technologies && (
-              <div className="p-8 rounded-2xl bg-slate-900/50 border border-white/5">
-                <h3 className="text-xl font-bold mb-6 flex items-center gap-3">
-                  <Code2 className="text-brand-blue" size={20} />
-                  Stack Technique
-                </h3>
-                <div className="flex flex-wrap gap-2">
-                  {project.details.technologies.map(tech => (
-                    <span key={tech} className="px-3 py-1.5 bg-slate-800 rounded-lg text-sm font-medium text-slate-300 border border-slate-700">
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {project.details?.features && (
-              <div className="p-8 rounded-2xl bg-slate-900/50 border border-white/5">
-                <h3 className="text-xl font-bold mb-6">Fonctionnalités Clés</h3>
-                <ul className="space-y-4">
-                  {project.details.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-start gap-3 text-slate-400 text-sm">
-                      <div className="mt-1 w-1.5 h-1.5 rounded-full bg-brand-blue shrink-0" />
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
+          <div className="space-y-8 w-full max-w-sm lg:justify-self-end">
 
             {project.details?.validatedSkills && (
               <ValidatedSkills validatedSkills={project.details.validatedSkills} />

@@ -14,6 +14,25 @@
   body {
     @apply bg-bg-dark text-slate-200 font-sans selection:bg-brand-blue/30;
   }
+
+  a,
+  button,
+  label[for],
+  select,
+  summary,
+  input[type='button'],
+  input[type='submit'],
+  input[type='reset'],
+  [role='button'] {
+    cursor: pointer;
+  }
+
+  button:disabled,
+  input:disabled,
+  select:disabled,
+  textarea:disabled {
+    cursor: not-allowed;
+  }
 }
 
 @layer utilities {

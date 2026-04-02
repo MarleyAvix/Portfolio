@@ -11,9 +11,14 @@ import { TechWatchPage } from './pages/TechWatch';
 import { TechWatchDetailPage } from './pages/TechWatchDetail';
 import E5Page from './pages/E5Page';
 import { AnimatePresence } from 'motion/react';
+import { useEffect } from 'react';
 
 function AppContent() {
   const location = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+  }, [location.pathname]);
 
   return (
     <div className="min-h-screen bg-bg-dark text-slate-200">
@@ -42,7 +47,6 @@ function AppContent() {
             <div className="flex justify-center gap-6 mt-4 text-slate-400">
               <a href="#" className="hover:text-brand-blue transition-colors text-xs font-mono uppercase tracking-widest">LinkedIn</a>
               <a href="#" className="hover:text-brand-blue transition-colors text-xs font-mono uppercase tracking-widest">GitHub</a>
-              <a href="#" className="hover:text-brand-blue transition-colors text-xs font-mono uppercase tracking-widest">Twitter</a>
             </div>
           </div>
         </footer>

@@ -5,8 +5,10 @@ import listCsv from '../assets/listCsv.png';
 import csvAno from '../assets/csvAno.png';
 import fichierParamAno from '../assets/fichierParametrageAno.png';
 import logAno from '../assets/resultLog.png';
-import listlogs from '../assets/listlogs.png';
+import listLogs from '../assets/listLogs.png';
 import resultAno from '../assets/resultatAno.png';
+
+export type ProjectCategory = 'Ecole' | 'Entreprise' | 'Perso';
 
 export interface Project {
   id: string;
@@ -14,6 +16,7 @@ export interface Project {
   description: string;
   longDescription?: string;
   image: string;
+  category: ProjectCategory;
   tags: string[];
   live: string;
   github: string;
@@ -28,6 +31,7 @@ export interface Project {
     technologies?: string[];
     features?: string[];
     screenshots?: string[];
+    validatedSkills?: string[];
   };
 }
 
@@ -38,7 +42,8 @@ export const projects: Project[] = [
     description: "Projet d'anonymisation de la base de données SOLIS pour analyses techniques tout en respectant les exigences RGPD.",
     longDescription: "Le projet consiste à anonymiser entièrement la base de données SOLIS afin de pouvoir la transmettre à l’éditeur Arche MC2 pour analyses techniques, tout en protégeant les données personnelles conformément aux exigences RGPD. L’anonymisation est réalisée sur l’environnement INTEG, à l’aide de l’Outil d’Anonymisation Solis V2",
     image: outilAno,
-    tags: ["sql", "RGPD", "Entreprise"],
+    category: "Entreprise",
+    tags: ["SQL", "RGPD", "Anonymisation"],
     live: "#",
     github: "#",
     featured: true,
@@ -78,7 +83,7 @@ export const projects: Project[] = [
           text: "Les logs d'exécution de l'outil permettent de suivre le processus d'anonymisation et de détecter d'éventuelles erreurs./n 1. le nom du modul avec la version et le chemain du csv utilisé /n 2. liste des traitement effectuer avec le nom de la table la colone traité et le type d'anonymisation appliqué /n 3. le nombre de ligne traité et le temps d'execution du traitement",
           images: [
             logAno,
-            listlogs,
+            listLogs,
           ]
         },
         {
@@ -104,6 +109,7 @@ export const projects: Project[] = [
         "respect des exigences RGPD",
         "Configuration de l'outil d'anonymisation"
       ],
+      validatedSkills: ["bloc1-1", "bloc1-2"],
     }
   },
   {
@@ -112,6 +118,7 @@ export const projects: Project[] = [
     description: "Création d'une maquette de site web pour un vidéaste, mettant en avant son portfolio et ses services de manière élégante et moderne.",
     longDescription: "Une maquette de site web pour un vidéaste, conçue pour présenter son portfolio et ses services de manière élégante et moderne.",
     image: fuckcops,
+    category: "Perso",
     tags: ["Développement Web", "UI/UX Design"],
     live: "https://fuckcops-prod.vercel.app/#",
     github: "#",
@@ -140,6 +147,7 @@ export const projects: Project[] = [
         "Design épuré et moderne",
         "responsive pour tous les appareils"
       ],
+      validatedSkills: [],
     }
   },
 ];
