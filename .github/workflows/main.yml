@@ -1,3 +1,4 @@
+
 name: CI/CD Pipeline
 
 # Déclencheurs : quand le workflow doit-il s'exécuter ?
@@ -42,7 +43,7 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            cd ${ { secrets.PATH } }
+            cd ${{ secrets.PATH }}
             git pull origin main
             npm install --production
             pm2 restart all
