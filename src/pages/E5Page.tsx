@@ -1,9 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { CheckCircle2, XCircle } from 'lucide-react';
+import { CheckCircle2, Download, XCircle } from 'lucide-react';
 import { e5Activities } from '../data/e5';
 
 const E5Page = () => {
+  const pdfLink = '';
+  const hasPdfLink = pdfLink.trim().length > 0;
   const totalSkills = e5Activities.reduce((sum, activity) => sum + activity.skills.length, 0);
   const validatedSkills = e5Activities.reduce(
     (sum, activity) => sum + activity.skills.filter((skill) => skill.isValidated).length,
@@ -15,12 +17,34 @@ const E5Page = () => {
       <div className="container mx-auto px-6">
         <div className="flex items-center gap-4 mb-12">
           <div className="w-1.5 h-8 bg-brand-blue rounded-full" />
-          <div>
+          <div className="flex-1">
             <h2 className="text-3xl font-bold text-slate-100">Tableau de synthese E5</h2>
             <p className="text-slate-400 mt-1 text-sm">
               {validatedSkills} competences validees sur {totalSkills}
             </p>
           </div>
+
+          {hasPdfLink ? (
+            <a
+              href={pdfLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              download
+              className="inline-flex items-center gap-2 rounded-lg border border-brand-blue/40 bg-brand-blue/15 px-4 py-2 text-sm font-semibold text-brand-blue transition hover:bg-brand-blue/25"
+            >
+              <Download size={16} />
+              Telecharger le PDF
+            </a>
+          ) : (
+            <button
+              type="button"
+              disabled
+              className="inline-flex cursor-not-allowed items-center gap-2 rounded-lg border border-slate-700 bg-slate-800/70 px-4 py-2 text-sm font-semibold text-slate-500"
+            >
+              <Download size={16} />
+              Telecharger le PDF
+            </button>
+          )}
         </div>
 
         <motion.div
