@@ -1,5 +1,5 @@
 import React from 'react';
-import { Home, GraduationCap, User, Briefcase, Mail, Radio, Table } from 'lucide-react';
+import { Home, GraduationCap, User, Briefcase, Mail, Radio, Table, Code } from 'lucide-react';
 import { motion } from 'motion/react';
 import { NavLink } from 'react-router-dom';
 import profileImage from '../assets/profil.jpg';
@@ -22,7 +22,9 @@ export const Sidebar = () => {
       <aside className="hidden md:flex fixed left-0 top-0 h-screen w-20 flex-col items-center py-8 bg-slate-900 border-r border-slate-800 z-50">
         <div className="mb-12">
           <div className="w-10 h-10 bg-brand-blue rounded-lg flex items-center justify-center shadow-lg">
-           <span className="text-white font-bold text-sm">MA</span>
+            <span className="text-white font-bold text-sm">
+              <Code size={25} />
+            </span>
           </div>
         </div>
         

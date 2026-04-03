@@ -9,7 +9,7 @@ export const TechWatchPage = () => {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -20 }}
       transition={{ duration: 0.5 }}
-      className="pt-20"
+      className=""
     >
       <TechWatch />
     </motion.div>

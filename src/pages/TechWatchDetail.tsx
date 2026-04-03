@@ -93,20 +93,20 @@ export const TechWatchDetailPage = () => {
           initial={{ y: 40, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.2 }}
-          className="relative aspect-video rounded-3xl overflow-hidden border border-white/5 mb-16 shadow-2xl"
+          className="relative w-full max-h-[clamp(240px,48vh,520px)] rounded-3xl overflow-hidden border border-white/5 mb-16 shadow-2xl bg-slate-950 flex items-center justify-center"
         >
           <img 
             src={item.image} 
             alt={item.title} 
-            className="w-full h-full object-cover"
+            className="block w-full h-auto max-h-[clamp(240px,48vh,520px)] object-contain"
             referrerPolicy="no-referrer"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-slate-950/50 to-transparent" />
         </motion.div>
 
         {/* Content */}
-        <div className="max-w-4xl mx-auto">
-          <div className="lg:col-span-2 space-y-12">
+        <div className="w-full">
+          <div className="space-y-12">
             <section>
               <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
                 <Rocket className="text-brand-blue" />
@@ -118,7 +118,7 @@ export const TechWatchDetailPage = () => {
             </section>
 
             {item.details?.content?.map((contentItem, index) => (
-              <section key={index} className="p-8 rounded-2xl bg-slate-900/50 border border-white/5">
+              <section key={index} className="p-0">
                 <h2 className="text-3xl font-bold mb-4 flex items-center gap-3">
                   <TechWatchIcon name={contentItem.icon} />
                   <span>{contentItem.title}</span>

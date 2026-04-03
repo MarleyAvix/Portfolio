@@ -14,7 +14,7 @@ export const TechWatch = () => {
     : techWatchItems.filter(item => item.category === selectedCategory);
 
   return (
-    <section id="tech" className="py-12 bg-slate-900/50">
+    <section id="tech" className="pt-20 pb-12 bg-slate-900/50">
       <div className="container mx-auto px-6">
         <div className="flex items-center gap-4 mb-12">
           <div className="w-1.5 h-8 bg-brand-blue rounded-full" />

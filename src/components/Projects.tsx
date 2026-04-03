@@ -8,6 +8,8 @@ import { e5Activities } from '../data/e5';
 
 const categoryFilters: Array<'Tous' | ProjectCategory> = ['Tous', 'Ecole', 'Entreprise', 'Perso'];
 const allSkillsOption = 'Toutes les competences';
+const categoryBadgeClassName =
+  'rounded-full border border-brand-blue/70 bg-brand-blue px-3 py-1 text-xs font-bold uppercase tracking-[0.2em] text-white shadow-lg shadow-brand-blue/35';
 
 export const Projects = () => {
   const [activeCategory, setActiveCategory] = useState<'Tous' | ProjectCategory>('Tous');
@@ -87,8 +89,8 @@ export const Projects = () => {
               transition={{ delay: index * 0.1 }}
               className={`glass-card overflow-hidden group hover:border-slate-600 ${project.featured ? 'md:col-span-2 lg:col-span-2' : ''}`}
             >
-              <Link to={`/projects/${project.id}`} className="block">
-                <div className="relative aspect-video overflow-hidden">
+              <div className="relative aspect-video overflow-hidden">
+                <Link to={`/projects/${project.id}`} className="block h-full">
                   <img 
                     src={project.image} 
                     alt={project.title} 
@@ -96,49 +98,53 @@ export const Projects = () => {
                     referrerPolicy="no-referrer"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-60" />
-                </div>
-              </Link>
+                </Link>
 
-              <div className="p-8">
-                <div className="flex flex-wrap gap-2 mb-4">
-                  <span className="rounded-full border border-brand-blue/30 bg-brand-blue/10 px-3 py-1 text-xs font-bold uppercase tracking-[0.2em] text-brand-blue">
+                <div className="absolute top-4 left-4 z-20">
+                  <span className={categoryBadgeClassName}>
                     {project.category}
                   </span>
+                </div>
+
+                {(isValidLink(project.github) || isValidLink(project.live)) && (
+                  <div className="absolute top-4 right-4 z-20 flex gap-2.5">
+                    {isValidLink(project.github) && (
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="rounded-xl border border-white/25 bg-slate-950/75 p-2.5 text-slate-200 backdrop-blur-sm hover:text-white hover:border-white/45 transition-colors"
+                      >
+                        <Github size={18} />
+                      </a>
+                    )}
+                    {isValidLink(project.live) && (
+                      <a
+                        href={project.live}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="rounded-xl border border-white/25 bg-slate-950/75 p-2.5 text-slate-200 backdrop-blur-sm hover:text-brand-blue hover:border-brand-blue/55 transition-colors"
+                      >
+                        <ExternalLink size={18} />
+                      </a>
+                    )}
+                  </div>
+                )}
+              </div>
+
+              <div className="p-8 flex h-full flex-col">
+                <div className="mb-4 flex flex-wrap gap-2">
                   {project.tags.map(tag => (
                     <span key={tag} className="tag-blue">
                       {tag}
                     </span>
                   ))}
                 </div>
-                
-                <h3 className="text-2xl font-bold mb-3 text-slate-100 group-hover:text-brand-blue transition-colors flex items-center justify-between">
+
+                <h3 className="text-2xl font-bold mb-3 text-slate-100 group-hover:text-brand-blue transition-colors">
                   <Link to={`/projects/${project.id}`}>{project.title}</Link>
-                  {(isValidLink(project.github) || isValidLink(project.live)) && (
-                    <div className="flex gap-4">
-                      {isValidLink(project.github) && (
-                        <a
-                          href={project.github}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-slate-400 hover:text-white transition-colors"
-                        >
-                          <Github size={20} />
-                        </a>
-                      )}
-                      {isValidLink(project.live) && (
-                        <a
-                          href={project.live}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-slate-400 hover:text-brand-blue transition-colors"
-                        >
-                          <ExternalLink size={20} />
-                        </a>
-                      )}
-                    </div>
-                  )}
                 </h3>
-                <p className="text-slate-400 text-sm leading-relaxed mb-8">
+                <p className="text-slate-400 text-sm leading-relaxed mb-8 flex-1">
                   {project.description}
                 </p>
               </div>

@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { ArrowLeft, Github, ExternalLink, CheckCircle2, Code2, Rocket, Lightbulb, Brain, FolderKanban, Code } from 'lucide-react';
+import { ArrowLeft, Github, ExternalLink, CheckCircle2, Code2, Rocket, Lightbulb, Brain, FolderKanban, Code, X } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import type { Components } from 'react-markdown';
 import remarkGfm from 'remark-gfm';
@@ -53,15 +53,30 @@ const MarkdownText = ({ text, className }: { text: string; className?: string })
     </ReactMarkdown>
   </div>
 );
-
 export const ProjectDetailPage = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
+  const [zoomedImage, setZoomedImage] = useState<{ src: string; alt: string } | null>(null);
   const project = projects.find(p => p.id === id);
+  const projectDetailImage = project?.details?.detailImage || project?.image;
   const isValidLink = (url?: string) => Boolean(url && url.trim() && url.trim() !== '#');
 
   const hasGithubLink = isValidLink(project?.github);
   const hasLiveLink = isValidLink(project?.live);
+
+  useEffect(() => {
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setZoomedImage(null);
+      }
+    };
+
+    window.addEventListener('keydown', handleEscape);
+
+    return () => {
+      window.removeEventListener('keydown', handleEscape);
+    };
+  }, []);
 
   if (!project) {
     return (
@@ -97,9 +112,6 @@ export const ProjectDetailPage = () => {
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
             <div>
               <div className="flex flex-wrap gap-2 mb-4">
-                <span className="rounded-full border border-brand-blue/30 bg-brand-blue/10 px-3 py-1 text-xs font-bold uppercase tracking-[0.2em] text-brand-blue">
-                  {project.category}
-                </span>
                 {project.tags.map(tag => (
                   <span key={tag} className="tag-blue">
                     {tag}
@@ -160,27 +172,64 @@ export const ProjectDetailPage = () => {
           </div>
         </div>
 
-        {/* Main Image + Quick Info Grid */}
-        <div className="grid grid-cols-1 lg:[grid-template-columns:minmax(0,3fr)_minmax(260px,1fr)] gap-10 mb-16 items-start">
-          {/* Image Column */}
-          <div>
-            <motion.div 
+        {/* Main Content Grid */}
+        <div className="grid grid-cols-1 lg:[grid-template-columns:minmax(0,3fr)_minmax(260px,1fr)] gap-12 items-start">
+          {/* Left Column: Hero + Details */}
+          <div className="space-y-12">
+            <motion.div
               initial={{ y: 40, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.2 }}
-              className="relative w-full aspect-video rounded-3xl overflow-hidden border border-white/5 shadow-2xl bg-slate-950"
+              className="relative w-full max-h-[clamp(320px,70vh,780px)] rounded-3xl overflow-hidden border border-white/5 shadow-2xl bg-slate-950 flex items-center justify-center"
             >
-              <img 
-                src={project.image} 
-                alt={project.title} 
-                className="w-full h-full object-contain"
+              <img
+                src={projectDetailImage}
+                alt={project.title}
+                className="w-full h-auto max-h-[clamp(320px,70vh,780px)] object-contain cursor-zoom-in"
                 referrerPolicy="no-referrer"
+                onClick={() => setZoomedImage({ src: projectDetailImage, alt: project.title })}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/50 to-transparent" />
             </motion.div>
+
+            <section>
+              <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
+                <Rocket className="text-brand-blue" />
+                Aperçu du projet
+              </h2>
+              <MarkdownText
+                text={project.longDescription || project.description}
+                className="prose prose-invert max-w-none text-slate-400 leading-relaxed text-lg"
+              />
+            </section>
+
+            {project.details?.content?.map((item, index) => (
+              <section key={index} className="p-0">
+                <h2 className="text-3xl font-bold mb-4 flex items-center gap-3">
+                  <ProjectIcon name={item.icon} />
+                  <span>{item.title}</span>
+                </h2>
+                <div className="prose prose-invert max-w-none text-slate-400 leading-relaxed">
+                  <MarkdownText text={item.text} />
+                  {item.images && (
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
+                      {item.images.map((image, i) => (
+                        <img
+                          key={i}
+                          src={image}
+                          alt={`${item.title} ${i + 1}`}
+                          className="w-full h-auto max-h-[clamp(220px,55vh,520px)] object-contain rounded-lg bg-slate-950/60 cursor-zoom-in"
+                          onClick={() => setZoomedImage({ src: image, alt: `${item.title} ${i + 1}` })}
+                        />
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </section>
+            ))}
           </div>
 
-          {/* Sidebar Info */}
+          {/* Right Column: Sidebar Info */}
           <div className="space-y-8 w-full max-w-sm lg:justify-self-end">
             {project.details?.technologies && (
               <div className="p-8 rounded-2xl bg-slate-900/50 border border-white/5">
@@ -211,46 +260,6 @@ export const ProjectDetailPage = () => {
                 </ul>
               </div>
             )}
-          </div>
-        </div>
-
-        {/* Content Grid */}
-        <div className="grid grid-cols-1 lg:[grid-template-columns:minmax(0,3fr)_minmax(260px,1fr)] gap-12 items-start">
-          {/* Left Column: Details */}
-          <div className="space-y-12">
-            <section>
-              <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
-                <Rocket className="text-brand-blue" />
-                Aperçu du projet
-              </h2>
-              <MarkdownText
-                text={project.longDescription || project.description}
-                className="prose prose-invert max-w-none text-slate-400 leading-relaxed text-lg"
-              />
-            </section>
-
-            {project.details?.content?.map((item, index) => (
-              <section key={index} className="p-8 rounded-2xl bg-slate-900/50 border border-white/5">
-                <h2 className="text-3xl font-bold mb-4 flex items-center gap-3">
-                  <ProjectIcon name={item.icon} />
-                  <span>{item.title}</span>
-                </h2>
-                <div className="prose prose-invert max-w-none text-slate-400 leading-relaxed">
-                  <MarkdownText text={item.text} />
-                  {item.images && (
-                    <div className="grid grid-cols-2 gap-4 mt-4">
-                      {item.images.map((image, i) => (
-                        <img key={i} src={image} alt={`${item.title} ${i + 1}`} className="w-full h-auto rounded-lg" />
-                      ))}
-                    </div>
-                  )}
-                </div>
-              </section>
-            ))}
-          </div>
-
-          {/* Right Column: Sidebar Info */}
-          <div className="space-y-8 w-full max-w-sm lg:justify-self-end">
 
             {project.details?.validatedSkills && (
               <ValidatedSkills validatedSkills={project.details.validatedSkills} />
@@ -258,6 +267,34 @@ export const ProjectDetailPage = () => {
           </div>
         </div>
       </div>
+
+      {zoomedImage && (
+        <div
+          className="fixed inset-0 z-[100] bg-slate-950/90 backdrop-blur-sm p-4 md:p-8"
+          onClick={() => setZoomedImage(null)}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Image agrandie"
+        >
+          <button
+            type="button"
+            className="absolute top-4 right-4 z-[101] rounded-full border border-white/20 bg-slate-900/70 p-2 text-slate-200 hover:text-white hover:border-white/40 transition-colors"
+            onClick={() => setZoomedImage(null)}
+            aria-label="Fermer l'image agrandie"
+          >
+            <X size={20} />
+          </button>
+
+          <div className="flex h-full w-full items-center justify-center" onClick={(event) => event.stopPropagation()}>
+            <img
+              src={zoomedImage.src}
+              alt={zoomedImage.alt}
+              className="max-h-[90vh] max-w-[92vw] object-contain rounded-xl border border-white/10 shadow-2xl"
+              referrerPolicy="no-referrer"
+            />
+          </div>
+        </div>
+      )}
     </motion.div>
   );
 };

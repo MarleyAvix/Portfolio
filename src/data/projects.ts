@@ -25,6 +25,7 @@ export interface Project {
   github: string;
   featured?: boolean;
   details?: {
+    detailImage?: string;
     content?: {
       icon?: 'Lightbulb' | 'CheckCircle2' | 'Rocket' | 'Brain' | 'Code' | 'FolderKanban';
       title: string;
@@ -45,13 +46,14 @@ export const projects: Project[] = [
     title: "Anonymisation de base de données",
     description: "Projet d'anonymisation de la base de données SOLIS pour des analyses techniques, tout en respectant les exigences RGPD.",
     longDescription: "Le projet consiste à anonymiser entièrement la base de données SOLIS afin de la transmettre à l'éditeur Arche MC2 pour des analyses techniques, tout en protégeant les données personnelles conformément au RGPD.\n\nL'anonymisation est réalisée sur l'environnement INTEG, à l'aide de l'Outil d'Anonymisation Solis.",
-    image: outilAno,
+    image: "https://placehold.co/600x400?text=Anonymisation+de+base+de+donnees", // Remplace par ta variable d'image
     category: "Entreprise",
     tags: ["SQL", "RGPD", "Anonymisation"],
     live: "",
     github: "",
     featured: true,
     details: {
+      detailImage: outilAno,
       content: [
         {
           icon: 'Lightbulb',
