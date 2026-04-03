@@ -129,6 +129,7 @@ export const projects: Project[] = [
     tags: ["Développement Web", "UI/UX Design"],
     live: "https://fuckcops-prod.vercel.app/#",
     github: "",
+    featured: false,
     details: {
       content: [
         {
