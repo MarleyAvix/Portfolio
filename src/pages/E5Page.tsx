@@ -87,7 +87,7 @@ const E5Page = () => {
                           </td>
                           <td
                             rowSpan={activity.skills.length}
-                            className="px-4 py-4 align-top text-slate-200 font-semibold border border-slate-600/80"
+                            className="px-4 py-4 align-top text-slate-200 font-semibold border border-slate-600/50"
                           >
                             {activity.title}
                           </td>
@@ -98,12 +98,12 @@ const E5Page = () => {
 
                       <td className="px-4 py-3 border border-slate-600/80">
                         {skill.isValidated ? (
-                          <span className="inline-flex items-center gap-2 rounded-lg border border-emerald-500/30 bg-emerald-500/10 px-3 py-1.5 text-sm font-medium text-emerald-400">
+                          <span className="inline-flex items-center gap-2 rounded-lg border border-emerald-500/30 bg-emerald-500/50 px-3 py-1.5 text-sm font-medium text-emerald-400">
                             <CheckCircle2 size={16} />
                             Validee
                           </span>
                         ) : (
-                          <span className="inline-flex items-center gap-2 rounded-lg border border-red-500/30 bg-red-500/10 px-3 py-1.5 text-sm font-medium text-red-400">
+                          <span className="inline-flex items-center gap-2 rounded-lg border border-red-500/30 bg-red-500/30 px-3 py-1.5 text-sm font-medium text-red-400">
                             <XCircle size={16} />
                             Non validee
                           </span>

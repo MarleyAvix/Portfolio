@@ -163,7 +163,7 @@ export const projects: Project[] = [
     title: "Recette Only Office",
     description: "Recette de la suite bureautique Only Office pour valider les fonctionnalités et assurer la qualité du produit avant sa montée de version en production.",
     longDescription: "Recette de Only Office utilisée dans la visionneuse GED, afin d'effectuer des tests de validation et de non-régression pour assurer la qualité du produit avant sa montée de version en production.",
-    image: "https://placehold.co/600x400",
+    image: "https://placehold.co/600x400?text=Recette+Only+Office", // Remplace par ta variable d'image
     category: "Entreprise",
     tags: ["Test", "Validation"],
     live: "",
@@ -203,7 +203,7 @@ export const projects: Project[] = [
     title: "Création de support vidéo de présentation d'application",
     description: "Création de supports vidéo pour présenter les fonctionnalités et l'utilisation d'applications.",
     longDescription: "Réalisation de vidéos explicatives pour démontrer les fonctionnalités et l'utilisation de SAP BO et de Solis, afin de faciliter la compréhension et l'adoption par les utilisateurs.\n\nEn lien avec l'équipe responsable des supports de formation, j'ai créé des vidéos démonstratives en utilisant des techniques de création de contenu adaptées pour rendre les vidéos claires et engageantes.",
-    image: "https://placehold.co/600x400",
+    image: "https://placehold.co/600x400?text=Création+de+support+vidéo", // Remplace par ta variable d'image
     category: "Entreprise",
     tags: ["Création de contenu"],
     live: "",
@@ -243,7 +243,7 @@ export const projects: Project[] = [
     title: "Rédaction d'un courrier Jasper Soft",
     description: "Rédaction de courriers pour Jasper Soft.",
     longDescription: "Rédaction de courriers pour Jasper afin que les équipes métiers puissent générer des courriers avec des données récupérées automatiquement depuis la base de données Solis.\n\nCela permet une normalisation des courriers et facilite la communication ainsi que la compréhension des informations pour les utilisateurs.",
-    image: "https://placehold.co/600x400",
+    image: "https://placehold.co/600x400?text=Rédaction+de+courriers+Jasper+Soft",
     category: "Entreprise",
     tags: ["Jasper Soft", "SQL"],
     live: "",
