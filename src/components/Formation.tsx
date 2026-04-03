@@ -7,7 +7,7 @@ const diplomas = [
     title: "BREVET D'ETUDES PROFESSIONNELLES MENUISERIE AGENCEMENT",
     institution: "Lycée Professionnel BEAUMONT - Redon",
     date: "2012",
-    description: "Spécialisé en menuiserie et agencement..",
+    description: "Spécialisé en menuiserie et agencement.",
     icon: GraduationCap,
     color: "from-blue-500 to-indigo-600"
   },
@@ -15,7 +15,7 @@ const diplomas = [
     title: "BACCALAUREAT PROFFESSIONEL MENUISERIE AGENCEMENT",
     institution: "Lycée Professionnel BEAUMONT - Redon",
     date: "2013",
-    description: "Spécialisé en menuiserie et agencement..",
+    description: "Spécialisé en menuiserie et agencement.",
     icon: GraduationCap,
     color: "from-blue-500 to-indigo-600"
   },
@@ -37,7 +37,7 @@ const formation = [
     title: "FORMATION EN DEVELOPPEMENT WEB",
     institution: "UDEMY",
     date: "2013",
-    description: "Spécialisé en développement web.",
+    description: "Spécialisation en développement web.",
     icon: GraduationCap,
     color: "from-blue-500 to-indigo-600"
   },

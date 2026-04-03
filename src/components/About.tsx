@@ -17,7 +17,7 @@ const skills = [
 ];
 
 const softSkills = [
-  { name: 'Analyse capacité d\'analyse', icon: Brain },
+  { name: 'Capacité d\’analyse', icon: Brain },
   { name: 'Collaboration en équipe', icon: User },
   { name: 'Communication', icon: CheckCircle2 },
   { name: 'Adaptabilité', icon: Cpu },
@@ -43,7 +43,7 @@ export const About = () => {
               viewport={{ once: true }}
               className="flex flex-col gap-6"
             >
-              <h3 className="text-xl font-bold text-slate-100">En savoir un peu sur moi</h3>
+              <h3 className="text-xl font-bold text-slate-100">En savoir plus sur moi</h3>
               <p className="text-slate-400 text-sm leading-relaxed">
                Passionné par l'informatique depuis mon plus jeune âge, j'ai d'abord forgé mes compétences en autodidacte avant de valider mon projet professionnel. Aujourd'hui étudiant en BTS SIO chez My Digital School Angers, je mets à profit mon expérience personnelle pour progresser rapidement dans le développement.<br></br>Mon parcours atypique est une force car les années passées dans d'autres secteurs m'ont permis de développer une maturité et des soft skills que je souhaite désormais investir dans le monde de la tech.
               </p>
@@ -55,7 +55,7 @@ export const About = () => {
 
             <div>
               <h3 className="text-sm font-mono text-cyan-500 uppercase tracking-[0.2em] mb-8">
-                Experience
+                Expérience
               </h3>
               <div className="relative pl-8 border-l border-slate-800 space-y-8">
                 {[

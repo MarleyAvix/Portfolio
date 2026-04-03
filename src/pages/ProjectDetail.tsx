@@ -2,6 +2,9 @@ import React from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { ArrowLeft, Github, ExternalLink, CheckCircle2, Code2, Rocket, Lightbulb, Brain, FolderKanban, Code } from 'lucide-react';
+import ReactMarkdown from 'react-markdown';
+import type { Components } from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 import { projects } from '../data/projects';
 import { ValidatedSkills } from '../components/ValidatedSkills';
 
@@ -25,6 +28,31 @@ const ProjectIcon = ({ name }: { name?: 'Lightbulb' | 'CheckCircle2' | 'Rocket' 
       return null;
   }
 };
+
+const formatCardText = (text: string) => {
+  return text
+    .replace(/\r\n/g, '\n')
+    .replace(/\/(?:r)?n/g, '\n')
+    .replace(/<br\s*\/?\s*>/gi, '\n')
+    .replace(/\n{3,}/g, '\n\n')
+    .trim();
+};
+
+const markdownComponents: Components = {
+  p: ({ ...props }) => <p className="mb-4 last:mb-0" {...props} />,
+  ol: ({ ...props }) => <ol className="my-4 list-decimal pl-6 space-y-2" {...props} />,
+  ul: ({ ...props }) => <ul className="my-4 list-disc pl-6 space-y-2" {...props} />,
+  li: ({ ...props }) => <li className="marker:text-brand-blue" {...props} />,
+  a: ({ ...props }) => <a className="text-brand-blue underline hover:text-blue-400" {...props} />,
+};
+
+const MarkdownText = ({ text, className }: { text: string; className?: string }) => (
+  <div className={className}>
+    <ReactMarkdown remarkPlugins={[remarkGfm]} components={markdownComponents}>
+      {formatCardText(text)}
+    </ReactMarkdown>
+  </div>
+);
 
 export const ProjectDetailPage = () => {
   const { id } = useParams<{ id: string }>();
@@ -195,9 +223,10 @@ export const ProjectDetailPage = () => {
                 <Rocket className="text-brand-blue" />
                 Aperçu du projet
               </h2>
-              <div className="prose prose-invert max-w-none text-slate-400 leading-relaxed text-lg">
-                <p>{project.longDescription || project.description}</p>
-              </div>
+              <MarkdownText
+                text={project.longDescription || project.description}
+                className="prose prose-invert max-w-none text-slate-400 leading-relaxed text-lg"
+              />
             </section>
 
             {project.details?.content?.map((item, index) => (
@@ -207,7 +236,7 @@ export const ProjectDetailPage = () => {
                   <span>{item.title}</span>
                 </h2>
                 <div className="prose prose-invert max-w-none text-slate-400 leading-relaxed">
-                  <p>{item.text}</p>
+                  <MarkdownText text={item.text} />
                   {item.images && (
                     <div className="grid grid-cols-2 gap-4 mt-4">
                       {item.images.map((image, i) => (

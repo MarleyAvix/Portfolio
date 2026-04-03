@@ -21,6 +21,10 @@ export const TechWatch = () => {
           <h2 className="text-3xl font-bold text-slate-100">Veille techno</h2>
         </div>
 
+        <div className="flex items-center gap-2 mb-12">
+          <p>J'organise ma veille technologique par catégorie en m'abonnant à des newsletters, en suivant des chaînes YouTube et des podcasts. Quand je lis un article intéressant, je le stocke dans une base de données Notion pour avoir un suivi, un archivage et une consultation facile.</p>
+          </div>
+
         <div className="flex flex-wrap gap-2 mb-8">
           {categories.map(category => (
             <button
