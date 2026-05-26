@@ -2,7 +2,7 @@ import { useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Download, Linkedin, Github  } from 'lucide-react';
 import { motion } from 'motion/react';
-import profilImage from '../assets/profil.webp';
+import profilImage from '../assets/Profil.webp';
 
 export const Hero = () => {
   const imgRef = useRef<HTMLDivElement>(null);
