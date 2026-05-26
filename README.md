@@ -1,29 +1,29 @@
 # Portfolio BTS SIO SLAM
 
-Portfolio personnel realise dans le cadre de mon BTS SIO, option SLAM.
+Portfolio personnel realisé dans le cadre de mon BTS SIO, option SLAM.
 
-Ce projet a ete developpe avec React, TypeScript et Vite afin de proposer une application rapide, modulaire et facile a faire evoluer. Il centralise mon parcours, mes projets, ma veille technologique ainsi que les elements utiles a la presentation de l'epreuve E5.
+Ce projet a été développe avec React, TypeScript et Vite afin de proposer une application rapide, modulaire et facile a faire evoluer. Il centralise mon parcours, mes projets, ma veille technologique ainsi que les élements utiles a la presentation de l'épreuve E5.
 
 ## Apercu
 
 Le site est organise autour de plusieurs sections principales :
 
-- accueil et presentation generale
-- parcours de formation avec pages de detail
-- projets avec fiches detaillees
+- accueil et presentation génerale
+- parcours de formation avec pages de détail
+- projets avec fiches détaillées
 - veille technologique avec articles/pages de detail
 - page de contact
-- page dediee a l'epreuve E5
-- mentions legales
+- page dédiée à l'épreuve E5
+- mentions légales
 
-## Fonctionnalites
+## Fonctionnalités
 
 - navigation fluide entre les pages avec React Router
-- architecture en composants reutilisables
-- pages de detail pour les projets, le parcours et la veille
+- architecture en composants réutilisables
+- pages de détail pour les projets, le parcours et la veille
 - interface moderne avec animations et transitions
-- base TypeScript pour mieux structurer les donnees et le code
-- separation claire entre composants, pages et donnees
+- base TypeScript pour mieux structurer les données et le code
+- séparation claire entre composants, pages et données
 
 ## Stack technique
 
@@ -37,7 +37,7 @@ Le site est organise autour de plusieurs sections principales :
 
 ## Installation
 
-### Prerequis
+### Prérequis
 
 - Node.js 18 ou version superieure recommande
 - npm
@@ -96,23 +96,22 @@ Note : dans ce projet, la commande `lint` lance une verification TypeScript (`ts
 
 ```text
 src/
-	assets/		  fichier[images, vidéos] du projet
-	components/   composants reutilisables de l'interface
+	components/   composants réutilisables de l'interface
 	data/         donnees des projets, du parcours, de la veille et de l'E5
-	pages/        pages principales et pages de detail
+	pages/        pages principales et pages de détail
 	App.tsx       configuration des routes
-	main.tsx      point d'entree de l'application
+	main.tsx      point d'entrée de l'application
 ```
 
 ## Objectif du projet
 
-L'objectif de ce portfolio est de presenter de maniere claire et professionnelle :
+L'objectif de ce portfolio est de présenter de manière claire et professionnelle :
 
 - mon profil
 - mon parcours de formation
-- mes realisations techniques
+- mes réalisations techniques
 - ma veille technologique
-- les competences mobilisees pendant mon BTS SIO SLAM
+- les compétences mobilisées pendant mon BTS SIO SLAM
 
 ## Contact
 
@@ -120,5 +119,4 @@ Pour toute question, retour ou signalement de bug, vous pouvez me contacter ici 
 
 - LinkedIn : <https://www.linkedin.com/in/marleyavix>
 - GitHub : <https://github.com/marleyavix>
-
 
