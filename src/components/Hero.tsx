@@ -94,7 +94,7 @@ export const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             className="inline-block px-3 py-1 bg-brand-blue/10 text-brand-blue font-mono mb-6 rounded-md border border-brand-blue/20 text-xs uppercase tracking-widest"
           >
-            Etudiant en bts SIO SLAM
+            étudiant en bts SIO SLAM
           </motion.div>
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
@@ -127,10 +127,10 @@ export const Hero = () => {
              <Download size={20} /> 
               Télécharger CV
             </a>*/}
-            <Link to="/projects" className="bg-slate-800 hover:bg-slate-700 text-slate-200 px-8 py-4 rounded-xl font-semibold border border-slate-700 transition-all">
+            <Link to="https://github.com/marleyavix" className="bg-slate-800 hover:bg-slate-700 text-slate-200 px-8 py-4 rounded-xl font-semibold border border-slate-700 transition-all">
                <Github size={20} />
             </Link>
-            <Link to="/projects" className="bg-slate-800 hover:bg-slate-700 text-slate-200 px-8 py-4 rounded-xl font-semibold border border-slate-700 transition-all">
+            <Link to="https://www.linkedin.com/in/marleyavix" className="bg-slate-800 hover:bg-slate-700 text-slate-200 px-8 py-4 rounded-xl font-semibold border border-slate-700 transition-all">
                <Linkedin size={20} />
             </Link>
             

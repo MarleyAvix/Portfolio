@@ -82,7 +82,7 @@ export function MentionsLegalesPage() {
 
           {/* Propriété intellectuelle */}
           <section>
-            <h2 className="text-lg font-semibent text-white mb-3 border-b border-white/10 pb-2">
+            <h2 className="text-lg font-semibold text-white mb-3 border-b border-white/10 pb-2">
               Propriété intellectuelle
             </h2>
             <p>

@@ -7,7 +7,7 @@ import { ProjectCategory, projects } from '../data/projects';
 import { e5Activities } from '../data/e5';
 
 const categoryFilters: Array<'Tous' | ProjectCategory> = ['Tous', 'Ecole', 'Entreprise', 'Perso'];
-const allSkillsOption = 'Toutes les competences';
+const allSkillsOption = 'Toutes les compétences';
 const categoryBadgeClassName =
   'rounded-full border border-brand-blue/70 bg-brand-blue px-3 py-1 text-xs font-bold uppercase tracking-[0.2em] text-white shadow-lg shadow-brand-blue/35';
 
