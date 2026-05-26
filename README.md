@@ -96,6 +96,7 @@ Note : dans ce projet, la commande `lint` lance une verification TypeScript (`ts
 
 ```text
 src/
+	assets/		  fichier[images, vidéos] du projet
 	components/   composants reutilisables de l'interface
 	data/         donnees des projets, du parcours, de la veille et de l'E5
 	pages/        pages principales et pages de detail
