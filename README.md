@@ -121,11 +121,4 @@ Pour toute question, retour ou signalement de bug, vous pouvez me contacter ici 
 - LinkedIn : <https://www.linkedin.com/in/marleyavix>
 - GitHub : <https://github.com/marleyavix>
 
-## Ameliorations envisagees
-
-- ajouter des captures d'ecran du site
-- documenter plus en detail chaque projet presente
-- ajouter une section de deploiement
-- preciser les competences associees a chaque realisation
-
 
