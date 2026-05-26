@@ -127,10 +127,10 @@ export const Hero = () => {
              <Download size={20} /> 
               Télécharger CV
             </a>*/}
-            <Link to="https://github.com/marleyavix" className="bg-slate-800 hover:bg-slate-700 text-slate-200 px-8 py-4 rounded-xl font-semibold border border-slate-700 transition-all">
+            <Link to="https://github.com/marleyavix" className="bg-slate-800 hover:bg-slate-700 text-slate-200 px-8 py-4 rounded-xl font-semibold border border-slate-700 transition-all" target="_blank" rel="noopener noreferrer">
                <Github size={20} />
             </Link>
-            <Link to="https://www.linkedin.com/in/marleyavix" className="bg-slate-800 hover:bg-slate-700 text-slate-200 px-8 py-4 rounded-xl font-semibold border border-slate-700 transition-all">
+            <Link to="https://www.linkedin.com/in/marleyavix" className="bg-slate-800 hover:bg-slate-700 text-slate-200 px-8 py-4 rounded-xl font-semibold border border-slate-700 transition-all" target="_blank" rel="noopener noreferrer">
                <Linkedin size={20} />
             </Link>
             
