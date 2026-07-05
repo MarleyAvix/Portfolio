@@ -25,6 +25,44 @@ export const parcoursSectionLabels: Record<ParcoursSection, string> = {
 };
 
 export const parcoursItems: ParcoursItem[] = [
+      {
+    id: 'Formation-BO-SAP',
+    section: 'formation',
+    title: 'SAP Business Objects',
+    institution: 'Conseil départemental de la Mayenne - Laval',
+    date: '2026 - 2027',
+    description: 'Option solutions logicielles et applications métiers.',
+    icon: 'graduation-cap',
+    tags: ['LOGICIEL PRO', 'DATA ANALYSES', 'Alternance'],
+    details: {
+      overview:
+        "La formation SAP Business Objects de niveau 1 et 2 m'a été délivrée dans le cadre de mon alternance au sein du conseil départemental de la Mayenne.\n\nCette formation m'a permis de renforcer mes compétences sur les applications métiers et d'acquérir de solides connaissances sur l'outil SAP Business Objects.",
+      highlights: [
+        'Création de rapports et d\'analyses avancées',
+        'Création de requêtes et d\'agrégations de données',
+        'Optimisation des performances et de la visualisation des données',
+      ],
+    },
+  },
+    {
+    id: 'bts-sio-mydigitalschool',
+    section: 'formation',
+    title: 'BTS SIO',
+    institution: 'My Digital School - Angers',
+    date: '2025 - 2027',
+    description: 'Option solutions logicielles et applications métiers.',
+    icon: 'graduation-cap',
+    tags: ['BTS SIO', 'SLAM', 'Alternance'],
+    details: {
+      overview:
+        "Le BTS SIO s'inscrit dans la continuité de mon projet de reconversion vers l'informatique.\n\nCette formation me permet de renforcer mes compétences en développement, en conception logicielle et en compréhension des besoins métiers dans un cadre professionnalisant.",
+      highlights: [
+        'Approche professionnalisante du développement logiciel',
+        'Lien direct entre formation et alternance',
+        'Montée en compétences sur les applications métiers',
+      ],
+    },
+  },
   {
     id: 'formation-developpement-web-udemy',
     section: 'formation',
@@ -41,25 +79,6 @@ export const parcoursItems: ParcoursItem[] = [
         'Approfondissement des bases du développement web',
         'Structuration de mon apprentissage technique',
         'Montée en autonomie sur les premiers projets',
-      ],
-    },
-  },
-  {
-    id: 'bts-sio-mydigitalschool',
-    section: 'formation',
-    title: 'BTS SIO',
-    institution: 'My Digital School - Angers',
-    date: '2025 - 2027',
-    description: 'Option solutions logicielles et applications métiers.',
-    icon: 'graduation-cap',
-    tags: ['BTS SIO', 'SLAM', 'Alternance'],
-    details: {
-      overview:
-        "Le BTS SIO s'inscrit dans la continuité de mon projet de reconversion vers l'informatique.\n\nCette formation me permet de renforcer mes compétences en développement, en conception logicielle et en compréhension des besoins métiers dans un cadre professionnalisant.",
-      highlights: [
-        'Approche professionnalisante du développement logiciel',
-        'Lien direct entre formation et alternance',
-        'Montée en compétences sur les applications métiers',
       ],
     },
   },

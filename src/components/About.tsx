@@ -1,11 +1,11 @@
 import React from 'react';
 import { User, Cpu, Lightbulb, BriefcaseBusiness, Ear } from 'lucide-react';
 import { motion } from 'motion/react';
-import { FaPython, FaPhp, FaHtml5, FaCss3Alt, FaReact, FaDocker, FaGitAlt, FaDatabase } from 'react-icons/fa6';
+import { FaPython, FaPhp, FaHtml5, FaCss3Alt, FaReact, FaDocker, FaGitAlt, FaDatabase, FaLinux   } from 'react-icons/fa6';
 import { IoLogoJavascript } from 'react-icons/io5';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-
+import { SiSap,  } from "react-icons/si";
 const skills = [
   { name: 'Python', icon: FaPython },
   { name: 'PHP', icon: FaPhp },
@@ -16,6 +16,8 @@ const skills = [
   { name: 'Docker', icon: FaDocker },
   { name: 'Git', icon: FaGitAlt },
   { name: 'SQL', icon: FaDatabase },
+  { name: 'Linux', icon: FaLinux },
+  { name: 'SAP BO', icon: SiSap },
 ];
 
 const softSkills = [

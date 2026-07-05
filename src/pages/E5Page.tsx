@@ -103,9 +103,9 @@ const E5Page = () => {
                             Validee
                           </span>
                         ) : (
-                          <span className="inline-flex items-center gap-2 rounded-lg border border-red-500/30 bg-red-500/30 px-3 py-1.5 text-sm font-medium text-red-400">
+                          <span className="inline-flex items-center gap-2 rounded-lg border border-gray-500/30 bg-gray-500/30 px-3 py-1.5 text-sm font-medium text-gray-400">
                             <XCircle size={16} />
-                            Non validee
+                            A Valider
                           </span>
                         )}
                       </td>

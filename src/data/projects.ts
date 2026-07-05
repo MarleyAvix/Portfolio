@@ -10,6 +10,7 @@ import resultAno from '../assets/resultatAno.png';
 import fairviewHome from '../assets/fairviewHome.png';
 import paletteCouleurs from '../assets/paletteCouleurs.png';
 import lighthouseScore from '../assets/lighthouse.png';
+import type { ProjectIconName } from '../lib/projectIcons';
 
 export type ProjectCategory = 'Ecole' | 'Entreprise' | 'Perso';
 
@@ -27,7 +28,7 @@ export interface Project {
   details?: {
     detailImage?: string;
     content?: {
-      icon?: 'Lightbulb' | 'CheckCircle2' | 'Rocket' | 'Brain' | 'Code' | 'FolderKanban';
+      icon?: ProjectIconName;
       title: string;
       text: string;
       images?: string[];
@@ -334,5 +335,108 @@ export const projects: Project[] = [
       ],
       validatedSkills: [], // À adapter selon ton référentiel
     }
-  }
+  }, 
+  {
+    id: "outil-support-interne",
+    title: "Développement d'un outil de support interne",
+    description: "Conception et développement d'une application de support pour optimiser et automatiser certains processus internes.",
+    longDescription: "Ce projet formalise la refonte complète d'un outil de support destiné à améliorer les processus internes. Il retrace toute la démarche d'ingénierie logicielle : du recueil des besoins initiaux auprès des utilisateurs jusqu'à la définition et la validation d'un produit minimum viable (MVP) fonctionnel, en passant par le choix et la validation d'une stack technique moderne.",
+    image: "https://placehold.co/600x400?text=Outil+Support+Interne",
+    category: "Entreprise",
+    tags: ["Méthodologie Agile", "Architecture", "MVP"],
+    live: "",
+    github: "",
+    featured: true,
+    details: {
+      content: [
+        {
+          icon: 'Lightbulb',
+          title: "Le Défi",
+          text: "L'objectif était de concevoir un outil parfaitement adapté aux contraintes opérationnelles des équipes, sans tomber dans la sur-spécification. Le défi résidait dans l'alignement entre les attentes métiers, les contraintes techniques de l'infrastructure et la livraison rapide d'une première version exploitable."
+        },
+        {
+          title: "1. Recueil des besoins",
+          text: "Animation d'ateliers avec les futurs utilisateurs et techniciens support pour recenser les points de friction actuels et leurs besoins réels. Cette phase a permis de rédiger les premières User Stories (spécifications fonctionnelles) et d'identifier les flux de travail (workflows) indispensables au quotidien."
+        },
+        {
+          title: "2. Définition et validation de la Stack Technique",
+          text: "Analyse comparative de différentes technologies selon des critères de performance, de sécurité et de maintenabilité. Après évaluation, la stack technique a été validée avec les équipes système pour s'assurer de sa parfaite intégration et de sa conformité avec l'infrastructure de l'organisation."
+        },
+        {
+          title: "3. Validation des besoins et Objectifs MVP",
+          text: "Pour éviter l'effet 'tunnel', les besoins ont été priorisés selon la méthode MoSCoW afin de définir le périmètre du MVP (Minimum Viable Product). Cette validation conjointe avec les parties prenantes a fixé l'objectif principal : livrer un cœur de système fonctionnel (création, assignation et suivi des tickets de support) avant d'envisager des fonctionnalités secondaires."
+        },
+        {
+          icon: 'Brain',
+          title: "Ce que j'ai appris",
+          text: "Ce projet m'a permis de maîtriser les phases amont d'un projet informatique, souvent cruciales pour sa réussite. J'ai appris à traduire des besoins utilisateurs parfois flous en spécifications techniques claires, à défendre des choix d'architecture et à piloter la conception par la valeur (approche MVP).\n\nCe projet m'a permis de valider les compétences suivantes:\n- Recenser et identifier les besoins des utilisateurs\n- Traiter des demandes d'assistance liées à une application\n- Exploiter des référentiels, normes et standards adoptés par le prestataire informatique\n- Planifier les étapes du développement d'une solution"
+        }
+      ],
+      technologies: ["FastAPI", "Oracle", "Vue.js", ], // Stack technique à adapter selon ton vrai choix
+      features: [
+        "Recueil et formalisation des besoins utilisateurs",
+        "Étude comparative et validation d'une stack logicielle",
+        "Priorisation fonctionnelle et définition du périmètre MVP",
+        "Modélisation des cycles de vie des tickets de support",
+        "Alignement avec les standards de sécurité de l'organisation"
+      ],
+      validatedSkills: ["bloc1-1", "bloc1-2", "bloc1-4"], // À adapter selon tes fiches E4/E5
+    }
+  },
+  {
+    id: "infrastructure-virtuelle-securisee-e6",
+    title: "Conception et déploiement d'une infrastructure Open-Source sécurisée",
+    description: "Création d'une infrastructure d'entreprise virtualisée sous Proxmox VE, intégrant un découpage réseau strict, une gestion centralisée des identités et la conteneurisation d'applications.",
+    longDescription: "Ce projet de cyberstructure s'appuie exclusivement sur des solutions Open-Source pour répondre aux exigences modernes de sécurité et de souveraineté numérique. Déployée sur un hyperviseur Proxmox VE, l'infrastructure isole les flux via un cloisonnement réseau rigoureux (LAN, Server, DMZ), sécurise les accès distants via WireGuard, et centralise l'authentification et les habilitations grâce au couplage de FreeIPA et Keycloak.",
+    image: "https://placehold.co/600x400?text=Infrastructure+Proxmox+VE", // À remplacer par une capture de ton dashboard Proxmox ou schéma réseau
+    category: "Ecole",
+    tags: ["Proxmox", "Linux", "Infra et Sécurité", "Open-Source"],
+    live: "",
+    github: "",
+    featured: false,
+    details: {
+      content: [
+        {
+          icon: 'Lightbulb',
+          title: "Le Défi et la Philosophie",
+          text: "Le défi consistait à bâtir une infrastructure d'entreprise résiliente, modulaire et hautement sécurisée, en appliquant le principe du moindre privilège. Le choix d'une philosophie 100% Open-Source garantit la transparence du code, l'absence de vendor lock-in (dépendance exclusive à un fournisseur) et le respect de la souveraineté des données."
+        },
+        {
+          icon: 'Network',
+          title: "Architecture Réseau & Interconnexion",
+          text: "Pour étanchéifier les environnements, un découpage en zones (VLANs) a été mis en place :\n\n- **LAN Client** : Pour les postes utilisateurs.\n- **LAN Server** : Zone interne isolée accueillant les contrôleurs et bases de données.\n- **DMZ (Zone Démilitarisée)** : Pour les serveurs exposés à l'extérieur.\n\nL'accès d'administration à distance est blindé par l'établissement d'un tunnel VPN WireGuard chiffré, performant et à faible surface d'attaque."
+        },
+        {
+          icon: 'Server',
+          title: "Systèmes de Base & Gestion des Identités",
+          text: "Le cœur de l'infrastructure repose sur le déploiement de serveurs d'entreprise Rocky Linux. La gestion des utilisateurs et des machines est centralisée via FreeIPA (implémentant LDAP/Kerberos, DNS et PKI).\n\nPour la brique applicative, Keycloak a été adossé à FreeIPA pour fournir une solution moderne d'Identity and Access Management (IAM), permettant le Single Sign-On (SSO) et le chiffrement des sessions utilisateurs."
+        },
+        {
+          icon: 'Box',
+          title: "Conteneurisation & Micro-services",
+          text: "Toujours dans cette optique open-source et sécuritaire, le déploiement des applications métiers se fait par conteneurisation sous Podman. Contrairement à Docker, Podman fonctionne en mode rootless (sans démon privilégié), réduisant drastiquement les risques d'élévation de privilèges en cas de compromission d'un conteneur."
+        },
+        {
+          icon: 'FileText',
+          title: "Documentation Technique",
+          text: "Conformément aux exigences de l'épreuve E6, l'intégralité des procédures d'installation, les fichiers de configuration (fichiers de rules pare-feu, conteneurs Podman) et la cartographie réseau ont fait l'objet d'une documentation technique rigoureuse pour garantir la reproductibilité et la maintenabilité de l'infrastructure."
+        },
+        {
+          icon: 'Brain',
+          title: "Ce que j'ai appris",
+          text: "Ce projet m'a apporté une vision globale de la gestion d'infrastructure moderne. J'ai renforcé mes compétences en administration système Linux avancée, en routage/pare-feu et en gestion des identités à l'échelle d'un réseau d'entreprise.\n\nCe projet m'a permis de valider les compétences suivantes :\n- Protéger les données à caractère personnel (RGPD)\n- Vérifier le respect des règles d'utilisation des ressources numériques\n- Gérer des sauvegardes et assurer la continuité de service\n- Évaluer et maintenir la sécurité des accès et des systèmes\n- Documenter les architectures et les procédures de déploiement"
+        }
+      ],
+      technologies: ["Proxmox VE", "Rocky Linux", "WireGuard", "FreeIPA", "Keycloak", "Podman"],
+      features: [
+        "Hypervision et virtualisation d'entreprise",
+        "Cloisonnement réseau strict (LAN / DMZ)",
+        "Accès distant sécurisé par VPN WireGuard",
+        "Gestion centralisée des identités (LDAP/Kerberos) et SSO",
+        "Conteneurisation sécurisée (Rootless Podman)",
+        "Rédaction de documentations d'architecture et d'exploitation"
+      ],
+      validatedSkills: ["bloc3-1", "bloc3-2", "bloc3-3", "bloc3-4"], // À adapter aux codes exacts de ton tableau de compétences E6
+    }
+  },
 ];

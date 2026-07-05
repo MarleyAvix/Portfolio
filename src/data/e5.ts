@@ -48,11 +48,11 @@ export const e5Activities: E5Activity[] = [
     id: "bloc1-4",
     title: "Travailler en mode projet",
     skills: [
-      { name: "Analyser les objectifs et les modalités d'organisation d'un projet", isValidated: false },
-      { name: "Planifier les activités", isValidated: false },
-      { name: "Évaluer les indicateurs de suivi d'un projet et analyser les écarts", isValidated: false }
+      { name: "Analyser les objectifs et les modalités d'organisation d'un projet", isValidated: true },
+      { name: "Planifier les activités", isValidated: true },
+      { name: "Évaluer les indicateurs de suivi d'un projet et analyser les écarts", isValidated: true }
     ],
-    isValidated: false
+    isValidated: true
   },
   {
     id: "bloc1-5",
@@ -74,5 +74,6 @@ export const e5Activities: E5Activity[] = [
       { name: "Développer son projet professionnel", isValidated: false }
     ],
     isValidated: true
-  }
+  }, 
+  
 ];

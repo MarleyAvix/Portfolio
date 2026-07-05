@@ -1,33 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { ArrowLeft, Github, ExternalLink, CheckCircle2, Code2, Rocket, Lightbulb, Brain, FolderKanban, Code, X } from 'lucide-react';
+import { ArrowLeft, Github, ExternalLink, Code2, Rocket, X } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import type { Components } from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { projects } from '../data/projects';
 import { ValidatedSkills } from '../components/ValidatedSkills';
-
-const ProjectIcon = ({ name }: { name?: 'Lightbulb' | 'CheckCircle2' | 'Rocket' | 'Brain' | 'Code' | 'FolderKanban' }) => {
-  if (!name) return null;
-
-  switch (name) {
-    case 'Lightbulb':
-      return <Lightbulb className="text-amber-400" />;
-    case 'CheckCircle2':
-      return <CheckCircle2 className="text-emerald-400" />;
-    case 'Rocket':
-      return <Rocket className="text-brand-blue" />;
-    case 'Brain':
-      return <Brain className="text-purple-400" />;
-    case 'Code':
-      return <Code className="text-green-400" />;
-    case 'FolderKanban':
-      return <FolderKanban className="text-red-400" />;
-    default:
-      return null;
-  }
-};
+import { ProjectIcon } from '../lib/projectIcons';
 
 const formatCardText = (text: string) => {
   return text
@@ -184,10 +164,10 @@ export const ProjectDetailPage = () => {
             >
               <img
                 src={projectDetailImage}
-                alt={project.title}
+                alt={project?.title || ''}
                 className="w-full h-auto max-h-[clamp(320px,70vh,780px)] object-contain cursor-zoom-in"
                 referrerPolicy="no-referrer"
-                onClick={() => setZoomedImage({ src: projectDetailImage, alt: project.title })}
+                onClick={() => setZoomedImage({ src: projectDetailImage || '', alt: project?.title || '' })}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/50 to-transparent" />
             </motion.div>
