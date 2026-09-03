@@ -11,6 +11,8 @@ import fairviewHome from '../assets/fairviewHome.png';
 import paletteCouleurs from '../assets/paletteCouleurs.png';
 import lighthouseScore from '../assets/lighthouse.png';
 import type { ProjectIconName } from '../lib/projectIcons';
+import coolifyVps from '../assets/coolifyVps.png';
+import moeviaVoyage from '../assets/moeviaVoyage.png';
 
 export type ProjectCategory = 'Ecole' | 'Entreprise' | 'Perso';
 
@@ -439,4 +441,123 @@ export const projects: Project[] = [
       validatedSkills: ["bloc3-1", "bloc3-2", "bloc3-3", "bloc3-4"], // À adapter aux codes exacts de ton tableau de compétences E6
     }
   },
+  /*Moévia voyage*/
+  {
+  id: "moevia-voyage",
+  title: "Moevia Voyage",
+  description: "Conception et développement du site web Moevia Voyage sous Vue.js, de la définition du besoin à la mise en production.",
+  longDescription: "Pilotage complet du projet web pour Moevia Voyage : recueil du besoin, rédaction du cahier des charges, co-conception du design avec la cliente et développement front-end réactif sous Vue.js.",
+  image: moeviaVoyage, // Variable d'import de ton image/mockup
+  category: "Perso", // Ou "Entreprise" selon la façon dont tu catégorises tes projets clients / freelance
+  tags: ["Vue.js", "Gestion de Projet", "UI/UX Design", "Développement Web"],
+  live: "https://www.moeviavoyage.com",
+  github: "",
+  featured: true,
+  details: {
+    content: [
+      {
+        icon: 'FileText',
+        title: "Cadrage & Cahier des charges",
+        text: "Définition des objectifs et recueil exhaustif des besoins de la cliente. Rédaction du cahier des charges fonctionnel et technique, structuration de l'arborescence et formalisation des attentes métier pour le service de voyage."
+      },
+      {
+        icon: 'Palette',
+        title: "Co-conception UI/UX & Design",
+        text: "Collaboration étroite avec la cliente pour définir l'identité visuelle, la palette graphique et les maquettes d'interface. Priorité accordée à une expérience immersive, inspirante et fluide pour inciter à la prise de contact."
+      },
+      {
+        icon: 'Code',
+        title: "Développement & Organisation",
+        text: "Mise en place d'une architecture modulaire basée sur Vue.js. Suivi de projet itératif avec des jalons réguliers de validation, garantissant le respect du planning et la conformité avec la maquette validée."
+      },
+      {
+        icon: 'Brain',
+        title: "Compétences mobilisées",
+        text: "Gestion de la relation client de bout en bout, traduction des besoins fonctionnels en spécifications techniques, découpage en composants réutilisables et optimisation des performances et du responsive design."
+      }
+    ],
+    technologies: [
+      "Vue.js",
+      "JavaScript",
+      "HTML5",
+      "CSS3",
+      "Figma" // Outil de design/maquettage si applicable
+    ],
+    features: [
+      "Présentation immersive des offres et services de voyage",
+      "Formulaire de demande de contact et de devis sur-mesure",
+      "Architecture front-end en composants dynamiques et réutilisables",
+      "Interface 100% responsive adaptée au mobile, tablette et desktop",
+      "Optimisation du parcours utilisateur et des temps de chargement"
+    ],
+    validatedSkills: [
+      "Recueillir, analyser et formaliser les besoins du client",
+      "Concevoir une interface utilisateur ergonomique et accessible",
+      "Planifier et assurer le suivi d'un projet web",
+      "Développer une application front-end réactive avec Vue.js",
+      "Déployer et assurer la mise en ligne d'une solution web"
+    ]
+  }
+},
+{
+  id: "deploiement-coolify-vps",
+  title: "Plateforme de Déploiement PaaS (Coolify sur VPS)",
+  description: "Déploiement et sécurisation d'un PaaS auto-hébergé avec Coolify sur VPS pour automatiser et centraliser l'hébergement d'applications web.",
+  longDescription: "Mise en place complète d'une infrastructure d'hébergement autonome basée sur Coolify et Docker sur un VPS Linux. La plateforme permet d'orchestrer, sécuriser et automatiser le déploiement continu (CI/CD) de sites et d'API avec gestion SSL dynamique.",
+  image: coolifyVps, // Variable d'import de ton visuel/dashboard
+  category: "Perso",
+  tags: ["DevOps", "Docker", "Linux", "SysAdmin", "CI/CD"],
+  live: "", // URL de ton dashboard Coolify ou vide
+  github: "",
+  featured: false,
+  details: {
+    content: [
+      {
+        icon: 'Server',
+        title: "La Problématique",
+        text: "Éviter les coûts croissants et les limitations des plateformes PaaS cloud propriétaires (Vercel, Render, Heroku) tout en conservant une expérience de déploiement fluide ('git push') pour centraliser l'ensemble de mes applications et bases de données sur une infrastructure dédiée."
+      },
+      {
+        icon: 'Terminal',
+        title: "Configuration & Déploiement",
+        text: "Provisionnement du VPS sous Linux, durcissement de la sécurité système (règles pare-feu UFW, restriction d'accès SSH par clés), installation de l'environnement d'exécution Docker et déploiement du moteur Coolify comme orchestrateur centralisé."
+      },
+      {
+        icon: 'Rocket',
+        title: "Automatisation & Gestion Réseau",
+        text: "Configuration du reverse proxy dynamique (Traefik) avec génération et renouvellement automatique des certificats SSL Let's Encrypt. Mise en place de webhooks GitHub pour activer le déploiement continu à chaque mise à jour de code."
+      },
+      {
+        icon: 'Brain',
+        title: "Compétences acquises",
+        text: "Maîtrise de l'administration système Linux en environnement de production, gestion fine de l'isolation par conteneurs Docker, routage réseau/DNS et mise en place d'un pipeline de livraison continue robuste."
+      }
+    ],
+    technologies: [
+      "Coolify",
+      "Linux (Ubuntu/Debian)",
+      "Docker",
+      "Traefik",
+      "UFW / Iptables",
+      "Bash",
+      "Let's Encrypt",
+      "Git"
+    ],
+    features: [
+      "Déploiement automatisé d'applications via webhooks Git (Push-to-Deploy)",
+      "Provisionnement et gestion de bases de données conteneurisées (PostgreSQL, MySQL, Redis)",
+      "Génération et renouvellement automatique des certificats SSL/TLS",
+      "Reverse proxy intégré avec routage de sous-domaines à la volée",
+      "Tableau de bord de monitoring des ressources système (CPU, RAM, stockage)",
+      "Gestion centralisée et sécurisée des variables d'environnement applicatives"
+    ],
+    validatedSkills: [
+      "Déployer, configurer et administrer un serveur Linux distant",
+      "Mettre en œuvre et orchestrer des conteneurs d'applications avec Docker",
+      "Concevoir et automatiser une chaîne de déploiement continu (CI/CD)",
+      "Configurer la sécurité réseau, les pare-feu et les certificats de chiffrement",
+      "Superviser les métriques système et assurer le maintien en conditions opérationnelles"
+    ]
+  }
+},
 ];

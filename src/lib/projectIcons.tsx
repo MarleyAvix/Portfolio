@@ -43,6 +43,7 @@ const projectIconRegistry = {
   ClipboardCheck: { Icon: ClipboardCheck, className: 'text-green-400' },
   Box: { Icon: Box, className: 'text-orange-400' },
   FileText: { Icon: FileText, className: 'text-slate-400' },
+  code2: { Icon: Code, className: 'text-green-400' },
 } satisfies Record<string, { Icon: LucideIcon; className: string }>;
 
 export type ProjectIconName = keyof typeof projectIconRegistry;
