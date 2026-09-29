@@ -37,7 +37,7 @@ export function MentionsLegalesPage() {
               <li>
                 <span className="text-slate-400">Contact :</span>{' '}
                 <a
-                  href="https://www.linkedin.com/in/marleyavix"
+                  href="https://www.linkedin.com/in/marleyavix/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-brand-blue hover:underline"
@@ -46,9 +46,7 @@ export function MentionsLegalesPage() {
                 </a>
                 <span> | </span>
                  <a
-                  href="mailto:marley.avix@outlook.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="mailto:marleyavix@outlook.fr"
                   className="text-brand-blue hover:underline"
                 >
                   Email

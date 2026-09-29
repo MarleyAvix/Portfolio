@@ -1,8 +1,7 @@
 import { useRef, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import { Download, Linkedin, Github  } from 'lucide-react';
 import { motion } from 'motion/react';
-import profilImage from '../assets/profil.jpg';
+import profilImage from '../assets/profilPortrait.webp';
 
 export const Hero = () => {
   const imgRef = useRef<HTMLDivElement>(null);
@@ -77,7 +76,7 @@ export const Hero = () => {
             <div className="w-full h-full rounded-2xl overflow-hidden bg-slate-800">
               <img
                 src={profilImage}
-                alt="Profile"
+                alt="Portrait de Marley Avix"
                 className="w-full h-full object-cover"
                 referrerPolicy="no-referrer"
               />
@@ -102,7 +101,7 @@ export const Hero = () => {
             transition={{ delay: 0.1 }}
             className="text-5xl lg:text-7xl font-bold mb-6 leading-tight text-slate-100 rounded-xl cursor-default select-none"
           >
-            Bonjour, je suis <span className="text-brand-blue">[Marley Avix]</span>
+            Bonjour, je suis <span className="text-brand-blue">Marley Avix</span>
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -119,20 +118,20 @@ export const Hero = () => {
             transition={{ delay: 0.3 }}
             className="flex flex-wrap items-center justify-center lg:justify-start gap-4"
           >
-            {/*<a 
-              href="/public/Marley_AVIX_FlowCV_Resume_2026-09-29.pdf" 
+            {<a 
+              href="/Marley_AVIX_FlowCV_Resume_2026-09-29.pdf" 
               download 
               className="bg-brand-blue hover:bg-blue-600 text-white px-8 py-4 rounded-xl font-semibold flex items-center gap-3 shadow-lg transition-all"
             >
              <Download size={20} /> 
               Télécharger CV
-            </a>*/}
-            <Link to="https://github.com/marleyavix" className="bg-slate-800 hover:bg-slate-700 text-slate-200 px-8 py-4 rounded-xl font-semibold border border-slate-700 transition-all" target="_blank" rel="noopener noreferrer">
+            </a>}
+            <a href="https://github.com/marleyavix" className="bg-slate-800 hover:bg-slate-700 text-slate-200 px-8 py-4 rounded-xl font-semibold border border-slate-700 transition-all" target="_blank" rel="noopener noreferrer" aria-label="Profil GitHub">
                <Github size={20} />
-            </Link>
-            <Link to="https://www.linkedin.com/in/marleyavix" className="bg-slate-800 hover:bg-slate-700 text-slate-200 px-8 py-4 rounded-xl font-semibold border border-slate-700 transition-all" target="_blank" rel="noopener noreferrer">
+            </a>
+            <a href="https://www.linkedin.com/in/marleyavix/" className="bg-slate-800 hover:bg-slate-700 text-slate-200 px-8 py-4 rounded-xl font-semibold border border-slate-700 transition-all" target="_blank" rel="noopener noreferrer" aria-label="Profil LinkedIn">
                <Linkedin size={20} />
-            </Link>
+            </a>
             
           </motion.div>
         </div>

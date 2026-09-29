@@ -1,8 +1,8 @@
 
-import techSamaShowRam from '../assets/TechSamaShowRam.png';
-import siteKorbenGif from '../assets/siteKorbenGif.png';
-import siteKorbenProxy from '../assets/siteKorbenProxy.png';
-import siteKorbenShuffle from '../assets/siteKorbenShuffle.png';
+import techSamaShowRam from '../assets/TechSamaShowRam.webp';
+import siteKorbenGif from '../assets/siteKorbenGif.webp';
+import siteKorbenProxy from '../assets/siteKorbenProxy.webp';
+import siteKorbenShuffle from '../assets/siteKorbenShuffle.webp';
 
 export interface TechWatchItem {
   id: string;

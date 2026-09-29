@@ -52,7 +52,7 @@ function AppContent() {
               © {new Date().getFullYear()} Marley Avix. Tous droits réservés.
             </p>
             <div className="flex justify-center gap-6 mt-4 text-slate-300/90">
-              <a href="https://www.linkedin.com/in/marleyavix" target="_blank" rel="noopener noreferrer" className="hover:text-cyan-300 transition-colors text-xs font-mono uppercase tracking-widest">LinkedIn</a>
+              <a href="https://www.linkedin.com/in/marleyavix/" target="_blank" rel="noopener noreferrer" className="hover:text-cyan-300 transition-colors text-xs font-mono uppercase tracking-widest">LinkedIn</a>
               <a href="https://github.com/marleyavix" target="_blank" rel="noopener noreferrer" className="hover:text-cyan-300 transition-colors text-xs font-mono uppercase tracking-widest">GitHub</a>
             </div>
             <div className="mt-4">

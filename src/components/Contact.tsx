@@ -38,7 +38,7 @@ export const Contact = () => {
             </motion.a>
 
             <motion.a 
-              href="https://linkedin.com/in/marley-avix"
+              href="https://www.linkedin.com/in/marleyavix/"
               target="_blank"
               rel="noopener noreferrer"
               initial={{ opacity: 0, y: 20 }}

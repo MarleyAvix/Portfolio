@@ -2,7 +2,7 @@ import React from 'react';
 import { Home, GraduationCap, User, Briefcase, Mail, Radio, Table, Code } from 'lucide-react';
 import { motion } from 'motion/react';
 import { NavLink } from 'react-router-dom';
-import profileImage from '../assets/profil.jpg';
+import profileImage from '../assets/profilPortrait.webp';
 
 
 const navItems = [

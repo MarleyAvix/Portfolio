@@ -1,18 +1,18 @@
-import fuckcops from '../assets/FuckcopsProd.png';
-import outilAno from '../assets/outilAno.png';
-import dossierAno from '../assets/dossierAno.png';
-import listCsv from '../assets/listCsv.png';
-import csvAno from '../assets/csvAno.png';
-import fichierParamAno from '../assets/fichierParametrageAno.png';
-import logAno from '../assets/resultLog.png';
-import listLogs from '../assets/listLogs.png';
-import resultAno from '../assets/resultatAno.png';
-import fairviewHome from '../assets/fairviewHome.png';
-import paletteCouleurs from '../assets/paletteCouleurs.png';
-import lighthouseScore from '../assets/lighthouse.png';
+import fuckcops from '../assets/FuckcopsProd.webp';
+import outilAno from '../assets/outilAno.webp';
+import dossierAno from '../assets/dossierAno.webp';
+import listCsv from '../assets/listCsv.webp';
+import csvAno from '../assets/csvAno.webp';
+import fichierParamAno from '../assets/fichierParametrageAno.webp';
+import logAno from '../assets/resultLog.webp';
+import listLogs from '../assets/listLogs.webp';
+import resultAno from '../assets/resultatAno.webp';
+import fairviewHome from '../assets/fairviewHome.webp';
+import paletteCouleurs from '../assets/paletteCouleurs.webp';
+import lighthouseScore from '../assets/lighthouse.webp';
 import type { ProjectIconName } from '../lib/projectIcons';
-import coolifyVps from '../assets/coolifyVps.png';
-import moeviaVoyage from '../assets/moeviaVoyage.png';
+import coolifyVps from '../assets/coolifyVps.webp';
+import moeviaVoyage from '../assets/moeviaVoyage.webp';
 
 export type ProjectCategory = 'Ecole' | 'Entreprise' | 'Perso';
 

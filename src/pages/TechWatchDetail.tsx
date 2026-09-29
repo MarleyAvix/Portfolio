@@ -98,6 +98,8 @@ export const TechWatchDetailPage = () => {
           <img 
             src={item.image} 
             alt={item.title} 
+            fetchPriority="high"
+            decoding="async"
             className="block w-full h-auto max-h-[clamp(240px,48vh,520px)] object-contain"
             referrerPolicy="no-referrer"
           />
@@ -132,7 +134,7 @@ export const TechWatchDetailPage = () => {
                   {contentItem.images && (
                     <div className="grid grid-cols-2 gap-4 mt-4">
                       {contentItem.images.map((image, i) => (
-                        <img key={i} src={image} alt={`${contentItem.title} ${i + 1}`} className="w-full h-auto rounded-lg" />
+                        <img key={i} src={image} alt={`${contentItem.title} ${i + 1}`} loading="lazy" decoding="async" className="w-full h-auto rounded-lg" />
                       ))}
                     </div>
                   )}

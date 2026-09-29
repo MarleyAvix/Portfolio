@@ -165,6 +165,8 @@ export const ProjectDetailPage = () => {
               <img
                 src={projectDetailImage}
                 alt={project?.title || ''}
+                fetchPriority="high"
+                decoding="async"
                 className="w-full h-auto max-h-[clamp(320px,70vh,780px)] object-contain cursor-zoom-in"
                 referrerPolicy="no-referrer"
                 onClick={() => setZoomedImage({ src: projectDetailImage || '', alt: project?.title || '' })}
@@ -198,6 +200,8 @@ export const ProjectDetailPage = () => {
                           key={i}
                           src={image}
                           alt={`${item.title} ${i + 1}`}
+                          loading="lazy"
+                          decoding="async"
                           className="w-full h-auto max-h-[clamp(220px,55vh,520px)] object-contain rounded-lg bg-slate-950/60 cursor-zoom-in"
                           onClick={() => setZoomedImage({ src: image, alt: `${item.title} ${i + 1}` })}
                         />
