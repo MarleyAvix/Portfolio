@@ -14,12 +14,21 @@ import E5Page from './pages/E5Page';
 import { MentionsLegalesPage } from './pages/MentionsLegales';
 import { AnimatePresence } from 'motion/react';
 import { useEffect } from 'react';
+import { getPageMeta, SITE_URL } from './lib/seo';
 
 function AppContent() {
   const location = useLocation();
 
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+  }, [location.pathname]);
+
+  // Titre, description et canonical mis à jour à chaque changement de page
+  useEffect(() => {
+    const meta = getPageMeta(location.pathname);
+    document.title = meta.title;
+    document.querySelector('meta[name="description"]')?.setAttribute('content', meta.description);
+    document.querySelector('link[rel="canonical"]')?.setAttribute('href', SITE_URL + meta.path);
   }, [location.pathname]);
 
   return (

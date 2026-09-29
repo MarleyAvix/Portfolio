@@ -1,0 +1,23 @@
+User-agent: *
+Allow: /
+
+# Robots des moteurs de recherche IA : autorisés
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://portfolio.marley-avix.fr/sitemap.xml

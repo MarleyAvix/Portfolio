@@ -1,0 +1,28 @@
+# Marley Avix — Portfolio
+
+> Portfolio de Marley Avix, étudiant en BTS SIO option SLAM (développement d'applications) à MyDigitalSchool Angers, en alternance au Conseil départemental de la Mayenne (Laval). Reconversion professionnelle vers le développement, passion pour le jeu vidéo et le web.
+
+## Pages principales
+- [Accueil](https://portfolio.marley-avix.fr/)
+- [À propos](https://portfolio.marley-avix.fr/about)
+- [Formation et parcours](https://portfolio.marley-avix.fr/formation)
+- [Réalisations et projets](https://portfolio.marley-avix.fr/projects)
+- [Tableau de synthèse E5](https://portfolio.marley-avix.fr/e5)
+- [Veille technologique](https://portfolio.marley-avix.fr/tech)
+- [Contact](https://portfolio.marley-avix.fr/contact)
+
+## Projets
+- [anonymisation-base-de-donnees](https://portfolio.marley-avix.fr/projects/anonymisation-base-de-donnees)
+- [maquette-site-videaste](https://portfolio.marley-avix.fr/projects/maquette-site-videaste)
+- [recette-only-office](https://portfolio.marley-avix.fr/projects/recette-only-office)
+- [creation-support-video](https://portfolio.marley-avix.fr/projects/creation-support-video)
+- [redaction-courrier-jasper-soft](https://portfolio.marley-avix.fr/projects/redaction-courrier-jasper-soft)
+- [fairview-rp](https://portfolio.marley-avix.fr/projects/fairview-rp)
+- [outil-support-interne](https://portfolio.marley-avix.fr/projects/outil-support-interne)
+- [infrastructure-virtuelle-securisee-e6](https://portfolio.marley-avix.fr/projects/infrastructure-virtuelle-securisee-e6)
+- [moevia-voyage](https://portfolio.marley-avix.fr/projects/moevia-voyage)
+- [deploiement-coolify-vps](https://portfolio.marley-avix.fr/projects/deploiement-coolify-vps)
+
+## Liens
+- [LinkedIn](https://www.linkedin.com/in/marleyavix/)
+- [GitHub](https://github.com/marleyavix)
