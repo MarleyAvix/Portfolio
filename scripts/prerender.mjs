@@ -3,29 +3,34 @@
  * (title, description, canonical, Open Graph) et un contenu texte lisible sans JavaScript,
  * puis régénère sitemap.xml et llms.txt depuis les données du site.
  *
- * Utilisation : "npm run build" (voir package.json). Aucune dépendance en plus d'esbuild.
+ * Utilisation : "npm run build" (voir package.json). Utilise uniquement Vite (aucune autre dépendance).
  */
-import { build } from 'esbuild';
+import { build } from 'vite';
 import { readFile, writeFile, mkdir, rm } from 'node:fs/promises';
 import { pathToFileURL } from 'node:url';
 import path from 'node:path';
 
 const root = process.cwd();
 const dist = path.join(root, 'dist');
-const tmp = path.join(root, 'node_modules', '.cache', 'seo.bundle.mjs');
+const outDir = path.join(root, 'node_modules', '.cache', 'seo-bundle');
 
-// 1. Charge src/lib/seo.ts (les images importées par les données sont ignorées)
+// 1. Compile src/lib/seo.ts avec Vite (mode SSR) pour pouvoir le charger dans Node.
+//    Les images importées par les données ne sont pas émises (simples URL).
 await build({
-  entryPoints: [path.join(root, 'src/lib/seo.ts')],
-  outfile: tmp,
-  bundle: true,
-  format: 'esm',
-  platform: 'node',
+  configFile: false,
+  root,
   logLevel: 'silent',
-  loader: { '.png': 'empty', '.jpg': 'empty', '.webp': 'empty', '.svg': 'empty' },
+  publicDir: false,
+  build: {
+    ssr: path.join(root, 'src/lib/seo.ts'),
+    outDir,
+    emptyOutDir: true,
+    minify: false,
+    rollupOptions: { output: { format: 'esm', entryFileNames: 'seo.mjs' } },
+  },
 });
-const { allPages, SITE_URL, SITE_NAME } = await import(pathToFileURL(tmp).href);
-await rm(tmp, { force: true });
+const { allPages, SITE_URL, SITE_NAME } = await import(pathToFileURL(path.join(outDir, 'seo.mjs')).href);
+await rm(outDir, { recursive: true, force: true });
 
 const template = await readFile(path.join(dist, 'index.html'), 'utf8');
 const esc = (s = '') =>
