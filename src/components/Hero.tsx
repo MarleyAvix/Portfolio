@@ -119,7 +119,7 @@ export const Hero = () => {
             className="flex flex-wrap items-center justify-center lg:justify-start gap-4"
           >
             {<a 
-              href="/Marley_AVIX_FlowCV_Resume_2026-09-29.pdf" 
+              href="/Marley_AVIX_CV.pdf" 
               download 
               className="bg-brand-blue hover:bg-blue-600 text-white px-8 py-4 rounded-xl font-semibold flex items-center gap-3 shadow-lg transition-all"
             >
