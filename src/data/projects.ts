@@ -121,46 +121,6 @@ export const projects: Project[] = [
       validatedSkills: ["bloc1-1", "bloc1-3"],
     }
   },
-  /* Maquette Site Vidéaste */
-  {
-    id: "maquette-site-videaste",
-    title: "Maquette Site Vidéaste",
-    description: "Création d'une maquette de site web pour un vidéaste.",
-    longDescription: "Création d'une maquette de site web pour un vidéaste, mettant en avant son portfolio et ses services de manière élégante et moderne.",
-    image: fuckcops,
-    category: "Perso",
-    tags: ["Développement Web", "UI/UX Design"],
-    live: "https://fuckcops-prod.vercel.app/#",
-    github: "",
-    featured: false,
-    details: {
-      content: [
-        {
-          icon: 'Lightbulb',
-          title: "Le Défi",
-          text: "Créer un design moderne qui met en valeur le travail de l’artiste tout en offrant une expérience utilisateur fluide."
-        },
-        {
-          icon: 'CheckCircle2',
-          title: "La Solution",
-          text: "Développement d’une page statique répondant aux besoins du client, avec une attention particulière portée à la typographie, à la mise en page et à l’optimisation mobile."
-        },
-        {
-          icon: 'Brain',
-          title: "Ce que j'ai appris",
-          text: "Ce projet m’a appris à analyser les besoins des utilisateurs pour créer selon leurs attentes, ainsi qu’à gérer un système de tri et de filtrage de données en temps réel pour offrir une expérience utilisateur optimale."
-        }
-      ],
-      technologies: ["HTML", "CSS", "JavaScript"],
-      features: [
-        "Filtre de projets par catégorie",
-        "Animation au survol des sections",
-        "Design épuré et moderne",
-        "Responsive pour tous les appareils"
-      ],
-      validatedSkills: [],
-    }
-  },
   /* Recette Only Office */
   {
     id: "recette-only-office",
@@ -338,6 +298,7 @@ export const projects: Project[] = [
       validatedSkills: [], // À adapter selon ton référentiel
     }
   }, 
+  /*OUTIL SUPPORT*/ 
   {
     id: "outil-support-interne",
     title: "Développement d'un outil de support interne",
@@ -345,7 +306,7 @@ export const projects: Project[] = [
     longDescription: "Ce projet formalise la refonte complète d'un outil de support destiné à améliorer les processus internes. Il retrace toute la démarche d'ingénierie logicielle : du recueil des besoins initiaux auprès des utilisateurs jusqu'à la définition et la validation d'un produit minimum viable (MVP) fonctionnel, en passant par le choix et la validation d'une stack technique moderne.",
     image: "https://placehold.co/600x400?text=Outil+Support+Interne",
     category: "Entreprise",
-    tags: ["Méthodologie Agile", "Architecture", "MVP"],
+    tags: ["Méthodologie projet", "Architecture", "MVP"],
     live: "",
     github: "",
     featured: true,
@@ -365,7 +326,11 @@ export const projects: Project[] = [
           text: "Analyse comparative de différentes technologies selon des critères de performance, de sécurité et de maintenabilité. Après évaluation, la stack technique a été validée avec les équipes système pour s'assurer de sa parfaite intégration et de sa conformité avec l'infrastructure de l'organisation."
         },
         {
-          title: "3. Validation des besoins et Objectifs MVP",
+          title: "3. Redaction des spécifications Technique et fonctionnelles",
+          text: "Rédaction des spécifications fonctionnelles détaillant les besoins utilisateurs, les flux de travail et les contraintes techniques. Ces documents ont servi de référence pour le développement et la validation des fonctionnalités du projet."
+        },
+        {
+          title: "4. Validation des besoins et Objectifs MVP",
           text: "Pour éviter l'effet 'tunnel', les besoins ont été priorisés selon la méthode MoSCoW afin de définir le périmètre du MVP (Minimum Viable Product). Cette validation conjointe avec les parties prenantes a fixé l'objectif principal : livrer un cœur de système fonctionnel (création, assignation et suivi des tickets de support) avant d'envisager des fonctionnalités secondaires."
         },
         {
@@ -374,17 +339,18 @@ export const projects: Project[] = [
           text: "Ce projet m'a permis de maîtriser les phases amont d'un projet informatique, souvent cruciales pour sa réussite. J'ai appris à traduire des besoins utilisateurs parfois flous en spécifications techniques claires, à défendre des choix d'architecture et à piloter la conception par la valeur (approche MVP).\n\nCe projet m'a permis de valider les compétences suivantes:\n- Recenser et identifier les besoins des utilisateurs\n- Traiter des demandes d'assistance liées à une application\n- Exploiter des référentiels, normes et standards adoptés par le prestataire informatique\n- Planifier les étapes du développement d'une solution"
         }
       ],
-      technologies: ["FastAPI", "Oracle", "Vue.js", ], // Stack technique à adapter selon ton vrai choix
+      technologies: [".NET", "Oracle", "Blazor","C#" ], // Stack technique à adapter selon ton vrai choix
       features: [
         "Recueil et formalisation des besoins utilisateurs",
         "Étude comparative et validation d'une stack logicielle",
         "Priorisation fonctionnelle et définition du périmètre MVP",
-        "Modélisation des cycles de vie des tickets de support",
+        "Développement d'une API REST",
         "Alignement avec les standards de sécurité de l'organisation"
       ],
       validatedSkills: ["bloc1-1", "bloc1-2", "bloc1-4"], // À adapter selon tes fiches E4/E5
     }
   },
+  /*INFRA E6*/
   {
     id: "infrastructure-virtuelle-securisee-e6",
     title: "Conception et déploiement d'une infrastructure Open-Source sécurisée",
@@ -499,6 +465,7 @@ export const projects: Project[] = [
     ]
   }
 },
+/*COOLIFY */
 {
   id: "deploiement-coolify-vps",
   title: "Plateforme de Déploiement PaaS (Coolify sur VPS)",

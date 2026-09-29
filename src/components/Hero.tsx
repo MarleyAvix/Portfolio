@@ -119,14 +119,14 @@ export const Hero = () => {
             transition={{ delay: 0.3 }}
             className="flex flex-wrap items-center justify-center lg:justify-start gap-4"
           >
-            {/*<a 
-              href="/Calendriers BTS_2025-2027.pdf" 
+            {<a 
+              href="/public/Marley_AVIX_FlowCV_Resume_2026-09-29.pdf" 
               download 
               className="bg-brand-blue hover:bg-blue-600 text-white px-8 py-4 rounded-xl font-semibold flex items-center gap-3 shadow-lg transition-all"
             >
              <Download size={20} /> 
               Télécharger CV
-            </a>*/}
+            </a>}
             <Link to="https://github.com/marleyavix" className="bg-slate-800 hover:bg-slate-700 text-slate-200 px-8 py-4 rounded-xl font-semibold border border-slate-700 transition-all" target="_blank" rel="noopener noreferrer">
                <Github size={20} />
             </Link>
