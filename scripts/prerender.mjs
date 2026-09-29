@@ -56,7 +56,7 @@ const render = (page) => {
   html = setMeta(html, 'twitter:description', page.description);
 
   // Contenu lisible sans JavaScript (remplacé par React au chargement)
-  let body = `<main><h1>${esc(page.heading)}</h1>`;
+  let body = `<main data-prerender><h1>${esc(page.heading)}</h1>`;
   if (page.intro) body += `<p>${esc(page.intro)}</p>`;
   for (const s of page.sections ?? []) body += `<h2>${esc(s.title)}</h2><p>${esc(s.text)}</p>`;
   if (page.path === '/') {
@@ -65,6 +65,11 @@ const render = (page) => {
     body += '</ul></nav>';
   }
   body += '</main>';
+  // Le contenu pré-rendu reste dans le HTML (lu par les robots) mais est masqué visuellement :
+  // sinon il s'affiche brièvement avant que React ne prenne la main.
+  const hide =
+    '<style>[data-prerender]{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}</style>';
+  html = html.replace('</head>', `    ${hide}\n  </head>`);
   return html.replace('<div id="root"></div>', `<div id="root">${body}</div>`);
 };
 
