@@ -19,7 +19,7 @@ const MentionsLegalesPage = lazy(() => import('./pages/MentionsLegales').then((m
 const NotFoundPage = lazy(() => import('./pages/NotFound').then((m) => ({ default: m.NotFoundPage })));
 const E5Page = lazy(() => import('./pages/E5Page'));
 
-const lazyPage = (page: React.ReactNode) => <Suspense fallback={null}>{page}</Suspense>;
+const lazyPage = (page: React.ReactNode) => <Suspense fallback={<div className="min-h-screen" aria-hidden="true" />}>{page}</Suspense>;
 
 function AppContent() {
   const location = useLocation();
