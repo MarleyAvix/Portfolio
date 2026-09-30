@@ -46,11 +46,11 @@ const softSkills = [
   { name: 'Grande curiosité', icon: Lightbulb },
 ];
 
-const aboutContent = `Autodidacte passionné et engagé, j'ai cultivé une solide expertise technique bien avant de formaliser mon parcours au sein de MyDigitalSchool Angers. Mon intégration en BTS SIO est l'aboutissement d'un choix de carrière stratégique, venant sceller des années de pratique informatique personnelle et rigoureuse.
+const aboutContent = `Développeur en reconversion, je suis en BTS SIO option SLAM à MyDigitalSchool Angers, en alternance au Conseil Départemental de la Mayenne.
 
-**Mon atout majeur :** 15 années d'expérience multisectorielle qui m'ont appris à décrypter les enjeux d'une entreprise et à évoluer avec aisance dans des environnements complexes.
+**Mon parcours :** 15 ans d'expérience dans des secteurs très différents (menuiserie, industrie, éducation) m'ont appris à comprendre les besoins de ceux qui utilisent les outils, à m'adapter vite et à travailler en équipe. Autodidacte en informatique depuis des années, j'ai fait de cette passion mon métier.
 
-Plus qu'un développeur en devenir, je suis un collaborateur mature, capable de transformer des besoins métiers en solutions technologiques performantes.`;
+**Ce que je fais aujourd'hui :** je conçois et développe des applications web (React, Vue.js, C# / .NET), j'automatise des déploiements sur mon propre serveur, et je pilote des projets de la réunion de cadrage jusqu'à la mise en production.`;
 
 export const About = () => {
   return (
