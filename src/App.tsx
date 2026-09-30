@@ -1,21 +1,25 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation, Link } from 'react-router-dom';
 import { Sidebar } from './components/Sidebar';
 import { HomePage } from './pages/Home';
-import { FormationPage } from './pages/Formation';
-import { AboutPage } from './pages/About';
-import { ProjectsPage } from './pages/Projects';
-import { ProjectDetailPage } from './pages/ProjectDetail';
-import { ParcoursDetailPage } from './pages/ParcoursDetail';
-import { ContactPage } from './pages/Contact';
-import { TechWatchPage } from './pages/TechWatch';
-import { TechWatchDetailPage } from './pages/TechWatchDetail';
-import E5Page from './pages/E5Page';
-import { MentionsLegalesPage } from './pages/MentionsLegales';
 import { AnimatePresence, MotionConfig } from 'motion/react';
 import { useEffect, useRef, useState } from 'react';
 import { getPageMeta, isKnownPage, notFoundMeta, SITE_URL } from './lib/seo';
-import { NotFoundPage } from './pages/NotFound';
+
+// Les pages autres que l'accueil sont chargées à la demande (bundle initial plus léger)
+const FormationPage = lazy(() => import('./pages/Formation').then((m) => ({ default: m.FormationPage })));
+const AboutPage = lazy(() => import('./pages/About').then((m) => ({ default: m.AboutPage })));
+const ProjectsPage = lazy(() => import('./pages/Projects').then((m) => ({ default: m.ProjectsPage })));
+const ProjectDetailPage = lazy(() => import('./pages/ProjectDetail').then((m) => ({ default: m.ProjectDetailPage })));
+const ParcoursDetailPage = lazy(() => import('./pages/ParcoursDetail').then((m) => ({ default: m.ParcoursDetailPage })));
+const ContactPage = lazy(() => import('./pages/Contact').then((m) => ({ default: m.ContactPage })));
+const TechWatchPage = lazy(() => import('./pages/TechWatch').then((m) => ({ default: m.TechWatchPage })));
+const TechWatchDetailPage = lazy(() => import('./pages/TechWatchDetail').then((m) => ({ default: m.TechWatchDetailPage })));
+const MentionsLegalesPage = lazy(() => import('./pages/MentionsLegales').then((m) => ({ default: m.MentionsLegalesPage })));
+const NotFoundPage = lazy(() => import('./pages/NotFound').then((m) => ({ default: m.NotFoundPage })));
+const E5Page = lazy(() => import('./pages/E5Page'));
+
+const lazyPage = (page: React.ReactNode) => <Suspense fallback={null}>{page}</Suspense>;
 
 function AppContent() {
   const location = useLocation();
@@ -60,17 +64,17 @@ function AppContent() {
           <AnimatePresence mode="wait">
             <Routes location={location}>
               <Route path="/" element={<HomePage />} />
-              <Route path="/formation" element={<FormationPage />} />
-              <Route path="/formation/:id" element={<ParcoursDetailPage />} />
-              <Route path="/about" element={<AboutPage />} />
-              <Route path="/projects" element={<ProjectsPage />} />
-              <Route path="/projects/:id" element={<ProjectDetailPage />} />
-              <Route path="/tech" element={<TechWatchPage />} />
-              <Route path="/tech/:id" element={<TechWatchDetailPage />} />
-              <Route path="/contact" element={<ContactPage />} />
-              <Route path="/e5" element={<E5Page />} />
-              <Route path="/mentions-legales" element={<MentionsLegalesPage />} />
-              <Route path="*" element={<NotFoundPage />} />
+              <Route path="/formation" element={lazyPage(<FormationPage />)} />
+              <Route path="/formation/:id" element={lazyPage(<ParcoursDetailPage />)} />
+              <Route path="/about" element={lazyPage(<AboutPage />)} />
+              <Route path="/projects" element={lazyPage(<ProjectsPage />)} />
+              <Route path="/projects/:id" element={lazyPage(<ProjectDetailPage />)} />
+              <Route path="/tech" element={lazyPage(<TechWatchPage />)} />
+              <Route path="/tech/:id" element={lazyPage(<TechWatchDetailPage />)} />
+              <Route path="/contact" element={lazyPage(<ContactPage />)} />
+              <Route path="/e5" element={lazyPage(<E5Page />)} />
+              <Route path="/mentions-legales" element={lazyPage(<MentionsLegalesPage />)} />
+              <Route path="*" element={lazyPage(<NotFoundPage />)} />
             </Routes>
           </AnimatePresence>
         </div>
