@@ -1,23 +1,41 @@
 import React from 'react';
 import { User, Cpu, Lightbulb, BriefcaseBusiness, Ear } from 'lucide-react';
 import { motion } from 'motion/react';
-import { FaPython, FaPhp, FaHtml5, FaCss3Alt, FaReact, FaDocker, FaGitAlt, FaDatabase, FaLinux   } from 'react-icons/fa6';
+import { FaPython, FaPhp, FaHtml5, FaCss3Alt, FaReact, FaVuejs, FaDocker, FaGitAlt, FaDatabase, FaLinux   } from 'react-icons/fa6';
 import { IoLogoJavascript } from 'react-icons/io5';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-import { SiSap,  } from "react-icons/si";
-const skills = [
-  { name: 'Python', icon: FaPython },
-  { name: 'PHP', icon: FaPhp },
-  { name: 'JavaScript', icon: IoLogoJavascript },
-  { name: 'HTML', icon: FaHtml5 },
-  { name: 'CSS', icon: FaCss3Alt },
-  { name: 'React', icon: FaReact },
-  { name: 'Docker', icon: FaDocker },
-  { name: 'Git', icon: FaGitAlt },
-  { name: 'SQL', icon: FaDatabase },
-  { name: 'Linux', icon: FaLinux },
-  { name: 'SAP BO', icon: SiSap },
+import { SiSap } from 'react-icons/si';
+import { TbBrandCSharp } from 'react-icons/tb';
+const skillGroups = [
+  {
+    title: 'Développement',
+    skills: [
+      { name: 'HTML', icon: FaHtml5 },
+      { name: 'CSS', icon: FaCss3Alt },
+      { name: 'JavaScript', icon: IoLogoJavascript },
+      { name: 'React', icon: FaReact },
+      { name: 'Vue.js', icon: FaVuejs },
+      { name: 'C#', icon: TbBrandCSharp },
+      { name: 'PHP', icon: FaPhp },
+      { name: 'Python', icon: FaPython },
+    ],
+  },
+  {
+    title: 'Données et outils métier',
+    skills: [
+      { name: 'SQL', icon: FaDatabase },
+      { name: 'SAP BO', icon: SiSap },
+    ],
+  },
+  {
+    title: 'Systèmes et déploiement',
+    skills: [
+      { name: 'Linux', icon: FaLinux },
+      { name: 'Docker', icon: FaDocker },
+      { name: 'Git', icon: FaGitAlt },
+    ],
+  },
 ];
 
 const softSkills = [
@@ -88,27 +106,32 @@ export const About = () => {
           </div>
 
           {/* Compétences */}
-          <div className="flex flex-col gap-6">
+          <div className="flex flex-col gap-8">
             <h2 className="text-sm font-mono text-brand-text uppercase tracking-[0.2em]">
               Compétences
             </h2>
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 xl:grid-cols-9 gap-4">
-              {skills.map((skill, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.05 }}
-                  className="glass-card min-h-28 p-4 hover:border-brand-blue/50 transition-colors flex flex-col items-center justify-center gap-2"
-                >
-                  <div className="text-brand-text">
-                    <skill.icon size={24} aria-hidden="true" />
-                  </div>
-                  <span className="text-xs font-medium text-slate-200 text-center">{skill.name}</span>
-                </motion.div>
-              ))}
-            </div>
+            {skillGroups.map((group) => (
+              <div key={group.title} className="flex flex-col gap-4">
+                <h3 className="text-xs font-mono text-slate-400 uppercase tracking-widest">{group.title}</h3>
+                <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-4">
+                  {group.skills.map((skill, index) => (
+                    <motion.div
+                      key={skill.name}
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: index * 0.05 }}
+                      className="glass-card min-h-28 p-4 hover:border-brand-blue/50 transition-colors flex flex-col items-center justify-center gap-2"
+                    >
+                      <div className="text-brand-text">
+                        <skill.icon size={24} aria-hidden="true" />
+                      </div>
+                      <span className="text-xs font-medium text-slate-200 text-center">{skill.name}</span>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
