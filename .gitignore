@@ -1,0 +1,18 @@
+# Dépendances et build
+node_modules/
+dist/
+
+# Variables d'environnement (jamais dans Git)
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+npm-debug.log*
+
+# Système / éditeur
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/extensions.json
