@@ -121,6 +121,7 @@ export const projects: Project[] = [
       validatedSkills: ["bloc1-1", "bloc1-3"],
     }
   },
+  
   /* Recette Only Office */
   {
     id: "recette-only-office",

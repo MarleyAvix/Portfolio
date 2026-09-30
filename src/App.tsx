@@ -14,7 +14,8 @@ import E5Page from './pages/E5Page';
 import { MentionsLegalesPage } from './pages/MentionsLegales';
 import { AnimatePresence, MotionConfig } from 'motion/react';
 import { useEffect, useRef, useState } from 'react';
-import { getPageMeta, SITE_URL } from './lib/seo';
+import { getPageMeta, isKnownPage, notFoundMeta, SITE_URL } from './lib/seo';
+import { NotFoundPage } from './pages/NotFound';
 
 function AppContent() {
   const location = useLocation();
@@ -28,7 +29,8 @@ function AppContent() {
 
   // Titre, description et canonical mis à jour à chaque changement de page
   useEffect(() => {
-    const meta = getPageMeta(location.pathname);
+    const known = isKnownPage(location.pathname);
+    const meta = known ? getPageMeta(location.pathname) : notFoundMeta;
     document.title = meta.title;
     setAnnouncement(meta.title);
     // Accessibilité : après un changement de page, place le focus sur le contenu principal
@@ -39,6 +41,10 @@ function AppContent() {
     }
     document.querySelector('meta[name="description"]')?.setAttribute('content', meta.description);
     document.querySelector('link[rel="canonical"]')?.setAttribute('href', SITE_URL + meta.path);
+    // Une page inconnue ne doit pas être indexée par les moteurs de recherche
+    document
+      .querySelector('meta[name="robots"]')
+      ?.setAttribute('content', known ? 'index, follow, max-image-preview:large' : 'noindex, follow');
   }, [location.pathname]);
 
   return (
@@ -64,6 +70,7 @@ function AppContent() {
               <Route path="/contact" element={<ContactPage />} />
               <Route path="/e5" element={<E5Page />} />
               <Route path="/mentions-legales" element={<MentionsLegalesPage />} />
+              <Route path="*" element={<NotFoundPage />} />
             </Routes>
           </AnimatePresence>
         </div>

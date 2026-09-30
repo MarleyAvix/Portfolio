@@ -153,6 +153,21 @@ const techPages: PageMeta[] = techWatchItems.map((t) => ({
 
 export const allPages: PageMeta[] = [...staticPages, ...projectPages, ...parcoursPages, ...techPages];
 
+/** Vrai si l'URL correspond à une page existante du site. */
+export const isKnownPage = (pathname: string): boolean => {
+  const p = withSlash(pathname || '/');
+  return allPages.some((page) => page.path === p);
+};
+
+/** Métadonnées d'une page inconnue (à ne pas indexer). */
+export const notFoundMeta: PageMeta = {
+  path: '/',
+  title: 'Page introuvable | Marley Avix – Portfolio',
+  description: "Cette page n'existe pas ou a été déplacée.",
+  heading: 'Page introuvable',
+  priority: 0,
+};
+
 /** Métadonnées d'une URL (avec ou sans slash final). Accueil par défaut si inconnue. */
 export const getPageMeta = (pathname: string): PageMeta => {
   const p = withSlash(pathname || '/');
