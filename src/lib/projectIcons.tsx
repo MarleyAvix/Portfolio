@@ -25,7 +25,7 @@ import {
 const projectIconRegistry = {
   Lightbulb: { Icon: Lightbulb, className: 'text-amber-400' },
   CheckCircle2: { Icon: CheckCircle2, className: 'text-emerald-400' },
-  Rocket: { Icon: Rocket, className: 'text-brand-blue' },
+  Rocket: { Icon: Rocket, className: 'text-brand-text' },
   Brain: { Icon: Brain, className: 'text-purple-400' },
   Code: { Icon: Code, className: 'text-green-400' },
   FolderKanban: { Icon: FolderKanban, className: 'text-red-400' },

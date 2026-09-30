@@ -40,7 +40,7 @@ export const About = () => {
       <div className="container mx-auto px-6">
         <div className="flex items-center gap-4 mb-12">
           <div className="w-1.5 h-8 bg-brand-blue rounded-full" />
-          <h2 className="text-3xl font-bold text-slate-100">A propos</h2>
+          <h1 className="text-3xl font-bold text-slate-100">A propos</h1>
         </div>
 
         <div className="space-y-20">
@@ -53,9 +53,9 @@ export const About = () => {
               viewport={{ once: true }}
               className="flex flex-col gap-6 h-full"
             >
-              <h3 className="text-sm font-mono text-brand-blue uppercase tracking-[0.2em]">
+              <h2 className="text-sm font-mono text-brand-text uppercase tracking-[0.2em]">
                 En savoir plus sur moi
-              </h3>
+              </h2>
               <div className="glass-card p-6 md:p-8 h-full">
                 <div className="prose prose-invert max-w-none text-slate-400 text-sm leading-relaxed prose-p:my-0 prose-p:leading-relaxed prose-strong:text-slate-100 prose-strong:font-semibold prose-p:mb-4 last:prose-p:mb-0">
                   <ReactMarkdown remarkPlugins={[remarkGfm]}>
@@ -71,13 +71,13 @@ export const About = () => {
               viewport={{ once: true }}
               className="flex flex-col gap-6 h-full"
             >
-              <h3 className="text-sm font-mono text-brand-blue uppercase tracking-[0.2em]">
+              <h2 className="text-sm font-mono text-brand-text uppercase tracking-[0.2em]">
                 Valeurs
-              </h3>
+              </h2>
               <div className="grid grid-cols-1 gap-4">
                 {softSkills.map((skill, index) => (
                   <div key={index} className="glass-card min-h-20 p-4 flex items-center gap-4 hover:border-slate-600">
-                    <div className="w-10 h-10 bg-slate-800 rounded-lg flex items-center justify-center text-brand-blue border border-slate-700">
+                    <div className="w-10 h-10 bg-slate-800 rounded-lg flex items-center justify-center text-brand-text border border-slate-700">
                       <skill.icon size={20} />
                     </div>
                     <span className="font-semibold text-slate-300">{skill.name}</span>
@@ -89,9 +89,9 @@ export const About = () => {
 
           {/* Compétences */}
           <div className="flex flex-col gap-6">
-            <h3 className="text-sm font-mono text-brand-blue uppercase tracking-[0.2em]">
+            <h2 className="text-sm font-mono text-brand-text uppercase tracking-[0.2em]">
               Compétences
-            </h3>
+            </h2>
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 xl:grid-cols-9 gap-4">
               {skills.map((skill, index) => (
                 <motion.div
@@ -102,8 +102,8 @@ export const About = () => {
                   transition={{ delay: index * 0.05 }}
                   className="glass-card min-h-28 p-4 hover:border-brand-blue/50 transition-colors flex flex-col items-center justify-center gap-2"
                 >
-                  <div className="text-brand-blue">
-                    <skill.icon size={24} />
+                  <div className="text-brand-text">
+                    <skill.icon size={24} aria-hidden="true" />
                   </div>
                   <span className="text-xs font-medium text-slate-200 text-center">{skill.name}</span>
                 </motion.div>

@@ -18,7 +18,7 @@ export const TechWatch = () => {
       <div className="container mx-auto px-6">
         <div className="flex items-center gap-4 mb-12">
           <div className="w-1.5 h-8 bg-brand-blue rounded-full" />
-          <h2 className="text-3xl font-bold text-slate-100">Veille techno</h2>
+          <h1 className="text-3xl font-bold text-slate-100">Veille techno</h1>
         </div>
 
         <div className="flex items-center gap-2 mb-12">
@@ -29,10 +29,12 @@ export const TechWatch = () => {
           {categories.map(category => (
             <button
               key={category}
+              type="button"
               onClick={() => setSelectedCategory(category)}
+              aria-pressed={selectedCategory === category}
               className={`px-4 py-2 text-sm font-semibold rounded-full transition-colors ${
                 selectedCategory === category
-                  ? 'bg-brand-blue text-white'
+                  ? 'bg-brand-strong text-white'
                   : 'bg-slate-800 text-slate-300 hover:bg-slate-700'
               }`}
             >
@@ -69,14 +71,14 @@ export const TechWatch = () => {
                 </div>
                 
                 <div className="p-6 flex-1 flex flex-col">
-                  <p className="text-[10px] font-mono text-slate-500 mb-2 uppercase tracking-widest">{item.date}</p>
-                  <h3 className="font-bold text-slate-100 mb-3 group-hover:text-brand-blue transition-colors line-clamp-2">
+                  <p className="text-[10px] font-mono text-slate-400 mb-2 uppercase tracking-widest">{item.date}</p>
+                  <h2 className="font-bold text-slate-100 mb-3 group-hover:text-brand-text transition-colors line-clamp-2">
                     {item.title}
-                  </h3>
+                  </h2>
                   <p className="text-xs text-slate-400 line-clamp-3 mb-6 flex-1 leading-relaxed">
                     {item.excerpt}
                   </p>
-                  <div className="mt-auto text-[10px] font-bold uppercase tracking-wider text-brand-blue flex items-center gap-1 group-hover:gap-2 transition-all">
+                  <div className="mt-auto text-xs font-bold uppercase tracking-wider text-brand-text flex items-center gap-1 group-hover:gap-2 transition-all">
                     Lire la suite <ArrowUpRight size={12} />
                   </div>
                 </div>

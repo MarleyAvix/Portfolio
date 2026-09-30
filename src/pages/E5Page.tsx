@@ -18,7 +18,7 @@ const E5Page = () => {
         <div className="flex items-center gap-4 mb-12">
           <div className="w-1.5 h-8 bg-brand-blue rounded-full" />
           <div className="flex-1">
-            <h2 className="text-3xl font-bold text-slate-100">Tableau de synthese E5</h2>
+            <h1 className="text-3xl font-bold text-slate-100">Tableau de synthese E5</h1>
             <p className="text-slate-400 mt-1 text-sm">
               {validatedSkills} competences validees sur {totalSkills}
             </p>
@@ -30,7 +30,7 @@ const E5Page = () => {
               target="_blank"
               rel="noopener noreferrer"
               download
-              className="inline-flex items-center gap-2 rounded-lg border border-brand-blue/40 bg-brand-blue/15 px-4 py-2 text-sm font-semibold text-brand-blue transition hover:bg-brand-blue/25"
+              className="inline-flex items-center gap-2 rounded-lg border border-brand-blue/40 bg-brand-blue/15 px-4 py-2 text-sm font-semibold text-brand-text transition hover:bg-brand-blue/25"
             >
               <Download size={16} />
               Telecharger le PDF
@@ -39,7 +39,7 @@ const E5Page = () => {
             <button
               type="button"
               disabled
-              className="inline-flex cursor-not-allowed items-center gap-2 rounded-lg border border-slate-700 bg-slate-800/70 px-4 py-2 text-sm font-semibold text-slate-500"
+              className="inline-flex cursor-not-allowed items-center gap-2 rounded-lg border border-slate-700 bg-slate-800/70 px-4 py-2 text-sm font-semibold text-slate-400"
             >
               <Download size={16} />
               Telecharger le PDF
@@ -54,18 +54,19 @@ const E5Page = () => {
         >
           <div className="overflow-x-auto">
             <table className="w-full min-w-[860px] border-collapse border border-slate-600/80">
+              <caption className="sr-only">Compétences du référentiel E5 et statut de validation</caption>
               <thead>
                 <tr className="bg-slate-800/80 text-left">
-                  <th className="px-4 py-4 text-xs font-bold uppercase tracking-wider text-slate-300 border border-slate-600/80 w-[120px]">
+                  <th scope="col" className="px-4 py-4 text-xs font-bold uppercase tracking-wider text-slate-300 border border-slate-600/80 w-[120px]">
                     Bloc
                   </th>
-                  <th className="px-4 py-4 text-xs font-bold uppercase tracking-wider text-slate-300 border border-slate-600/80 w-[320px]">
+                  <th scope="col" className="px-4 py-4 text-xs font-bold uppercase tracking-wider text-slate-300 border border-slate-600/80 w-[320px]">
                     Activite
                   </th>
-                  <th className="px-4 py-4 text-xs font-bold uppercase tracking-wider text-slate-300 border border-slate-600/80">
+                  <th scope="col" className="px-4 py-4 text-xs font-bold uppercase tracking-wider text-slate-300 border border-slate-600/80">
                     Competence evaluee
                   </th>
-                  <th className="px-4 py-4 text-xs font-bold uppercase tracking-wider text-slate-300 border border-slate-600/80 w-[180px]">
+                  <th scope="col" className="px-4 py-4 text-xs font-bold uppercase tracking-wider text-slate-300 border border-slate-600/80 w-[180px]">
                     Validation
                   </th>
                 </tr>
@@ -81,7 +82,7 @@ const E5Page = () => {
                             rowSpan={activity.skills.length}
                             className="px-4 py-4 align-top border border-slate-600/80"
                           >
-                            <span className="inline-flex items-center rounded-md border border-brand-blue/30 bg-brand-blue/10 px-2.5 py-1 text-xs font-semibold text-brand-blue uppercase tracking-wide">
+                            <span className="inline-flex items-center rounded-md border border-brand-blue/30 bg-brand-blue/10 px-2.5 py-1 text-xs font-semibold text-brand-text uppercase tracking-wide">
                               {activity.id.replace('bloc', 'BLOC ').replace('-', '.')}
                             </span>
                           </td>
@@ -98,12 +99,12 @@ const E5Page = () => {
 
                       <td className="px-4 py-3 border border-slate-600/80">
                         {skill.isValidated ? (
-                          <span className="inline-flex items-center gap-2 rounded-lg border border-emerald-500/30 bg-emerald-500/50 px-3 py-1.5 text-sm font-medium text-emerald-400">
+                          <span className="inline-flex items-center gap-2 rounded-lg border border-emerald-500/30 bg-emerald-500/20 px-3 py-1.5 text-sm font-medium text-emerald-300">
                             <CheckCircle2 size={16} />
                             Validee
                           </span>
                         ) : (
-                          <span className="inline-flex items-center gap-2 rounded-lg border border-gray-500/30 bg-gray-500/30 px-3 py-1.5 text-sm font-medium text-gray-400">
+                          <span className="inline-flex items-center gap-2 rounded-lg border border-gray-500/30 bg-gray-500/30 px-3 py-1.5 text-sm font-medium text-gray-300">
                             <XCircle size={16} />
                             A Valider
                           </span>

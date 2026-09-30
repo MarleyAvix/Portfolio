@@ -82,7 +82,7 @@ export const Hero = () => {
               />
             </div>
           </div>
-          <div className="absolute -bottom-4 -right-4 w-14 h-14 bg-brand-blue rounded-xl flex items-center justify-center shadow-xl border border-white/10">
+          <div aria-hidden="true" className="absolute -bottom-4 -right-4 w-14 h-14 bg-brand-strong rounded-xl flex items-center justify-center shadow-xl border border-white/10">
             <span className="text-white font-bold text-sm">DEV</span>
           </div>
         </div>
@@ -91,7 +91,7 @@ export const Hero = () => {
           <motion.div 
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            className="inline-block px-3 py-1 bg-brand-blue/10 text-brand-blue font-mono mb-6 rounded-md border border-brand-blue/20 text-xs uppercase tracking-widest"
+            className="inline-block px-3 py-1 bg-brand-blue/10 text-brand-text font-mono mb-6 rounded-md border border-brand-blue/20 text-xs uppercase tracking-widest"
           >
             étudiant en bts SIO SLAM
           </motion.div>
@@ -101,7 +101,7 @@ export const Hero = () => {
             transition={{ delay: 0.1 }}
             className="text-5xl lg:text-7xl font-bold mb-6 leading-tight text-slate-100 rounded-xl cursor-default select-none"
           >
-            Bonjour, je suis <span className="text-brand-blue">Marley Avix</span>
+            Bonjour, je suis <span className="text-brand-text">Marley Avix</span>
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -121,7 +121,7 @@ export const Hero = () => {
             {<a 
               href="/Marley_AVIX_CV.pdf" 
               download 
-              className="bg-brand-blue hover:bg-blue-600 text-white px-8 py-4 rounded-xl font-semibold flex items-center gap-3 shadow-lg transition-all"
+              className="bg-brand-strong hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-semibold flex items-center gap-3 shadow-lg transition-all"
             >
              <Download size={20} /> 
               Télécharger CV

@@ -15,7 +15,7 @@ export function MentionsLegalesPage() {
       <div className="max-w-3xl mx-auto">
         <Link
           to="/"
-          className="inline-flex items-center gap-2 text-slate-400 hover:text-brand-blue transition-colors text-sm mb-10"
+          className="inline-flex items-center gap-2 text-slate-400 hover:text-brand-text transition-colors text-sm mb-10"
         >
           <ArrowLeft className="w-4 h-4" />
           Retour à l'accueil
@@ -40,14 +40,14 @@ export function MentionsLegalesPage() {
                   href="https://www.linkedin.com/in/marleyavix/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-brand-blue hover:underline"
+                  className="text-brand-text hover:underline"
                 >
                   LinkedIn
                 </a>
                 <span> | </span>
                  <a
                   href="mailto:marleyavix@outlook.fr"
-                  className="text-brand-blue hover:underline"
+                  className="text-brand-text hover:underline"
                 >
                   Email
                 </a>
@@ -70,7 +70,7 @@ export function MentionsLegalesPage() {
                   href="https://www.ionos.fr/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-brand-blue hover:underline"
+                  className="text-brand-text hover:underline"
                 >
                   www.ionos.fr
                 </a>

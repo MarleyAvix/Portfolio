@@ -9,7 +9,7 @@ import { e5Activities } from '../data/e5';
 const categoryFilters: Array<'Tous' | ProjectCategory> = ['Tous', 'Ecole', 'Entreprise', 'Perso'];
 const allSkillsOption = 'Toutes les compétences';
 const categoryBadgeClassName =
-  'rounded-full border border-brand-blue/70 bg-brand-blue px-3 py-1 text-xs font-bold uppercase tracking-[0.2em] text-white shadow-lg shadow-brand-blue/35';
+  'rounded-full border border-brand-blue/70 bg-brand-strong px-3 py-1 text-xs font-bold uppercase tracking-[0.2em] text-white shadow-lg shadow-brand-blue/35';
 
 export const Projects = () => {
   const [activeCategory, setActiveCategory] = useState<'Tous' | ProjectCategory>('Tous');
@@ -35,7 +35,7 @@ export const Projects = () => {
         <div className="flex flex-col gap-6 mb-12">
           <div className="flex items-center gap-4">
             <div className="w-1.5 h-8 bg-brand-blue rounded-full" />
-            <h2 className="text-3xl font-bold text-slate-100">Réalisations</h2>
+            <h1 className="text-3xl font-bold text-slate-100">Réalisations</h1>
           </div>
 
           <div className="flex flex-wrap gap-3">
@@ -47,9 +47,10 @@ export const Projects = () => {
                   key={category}
                   type="button"
                   onClick={() => setActiveCategory(category)}
+                  aria-pressed={isActive}
                   className={`rounded-full border px-4 py-2 text-sm font-semibold transition-colors ${
                     isActive
-                      ? 'border-brand-blue bg-brand-blue text-white'
+                      ? 'border-brand-blue bg-brand-strong text-white'
                       : 'border-slate-700 bg-slate-900/70 text-slate-300 hover:border-slate-500 hover:text-white'
                   }`}
                 >
@@ -114,6 +115,7 @@ export const Projects = () => {
                     {isValidLink(project.github) && (
                       <a
                         href={project.github}
+                        aria-label={`Code source de ${project.title} (nouvel onglet)`}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="rounded-xl border border-white/25 bg-slate-950/75 p-2.5 text-slate-200 backdrop-blur-sm hover:text-white hover:border-white/45 transition-colors"
@@ -124,9 +126,10 @@ export const Projects = () => {
                     {isValidLink(project.live) && (
                       <a
                         href={project.live}
+                        aria-label={`Voir le site ${project.title} (nouvel onglet)`}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="rounded-xl border border-white/25 bg-slate-950/75 p-2.5 text-slate-200 backdrop-blur-sm hover:text-brand-blue hover:border-brand-blue/55 transition-colors"
+                        className="rounded-xl border border-white/25 bg-slate-950/75 p-2.5 text-slate-200 backdrop-blur-sm hover:text-brand-text hover:border-brand-blue/55 transition-colors"
                       >
                         <ExternalLink size={18} />
                       </a>
@@ -144,9 +147,9 @@ export const Projects = () => {
                   ))}
                 </div>
 
-                <h3 className="text-2xl font-bold mb-3 text-slate-100 group-hover:text-brand-blue transition-colors">
+                <h2 className="text-2xl font-bold mb-3 text-slate-100 group-hover:text-brand-text transition-colors">
                   <Link to={`/projects/${project.id}`}>{project.title}</Link>
-                </h3>
+                </h2>
                 <p className="text-slate-400 text-sm leading-relaxed mb-8 flex-1">
                   {project.description}
                 </p>

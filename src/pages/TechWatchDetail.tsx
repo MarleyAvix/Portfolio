@@ -14,7 +14,7 @@ const TechWatchIcon = ({ name }: { name?: 'Lightbulb' | 'CheckCircle2' | 'Rocket
     case 'CheckCircle2':
       return <CheckCircle2 className="text-emerald-400" />;
     case 'Rocket':
-      return <Rocket className="text-brand-blue" />;
+      return <Rocket className="text-brand-text" />;
     case 'Link':
       return <Link className="text-blue-400" />;
     case 'Code':
@@ -49,7 +49,7 @@ export const TechWatchDetailPage = () => {
   if (!item) {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center text-center px-6">
-        <h2 className="text-4xl font-bold mb-4">Article introuvable</h2>
+        <h1 className="text-4xl font-bold mb-4">Article introuvable</h1>
         <p className="text-slate-400 mb-8">L'article de veille que vous recherchez n'existe pas.</p>
         <Link to="/tech" className="btn-primary flex items-center gap-2">
           <ArrowLeft size={18} />
@@ -71,7 +71,7 @@ export const TechWatchDetailPage = () => {
         <div className="mb-12">
           <button 
             onClick={() => navigate(-1)}
-            className="flex items-center gap-2 text-slate-400 hover:text-brand-blue transition-colors mb-8 group"
+            className="flex items-center gap-2 text-slate-400 hover:text-brand-text transition-colors mb-8 group"
           >
             <ArrowLeft size={18} className="group-hover:-translate-x-1 transition-transform" />
             Retour
@@ -83,7 +83,7 @@ export const TechWatchDetailPage = () => {
                   {item.category}
                 </span>
               <h1 className="text-4xl md:text-6xl font-bold text-slate-100 mb-4">{item.title}</h1>
-               <p className="text-sm font-mono text-slate-500 uppercase tracking-widest">{item.date}</p>
+               <p className="text-sm font-mono text-slate-400 uppercase tracking-widest">{item.date}</p>
             </div>
           </div>
         </div>
@@ -111,7 +111,7 @@ export const TechWatchDetailPage = () => {
           <div className="space-y-12">
             <section>
               <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
-                <Rocket className="text-brand-blue" />
+                <Rocket className="text-brand-text" />
                 Aperçu
               </h2>
               <div className="prose prose-invert max-w-none text-slate-400 leading-relaxed text-lg">
@@ -127,7 +127,7 @@ export const TechWatchDetailPage = () => {
                 </h2>
                 <div className="prose prose-invert max-w-none text-slate-400 leading-relaxed">
                   {contentItem.text.startsWith('http') ? (
-                    <a href={contentItem.text} target="_blank" rel="noopener noreferrer" className="text-brand-blue hover:underline">{contentItem.text}</a>
+                    <a href={contentItem.text} target="_blank" rel="noopener noreferrer" className="text-brand-text hover:underline">{contentItem.text}</a>
                   ) : (
                     <p>{contentItem.text}</p>
                   )}

@@ -19,7 +19,7 @@ export const Sidebar = () => {
   return (
     <>
       {/* Desktop Sidebar */}
-      <aside className="hidden md:flex fixed left-0 top-0 h-screen w-20 flex-col items-center py-8 bg-slate-900 border-r border-slate-800 z-50">
+      <nav aria-label="Navigation principale" className="hidden md:flex fixed left-0 top-0 h-screen w-20 flex-col items-center py-8 bg-slate-900 border-r border-slate-800 z-50">
         <div className="mb-12">
           <div className="w-10 h-10 bg-brand-blue rounded-lg flex items-center justify-center shadow-lg">
             <span className="text-white font-bold text-sm">
@@ -28,14 +28,15 @@ export const Sidebar = () => {
           </div>
         </div>
         
-        <nav className="flex-1 flex flex-col gap-6">
+        <div className="flex-1 flex flex-col gap-6">
           {navItems.map((item) => (
             <NavLink
               key={item.id}
               to={item.path}
+              aria-label={item.label}
               className={({ isActive }) => `group relative p-3 rounded-xl transition-all duration-200 ${
                 isActive 
-                  ? 'bg-brand-blue text-white' 
+                  ? 'bg-brand-strong text-white' 
                   : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800'
               }`}
             >
@@ -44,7 +45,7 @@ export const Sidebar = () => {
                   <item.icon size={22} />
                   
                   {/* Tooltip */}
-                  <span className="absolute left-full ml-4 px-3 py-1.5 bg-slate-800 text-white text-xs font-medium rounded-md opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity whitespace-nowrap shadow-xl border border-slate-700">
+                  <span aria-hidden="true" className="absolute left-full ml-4 px-3 py-1.5 bg-slate-800 text-white text-xs font-medium rounded-md opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 pointer-events-none transition-opacity whitespace-nowrap shadow-xl border border-slate-700">
                     {item.label}
                   </span>
 
@@ -59,17 +60,17 @@ export const Sidebar = () => {
               )}
             </NavLink>
           ))}
-        </nav>
-      </aside>
+        </div>
+      </nav>
 
       {/* Mobile Bottom Navigation */}
-      <nav className="md:hidden fixed bottom-0 left-0 right-0 bg-slate-900/90 backdrop-blur-lg border-t border-slate-800 px-2 py-3 flex justify-around items-center z-50">
+      <nav aria-label="Navigation principale (mobile)" className="md:hidden fixed bottom-0 left-0 right-0 bg-slate-900/90 backdrop-blur-lg border-t border-slate-800 px-2 py-3 flex justify-around items-center z-50">
         {navItems.map((item) => (
           <NavLink
             key={item.id}
             to={item.path}
             className={({ isActive }) => `relative p-2 transition-all duration-200 ${
-              isActive ? 'text-brand-blue' : 'text-slate-400'
+              isActive ? 'text-brand-text' : 'text-slate-400'
             }`}
           >
             {({ isActive }) => (

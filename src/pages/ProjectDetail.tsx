@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { ArrowLeft, Github, ExternalLink, Code2, Rocket, X } from 'lucide-react';
@@ -22,8 +22,8 @@ const markdownComponents: Components = {
   p: ({ ...props }) => <p className="mb-4 last:mb-0" {...props} />,
   ol: ({ ...props }) => <ol className="my-4 list-decimal pl-6 space-y-2" {...props} />,
   ul: ({ ...props }) => <ul className="my-4 list-disc pl-6 space-y-2" {...props} />,
-  li: ({ ...props }) => <li className="marker:text-brand-blue" {...props} />,
-  a: ({ ...props }) => <a className="text-brand-blue underline hover:text-blue-400" {...props} />,
+  li: ({ ...props }) => <li className="marker:text-brand-text" {...props} />,
+  a: ({ ...props }) => <a className="text-brand-text underline hover:text-blue-400" {...props} />,
 };
 
 const MarkdownText = ({ text, className }: { text: string; className?: string }) => (
@@ -36,6 +36,7 @@ const MarkdownText = ({ text, className }: { text: string; className?: string })
 export const ProjectDetailPage = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
   const [zoomedImage, setZoomedImage] = useState<{ src: string; alt: string } | null>(null);
   const project = projects.find(p => p.id === id);
   const projectDetailImage = project?.details?.detailImage || project?.image;
@@ -43,6 +44,14 @@ export const ProjectDetailPage = () => {
 
   const hasGithubLink = isValidLink(project?.github);
   const hasLiveLink = isValidLink(project?.live);
+
+  // Accessibilité : rend le focus à l'élément qui a ouvert la fenêtre d'image agrandie
+  useEffect(() => {
+    if (!zoomedImage) return;
+    const previous = document.activeElement as HTMLElement | null;
+    closeButtonRef.current?.focus();
+    return () => previous?.focus();
+  }, [zoomedImage]);
 
   useEffect(() => {
     const handleEscape = (event: KeyboardEvent) => {
@@ -61,7 +70,7 @@ export const ProjectDetailPage = () => {
   if (!project) {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center text-center px-6">
-        <h2 className="text-4xl font-bold mb-4">Projet introuvable</h2>
+        <h1 className="text-4xl font-bold mb-4">Projet introuvable</h1>
         <p className="text-slate-400 mb-8">Le projet que vous recherchez n'existe pas ou a été déplacé.</p>
         <Link to="/projects" className="btn-primary flex items-center gap-2">
           <ArrowLeft size={18} />
@@ -83,7 +92,7 @@ export const ProjectDetailPage = () => {
         <div className="mb-12">
           <button 
             onClick={() => navigate(-1)}
-            className="flex items-center gap-2 text-slate-400 hover:text-brand-blue transition-colors mb-8 group"
+            className="flex items-center gap-2 text-slate-400 hover:text-brand-text transition-colors mb-8 group"
           >
             <ArrowLeft size={18} className="group-hover:-translate-x-1 transition-transform" />
             Retour
@@ -120,7 +129,7 @@ export const ProjectDetailPage = () => {
                   type="button"
                   disabled
                   aria-disabled="true"
-                  className="flex items-center gap-2 px-6 py-3 bg-slate-800/40 text-slate-500 rounded-xl font-bold border border-slate-700/50 opacity-70"
+                  className="flex items-center gap-2 px-6 py-3 bg-slate-800/40 text-slate-400 rounded-xl font-bold border border-slate-700/50 opacity-70"
                 >
                   <Github size={20} />
                   Code Source
@@ -132,7 +141,7 @@ export const ProjectDetailPage = () => {
                   href={project.live}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-6 py-3 bg-brand-blue hover:bg-blue-600 text-white rounded-xl font-bold transition-all shadow-lg shadow-brand-blue/20"
+                  className="flex items-center gap-2 px-6 py-3 bg-brand-strong hover:bg-blue-700 text-white rounded-xl font-bold transition-all shadow-lg shadow-brand-blue/20"
                 >
                   <ExternalLink size={20} />
                   Démo Live
@@ -162,21 +171,27 @@ export const ProjectDetailPage = () => {
               transition={{ delay: 0.2 }}
               className="relative w-full max-h-[clamp(320px,70vh,780px)] rounded-3xl overflow-hidden border border-white/5 shadow-2xl bg-slate-950 flex items-center justify-center"
             >
+              <button
+                type="button"
+                onClick={() => setZoomedImage({ src: projectDetailImage || '', alt: project?.title || '' })}
+                aria-label={`Agrandir l'image : ${project?.title || ''}`}
+                className="block w-full cursor-zoom-in"
+              >
               <img
                 src={projectDetailImage}
                 alt={project?.title || ''}
                 fetchPriority="high"
                 decoding="async"
-                className="w-full h-auto max-h-[clamp(320px,70vh,780px)] object-contain cursor-zoom-in"
+                className="w-full h-auto max-h-[clamp(320px,70vh,780px)] object-contain"
                 referrerPolicy="no-referrer"
-                onClick={() => setZoomedImage({ src: projectDetailImage || '', alt: project?.title || '' })}
               />
+              </button>
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/50 to-transparent" />
             </motion.div>
 
             <section>
               <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
-                <Rocket className="text-brand-blue" />
+                <Rocket className="text-brand-text" />
                 Aperçu du projet
               </h2>
               <MarkdownText
@@ -196,15 +211,21 @@ export const ProjectDetailPage = () => {
                   {item.images && (
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
                       {item.images.map((image, i) => (
-                        <img
+                        <button
                           key={i}
+                          type="button"
+                          onClick={() => setZoomedImage({ src: image, alt: `${item.title} ${i + 1}` })}
+                          aria-label={`Agrandir l'image : ${item.title} ${i + 1}`}
+                          className="block w-full cursor-zoom-in"
+                        >
+                        <img
                           src={image}
                           alt={`${item.title} ${i + 1}`}
                           loading="lazy"
                           decoding="async"
-                          className="w-full h-auto max-h-[clamp(220px,55vh,520px)] object-contain rounded-lg bg-slate-950/60 cursor-zoom-in"
-                          onClick={() => setZoomedImage({ src: image, alt: `${item.title} ${i + 1}` })}
+                          className="w-full h-auto max-h-[clamp(220px,55vh,520px)] object-contain rounded-lg bg-slate-950/60"
                         />
+                        </button>
                       ))}
                     </div>
                   )}
@@ -218,7 +239,7 @@ export const ProjectDetailPage = () => {
             {project.details?.technologies && (
               <div className="p-8 rounded-2xl bg-slate-900/50 border border-white/5">
                 <h3 className="text-xl font-bold mb-6 flex items-center gap-3">
-                  <Code2 className="text-brand-blue" size={20} />
+                  <Code2 className="text-brand-text" size={20} />
                   Stack Technique
                 </h3>
                 <div className="flex flex-wrap gap-2">
@@ -261,6 +282,7 @@ export const ProjectDetailPage = () => {
           aria-label="Image agrandie"
         >
           <button
+            ref={closeButtonRef}
             type="button"
             className="absolute top-4 right-4 z-[101] rounded-full border border-white/20 bg-slate-900/70 p-2 text-slate-200 hover:text-white hover:border-white/40 transition-colors"
             onClick={() => setZoomedImage(null)}

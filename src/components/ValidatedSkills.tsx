@@ -39,9 +39,15 @@ export const ValidatedSkills: React.FC<ValidatedSkillsProps> = ({ validatedSkill
                 </td>
                 <td className="px-6 py-4 text-center">
                   {activity.isValidated ? (
-                    <Check className="w-5 h-5 text-green-400 inline-block" />
+                    <>
+                      <Check className="w-5 h-5 text-green-400 inline-block" aria-hidden="true" />
+                      <span className="sr-only">Validée</span>
+                    </>
                   ) : (
-                    <X className="w-5 h-5 text-red-400 inline-block" />
+                    <>
+                      <X className="w-5 h-5 text-red-400 inline-block" aria-hidden="true" />
+                      <span className="sr-only">Non validée</span>
+                    </>
                   )}
                 </td>
               </tr>

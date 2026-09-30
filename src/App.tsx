@@ -12,12 +12,15 @@ import { TechWatchPage } from './pages/TechWatch';
 import { TechWatchDetailPage } from './pages/TechWatchDetail';
 import E5Page from './pages/E5Page';
 import { MentionsLegalesPage } from './pages/MentionsLegales';
-import { AnimatePresence } from 'motion/react';
-import { useEffect } from 'react';
+import { AnimatePresence, MotionConfig } from 'motion/react';
+import { useEffect, useRef, useState } from 'react';
 import { getPageMeta, SITE_URL } from './lib/seo';
 
 function AppContent() {
   const location = useLocation();
+  const mainRef = useRef<HTMLElement>(null);
+  const isFirstRender = useRef(true);
+  const [announcement, setAnnouncement] = useState('');
 
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
@@ -27,16 +30,26 @@ function AppContent() {
   useEffect(() => {
     const meta = getPageMeta(location.pathname);
     document.title = meta.title;
+    setAnnouncement(meta.title);
+    // Accessibilité : après un changement de page, place le focus sur le contenu principal
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+    } else {
+      mainRef.current?.focus({ preventScroll: true });
+    }
     document.querySelector('meta[name="description"]')?.setAttribute('content', meta.description);
     document.querySelector('link[rel="canonical"]')?.setAttribute('href', SITE_URL + meta.path);
   }, [location.pathname]);
 
   return (
+    <MotionConfig reducedMotion="user">
     <div className="min-h-screen bg-bg-dark text-slate-200">
+      <a href="#main" className="skip-link">Aller au contenu principal</a>
+      <div className="sr-only" role="status" aria-live="polite">{announcement}</div>
 
       <Sidebar />
       
-      <main className="md:pl-20 pb-20 md:pb-0 min-h-screen flex flex-col">
+      <main ref={mainRef} id="main" tabIndex={-1} className="outline-none md:pl-20 pb-20 md:pb-0 min-h-screen flex flex-col">
         <div className="flex-1">
           <AnimatePresence mode="wait">
             <Routes location={location}>
@@ -74,12 +87,13 @@ function AppContent() {
       </main>
 
       {/* Global Background Elements */}
-      <div className="fixed inset-0 pointer-events-none z-[-1]">
+      <div className="fixed inset-0 pointer-events-none z-[-1]" aria-hidden="true">
         <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,rgba(0,132,255,0.03),transparent_70%)]" />
         <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-brand-blue/5 rounded-full blur-[120px]" />
         <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-cyan-500/5 rounded-full blur-[120px]" />
       </div>
     </div>
+    </MotionConfig>
   );
 }
 
