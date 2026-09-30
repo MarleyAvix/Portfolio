@@ -9,23 +9,23 @@ export const fairviewRpProject: Project = {
   description: 'Conception et développement du site web vitrine et communautaire pour un serveur de jeu Roleplay.',
   longDescription:
     "Le projet visait à créer une plateforme centrale pour les joueurs de Fairview RP. Le site permet non seulement de présenter l'univers du serveur, mais aussi de gérer les interactions communautaires, les candidatures des joueurs et d'offrir une interface immersive fidèle à l'identité visuelle du projet.",
-  image: fairviewHome, // Remplace par ta variable d'image
+  image: fairviewHome,
   category: 'Perso',
-  tags: ['web', 'front-end', 'UI/UX', 'Community'],
-  live: 'https://fairviewrp.marley-avix.fr/', // À remplir si disponible
+  tags: ['Web', 'Front-end', 'UI/UX', 'Communauté'],
+  live: 'https://fairviewrp.marley-avix.fr/',
   github: 'https://github.com/MarleyAvix/FairviewRpSiteWeb',
   featured: false,
   details: {
     content: [
       {
         icon: 'Lightbulb',
-        title: 'La Vision',
+        title: 'La vision',
         text: "L'objectif était de créer une porte d'entrée professionnelle et immersive. Il fallait concilier un design moderne avec les codes esthétiques du gaming pour instaurer une confiance immédiate chez les nouveaux joueurs.",
       },
       {
-        icon: 'Lightbulb',
-        title: 'Identité Visuelle & UI',
-        text: "Le site utilise une charte graphique sombre avec des accents colorés pour rappeler l'ambiance urbaine du serveur. L'interface a été pensée pour être 'responsive', offrant une expérience fluide sur mobile comme sur PC.",
+        icon: 'Palette',
+        title: 'Identité visuelle et interface',
+        text: "Le site utilise une charte graphique sombre avec des accents colorés pour rappeler l'ambiance urbaine du serveur. L'interface a été pensée pour être « responsive », offrant une expérience fluide sur mobile comme sur PC.",
         images: [paletteCouleurs],
       },
       {
@@ -35,8 +35,8 @@ export const fairviewRpProject: Project = {
       },
       {
         icon: 'Code',
-        title: 'Développement Technique',
-        text: "Pour garantir des performances optimales et une maintenance aisée, j'ai utilisé des technologies modernes permettant une mise à jour rapide des informations du serveur.",
+        title: 'Développement technique',
+        text: "Le site est développé avec React et TypeScript, construit avec Vite et navigué avec React Router. Cette base moderne garantit de bonnes performances (voir le score Lighthouse ci-dessous) et facilite la mise à jour des informations du serveur.",
         images: [lighthouseScore],
       },
       {
@@ -45,14 +45,11 @@ export const fairviewRpProject: Project = {
         text: "Ce projet m'a permis de travailler sur l'expérience utilisateur (UX) dans un contexte passionné. J'ai appris à traduire les besoins d'une communauté en fonctionnalités techniques concrètes.",
       },
     ],
-    technologies: ['React', 'Tailwind CSS', 'Framer Motion', 'Vite'],
+    technologies: ['React', 'TypeScript', 'Vite', 'React Router'],
     features: [
       'Design immersif et responsive',
-      'Animations fluides au scroll',
       'Optimisation SEO',
       'Gestion des actualités',
-      "Intégration d'API tierces (Discord/Status Serveur)",
     ],
-    validatedSkills: [], // À adapter selon ton référentiel
   },
 };

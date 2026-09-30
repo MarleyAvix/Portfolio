@@ -28,7 +28,7 @@ const projectIconRegistry = {
   Rocket: { Icon: Rocket, className: 'text-brand-text' },
   Brain: { Icon: Brain, className: 'text-purple-400' },
   Code: { Icon: Code, className: 'text-green-400' },
-  FolderKanban: { Icon: FolderKanban, className: 'text-red-400' },
+  FolderKanban: { Icon: FolderKanban, className: 'text-indigo-400' },
   Palette: { Icon: Palette, className: 'text-pink-400' },
   Database: { Icon: Database, className: 'text-blue-400' },
   ShieldCheck: { Icon: ShieldCheck, className: 'text-green-400' },
@@ -43,7 +43,6 @@ const projectIconRegistry = {
   ClipboardCheck: { Icon: ClipboardCheck, className: 'text-green-400' },
   Box: { Icon: Box, className: 'text-orange-400' },
   FileText: { Icon: FileText, className: 'text-slate-400' },
-  code2: { Icon: Code, className: 'text-green-400' },
 } satisfies Record<string, { Icon: LucideIcon; className: string }>;
 
 export type ProjectIconName = keyof typeof projectIconRegistry;

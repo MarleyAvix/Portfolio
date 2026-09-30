@@ -1,16 +1,16 @@
 import type { Project } from './types';
 
-/*OUTIL SUPPORT*/
+/* OUTIL SUPPORT */
 export const outilSupportInterneProject: Project = {
   id: 'outil-support-interne',
-  title: "Développement d'un outil de support interne",
+  title: "Conception d'un outil de support interne",
   description:
-    "Conception et développement d'une application de support pour optimiser et automatiser certains processus internes.",
+    "Projet en cours : refonte d'un outil de support interne, du cadrage des besoins au choix de la stack technique et à la rédaction des spécifications.",
   longDescription:
-    "Ce projet formalise la refonte complète d'un outil de support destiné à améliorer les processus internes. Il retrace toute la démarche d'ingénierie logicielle : du recueil des besoins initiaux auprès des utilisateurs jusqu'à la définition et la validation d'un produit minimum viable (MVP) fonctionnel, en passant par le choix et la validation d'une stack technique moderne.",
+    "Projet en cours de refonte complète d'un outil de support destiné à améliorer les processus internes. Il retrace la démarche d'ingénierie logicielle menée à ce jour : compréhension de l'outil existant, étude et présentation de plusieurs stacks techniques aux équipes concernées, prise en compte des contraintes de déploiement et de sécurité, choix de la stack et rédaction des premières spécifications.",
   image: 'https://placehold.co/600x400?text=Outil+Support+Interne',
   category: 'Entreprise',
-  tags: ['Méthodologie projet', 'Architecture', 'MVP'],
+  tags: ['Méthodologie projet', 'Architecture', 'En cours'],
   live: '',
   github: '',
   featured: true,
@@ -19,38 +19,58 @@ export const outilSupportInterneProject: Project = {
       {
         icon: 'Lightbulb',
         title: 'Le Défi',
-        text: "L'objectif était de concevoir un outil parfaitement adapté aux contraintes opérationnelles des équipes, sans tomber dans la sur-spécification. Le défi résidait dans l'alignement entre les attentes métiers, les contraintes techniques de l'infrastructure et la livraison rapide d'une première version exploitable.",
+        text: "L'objectif est de concevoir un outil adapté aux contraintes opérationnelles des équipes, sans tomber dans la sur-spécification. Le défi réside dans l'alignement entre les attentes des métiers, les contraintes techniques et de sécurité de l'infrastructure, et les besoins de l'équipe qui maintiendra l'outil.",
       },
       {
-        title: '1. Recueil des besoins',
-        text: "Animation d'ateliers avec les futurs utilisateurs et techniciens support pour recenser les points de friction actuels et leurs besoins réels. Cette phase a permis de rédiger les premières User Stories (spécifications fonctionnelles) et d'identifier les flux de travail (workflows) indispensables au quotidien.",
+        icon: 'Users',
+        title: '1. Réunion de précadrage',
+        text: "Organisation d'une réunion de précadrage pour comprendre le fonctionnement de l'outil existant et recenser précisément ce qu'il contient.",
       },
       {
-        title: '2. Définition et validation de la Stack Technique',
-        text: "Analyse comparative de différentes technologies selon des critères de performance, de sécurité et de maintenabilité. Après évaluation, la stack technique a été validée avec les équipes système pour s'assurer de sa parfaite intégration et de sa conformité avec l'infrastructure de l'organisation.",
+        icon: 'Server',
+        title: '2. Étude des stacks et avis des équipes',
+        text: "Étude des stacks techniques envisageables, puis animation d'une présentation devant le chef de service et la future équipe qui maintiendra l'outil, afin de recueillir leur avis sur ces choix.",
       },
       {
-        title: '3. Redaction des spécifications Technique et fonctionnelles',
-        text: 'Rédaction des spécifications fonctionnelles détaillant les besoins utilisateurs, les flux de travail et les contraintes techniques. Ces documents ont servi de référence pour le développement et la validation des fonctionnalités du projet.',
+        icon: 'ShieldCheck',
+        title: '3. Contraintes de déploiement et de sécurité',
+        text: "Nouvelle présentation, adaptée aux équipes cybersécurité et infrastructure qui assureront le déploiement et le maintien à jour du produit, pour identifier et comprendre leurs contraintes.",
       },
       {
-        title: '4. Validation des besoins et Objectifs MVP',
-        text: "Pour éviter l'effet 'tunnel', les besoins ont été priorisés selon la méthode MoSCoW afin de définir le périmètre du MVP (Minimum Viable Product). Cette validation conjointe avec les parties prenantes a fixé l'objectif principal : livrer un cœur de système fonctionnel (création, assignation et suivi des tickets de support) avant d'envisager des fonctionnalités secondaires.",
+        icon: 'CheckCircle2',
+        title: '4. Choix de la stack technique',
+        text: "À partir des avis recueillis et des contraintes identifiées, détermination de la stack technique retenue pour le projet.",
+      },
+      {
+        icon: 'FileText',
+        title: '5. Rédaction des premières spécifications',
+        text: "Rédaction des premières spécifications, avec notamment des User Stories, qui serviront de référence pour le développement et la validation des fonctionnalités.",
+      },
+      {
+        icon: 'Terminal',
+        title: "6. Analyse du code de l'ancien outil",
+        text: "Analyse du code Progress de l'ancien outil pour comprendre son fonctionnement actuel et s'assurer que la refonte reprend l'ensemble des règles métier existantes.",
+      },
+      {
+        icon: 'Rocket',
+        title: 'Prochaines étapes',
+        text: "Le projet est en cours. Le développement, notamment celui d'une API REST, est cadré et doit débuter prochainement.",
       },
       {
         icon: 'Brain',
-        title: "Ce que j'ai appris",
-        text: "Ce projet m'a permis de maîtriser les phases amont d'un projet informatique, souvent cruciales pour sa réussite. J'ai appris à traduire des besoins utilisateurs parfois flous en spécifications techniques claires, à défendre des choix d'architecture et à piloter la conception par la valeur (approche MVP).\n\nCe projet m'a permis de valider les compétences suivantes:\n- Recenser et identifier les besoins des utilisateurs\n- Traiter des demandes d'assistance liées à une application\n- Exploiter des référentiels, normes et standards adoptés par le prestataire informatique\n- Planifier les étapes du développement d'une solution",
+        title: "Ce que j'apprends",
+        text: "Ce projet me permet de maîtriser les phases amont d'un projet informatique, souvent décisives pour sa réussite : animer des réunions et des présentations auprès de publics différents, traduire des besoins parfois flous en spécifications claires, et défendre des choix techniques en tenant compte des contraintes de chaque équipe.\n\nCe projet m'a permis de valider les compétences suivantes :\n- Recenser et identifier les besoins des utilisateurs\n- Traiter des demandes d'assistance liées à une application\n- Exploiter des référentiels, normes et standards adoptés par le prestataire informatique\n- Planifier les étapes du développement d'une solution",
       },
     ],
-    technologies: ['.NET', 'Oracle', 'Blazor', 'C#'], // Stack technique à adapter selon ton vrai choix
+    technologies: ['.NET', 'Oracle', 'Blazor', 'C#'],
     features: [
-      'Recueil et formalisation des besoins utilisateurs',
-      "Étude comparative et validation d'une stack logicielle",
-      'Priorisation fonctionnelle et définition du périmètre MVP',
-      "Développement d'une API REST",
-      "Alignement avec les standards de sécurité de l'organisation",
+      "Compréhension de l'existant et recensement des fonctionnalités",
+      "Présentations aux équipes métier, cybersécurité et infrastructure",
+      'Étude comparative et choix de la stack technique',
+      'Rédaction des spécifications et des User Stories',
+      "Analyse du code Progress de l'ancien outil",
+      "API REST : cadrée, développement à venir",
     ],
-    validatedSkills: ['bloc1-1', 'bloc1-2', 'bloc1-4'], // À adapter selon tes fiches E4/E5
+    validatedSkills: ['bloc1-1', 'bloc1-2', 'bloc1-4'],
   },
 };
