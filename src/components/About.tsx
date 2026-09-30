@@ -74,8 +74,8 @@ export const About = () => {
               <h2 className="text-sm font-mono text-brand-text uppercase tracking-[0.2em]">
                 En savoir plus sur moi
               </h2>
-              <div className="glass-card p-6 md:p-8 h-full">
-                <div className="prose prose-invert max-w-none text-slate-400 text-sm leading-relaxed prose-p:my-0 prose-p:leading-relaxed prose-strong:text-slate-100 prose-strong:font-semibold prose-p:mb-4 last:prose-p:mb-0">
+              <div className="glass-card p-6 md:p-8 h-full flex flex-col justify-center">
+                <div className="prose prose-invert max-w-none text-slate-400 text-base leading-relaxed prose-p:leading-relaxed prose-p:my-0 [&_p]:mb-6 [&_p:last-child]:mb-0 prose-strong:text-slate-100 prose-strong:font-semibold">
                   <ReactMarkdown remarkPlugins={[remarkGfm]}>
                     {aboutContent}
                   </ReactMarkdown>
