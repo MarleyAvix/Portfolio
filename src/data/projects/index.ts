@@ -7,12 +7,14 @@ import { outilSupportInterneProject } from './outil-support-interne';
 import { infrastructureVirtuelleSecuriseeE6Project } from './infrastructure-virtuelle-securisee-e6';
 import { moeviaVoyageProject } from './moevia-voyage';
 import { deploiementCoolifyVpsProject } from './deploiement-coolify-vps';
+import { mcdrawProject } from './mcdraw';
 import type { Project } from './types';
 
 export type { Project, ProjectCategory } from './types';
 
 /** Ordre d'affichage des projets sur le site. */
 export const projects: Project[] = [
+  mcdrawProject,
   anonymisationBaseDeDonneesProject,
   recetteOnlyOfficeProject,
   creationSupportVideoProject,

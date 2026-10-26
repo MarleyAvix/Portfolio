@@ -22,7 +22,7 @@ export const anonymisationBaseDeDonneesProject: Project = {
   tags: ['SQL', 'RGPD', 'Anonymisation'],
   live: '',
   github: '',
-  featured: true,
+  featured: false,
   details: {
     detailImage: outilAno,
     content: [
